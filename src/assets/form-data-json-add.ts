@@ -1,6 +1,26 @@
 export const SERVER_DATA_ADD = {
     data: [
       {
+        name: 'plumbing_back_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_back'
+        },
+        tier: 1,
+        controlName: 'Plumbing',
+        parent: '',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          class: ['backbtn', 'btn-dark', 'text-center', 'bi', 'bi-arrow-90deg-left'],
+        }
+      },
+      {
         name: 'plumbing_title',
         type: 'span',
         props: {
@@ -60,6 +80,126 @@ export const SERVER_DATA_ADD = {
         }
       },
       {
+        name: 'plumbing_heater_title',
+        type: 'span',
+        props: {
+          text: 'Plumbing > Water Heater'
+        },
+        tier: 2,
+        controlName: 'WaterHeater',
+        parent: 'Plumbing',
+        mandatory: false,
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-md-12']
+            }
+          },
+          class: ['h1', 'text-center'],
+        }
+      },
+      {
+        name: 'plumbing_dishwasher_title',
+        type: 'span',
+        props: {
+          text: 'Plumbing > Dishwasher'
+        },
+        tier: 2,
+        controlName: 'Dishwasher',
+        parent: 'Plumbing',
+        mandatory: false,
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-md-12']
+            }
+          },
+          class: ['h1', 'text-center'],
+        }
+      },
+      {
+        name: 'plumbing_activeleaks_title',
+        type: 'span',
+        props: {
+          text: 'Plumbing > ActiveLeaks'
+        },
+        tier: 2,
+        controlName: 'ActiveLeaks',
+        parent: 'Plumbing',
+        mandatory: false,
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-md-12']
+            }
+          },
+          class: ['h1', 'text-center'],
+        }
+      },
+      {
+        name: 'plumbing_priorleaks_title',
+        type: 'span',
+        props: {
+          text: 'Plumbing > PriorLeaks'
+        },
+        tier: 2,
+        controlName: 'PriorLeaks',
+        parent: 'Plumbing',
+        mandatory: false,
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-md-12']
+            }
+          },
+          class: ['h1', 'text-center'],
+        }
+      },
+      {
+        name: 'plumbing_kitchen_sink_title',
+        type: 'span',
+        props: {
+          text: 'Plumbing > Kitchen > KitchenSink'
+        },
+        tier: 3,
+        controlName: 'KitchenSink',
+        parent: 'Kitchen',
+        mandatory: false,
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-md-12']
+            }
+          },
+          class: ['h1', 'text-center'],
+        }
+      },
+      {
+        name: 'plumbing_bathroom_sink_title',
+        type: 'span',
+        props: {
+          text: 'Plumbing > Bathroom > BathroomSink'
+        },
+        tier: 3,
+        controlName: 'BathroomSink',
+        parent: 'Bathroom',
+        mandatory: false,
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-md-12']
+            }
+          },
+          class: ['h1', 'text-center'],
+        }
+      },
+      {
         name: 'plumbing_bathroom_btn',
         type: 'button',
         modelName: 'userModel',
@@ -68,12 +208,10 @@ export const SERVER_DATA_ADD = {
         },
         mandatory: true,
         tier: 2,
-        repeatable: 2,
+        repeatable: 1,
         maxLimit: 5,
         controlName: 'Bathroom',
         parent: 'Plumbing',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
           viewMode: {
             advance: {
@@ -96,8 +234,6 @@ export const SERVER_DATA_ADD = {
         tier: 2,
         controlName: 'Bathroom2',
         parent: 'Plumbing',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
           hide: true,
           viewMode: {
@@ -107,6 +243,18 @@ export const SERVER_DATA_ADD = {
           },
           description: 'Bathroom 2',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_bathroom2_edit_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_bathroom2_edit'
+        },
+        ui: {
+          hide: true,
+          class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
         }
       },
       {
@@ -121,8 +269,6 @@ export const SERVER_DATA_ADD = {
         tier: 2,
         controlName: 'Bathroom3',
         parent: 'Plumbing',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
           hide: true,
           viewMode: {
@@ -135,6 +281,18 @@ export const SERVER_DATA_ADD = {
         }
       },
       {
+        name: 'plumbing_bathroom3_edit_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_bathroom3_edit'
+        },
+        ui: {
+          hide: true,
+          class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
+        }
+      },
+      {
         name: 'plumbing_bathroom4_btn',
         type: 'button',
         modelName: 'userModel',
@@ -142,14 +300,12 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathroom4'
         },
         mandatory: false,
-        enabled: true,
+        enabled: false,
         tier: 2,
         controlName: 'Bathroom4',
         parent: 'Plumbing',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
-          hide: false,
+          hide: true,
           viewMode: {
             advance: {
               div: ['col-xs-6']
@@ -167,6 +323,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathroom4_edit'
         },
         ui: {
+          hide: true,
           class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
         }
       },
@@ -182,8 +339,6 @@ export const SERVER_DATA_ADD = {
         tier: 2,
         controlName: 'Bathroom5',
         parent: 'Plumbing',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
           hide: true,
           viewMode: {
@@ -193,6 +348,18 @@ export const SERVER_DATA_ADD = {
           },
           description: 'Bathroom 5',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_bathroom5_edit_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_bathroom5_edit'
+        },
+        ui: {
+          hide: true,
+          class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
         }
       },
       {
@@ -216,6 +383,30 @@ export const SERVER_DATA_ADD = {
             }
           },
           description: 'Bathroom Sink',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_bathroomsink_add_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_bathroomsink_add'
+        },
+        mandatory: true,
+        tier: 3,
+        controlName: 'BathroomSink',
+        parent: 'Bathroom',
+        tip: '',
+        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Photos',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
         }
       },
@@ -244,15 +435,15 @@ export const SERVER_DATA_ADD = {
         }
       },
       {
-        name: 'plumbing_bathroomsink2_btn',
+        name: 'plumbing_supplyline_btn',
         type: 'button',
         modelName: 'userModel',
         events: {
-          click: 'plumbing_bathroomsink2'
+          click: 'plumbing_supplyline'
         },
         mandatory: true,
         tier: 3,
-        controlName: 'bathroomsink2',
+        controlName: 'SupplyLine',
         parent: 'Bathroom',
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
@@ -263,7 +454,53 @@ export const SERVER_DATA_ADD = {
               div: ['col-xs-6']
             }
           },
+          description: 'Toilet Supply Lines',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_bathroomsink2_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_bathroomsink2'
+        },
+        mandatory: true,
+        tier: 3,
+        controlName: 'BathroomSink',
+        parent: 'Bathroom2',
+        tip: '',
+        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
           description: 'Bathroom Sink',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_bathroomsink2_add_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_bathroomsink2_add'
+        },
+        mandatory: true,
+        tier: 3,
+        controlName: 'BathroomSink',
+        parent: 'Bathroom2',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Photos',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
         }
       },
@@ -276,8 +513,8 @@ export const SERVER_DATA_ADD = {
         },
         mandatory: true,
         tier: 3,
-        controlName: 'Shower_Bathtub2',
-        parent: 'Bathroom',
+        controlName: 'Shower_Bathtub',
+        parent: 'Bathroom2',
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
@@ -288,6 +525,30 @@ export const SERVER_DATA_ADD = {
             }
           },
           description: 'Shower/Bathtub',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_supplyline2_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_supplyline2'
+        },
+        mandatory: true,
+        tier: 3,
+        controlName: 'SupplyLine',
+        parent: 'Bathroom2',
+        tip: '',
+        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Toilet Supply Lines',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
         }
       },
@@ -300,8 +561,8 @@ export const SERVER_DATA_ADD = {
         },
         mandatory: true,
         tier: 3,
-        controlName: 'bathroomsink3',
-        parent: 'Bathroom',
+        controlName: 'BathroomSink',
+        parent: 'Bathroom3',
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
@@ -312,6 +573,28 @@ export const SERVER_DATA_ADD = {
             }
           },
           description: 'Bathroom Sink',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_bathroomsink3_add_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_bathroomsink3_add'
+        },
+        mandatory: true,
+        tier: 3,
+        controlName: 'BathroomSink',
+        parent: 'Bathroom3',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Photos',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
         }
       },
@@ -324,8 +607,8 @@ export const SERVER_DATA_ADD = {
         },
         mandatory: true,
         tier: 3,
-        controlName: 'Shower_bathtub3',
-        parent: 'Bathroom',
+        controlName: 'Shower_Bathtub',
+        parent: 'Bathroom3',
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
@@ -336,6 +619,30 @@ export const SERVER_DATA_ADD = {
             }
           },
           description: 'Shower/Bathtub',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_supplyline3_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_supplyline3'
+        },
+        mandatory: true,
+        tier: 3,
+        controlName: 'SupplyLine',
+        parent: 'Bathroom3',
+        tip: '',
+        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Toilet Supply Lines',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
         }
       },
@@ -348,8 +655,8 @@ export const SERVER_DATA_ADD = {
         },
         mandatory: true,
         tier: 3,
-        controlName: 'bathroomsink4',
-        parent: 'Bathroom',
+        controlName: 'BathroomSink',
+        parent: 'Bathroom4',
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
@@ -360,6 +667,28 @@ export const SERVER_DATA_ADD = {
             }
           },
           description: 'Bathroom Sink',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_bathroomsink4_add_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_bathroomsink4_add'
+        },
+        mandatory: true,
+        tier: 3,
+        controlName: 'BathroomSink',
+        parent: 'Bathroom4',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Photos',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
         }
       },
@@ -372,8 +701,8 @@ export const SERVER_DATA_ADD = {
         },
         mandatory: true,
         tier: 3,
-        controlName: 'Shower_bathtub4',
-        parent: 'Bathroom',
+        controlName: 'Shower_Bathtub',
+        parent: 'Bathroom4',
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
@@ -388,6 +717,30 @@ export const SERVER_DATA_ADD = {
         }
       },
       {
+        name: 'plumbing_supplyline4_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_supplyline4'
+        },
+        mandatory: true,
+        tier: 3,
+        controlName: 'SupplyLine',
+        parent: 'Bathroom4',
+        tip: '',
+        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Toilet Supply Lines',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
         name: 'plumbing_bathroomsink5_btn',
         type: 'button',
         modelName: 'userModel',
@@ -396,8 +749,8 @@ export const SERVER_DATA_ADD = {
         },
         mandatory: true,
         tier: 3,
-        controlName: 'bathroomsink5',
-        parent: 'Bathroom',
+        controlName: 'BathroomSink',
+        parent: 'Bathroom5',
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
@@ -412,6 +765,28 @@ export const SERVER_DATA_ADD = {
         }
       },
       {
+        name: 'plumbing_bathroomsink5_add_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_bathroomsink5_add'
+        },
+        mandatory: true,
+        tier: 3,
+        controlName: 'BathroomSink',
+        parent: 'Bathroom5',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Photos',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
         name: 'plumbing_bathtub5_btn',
         type: 'button',
         modelName: 'userModel',
@@ -420,8 +795,8 @@ export const SERVER_DATA_ADD = {
         },
         mandatory: true,
         tier: 3,
-        controlName: 'Shower_bathtub5',
-        parent: 'Bathroom',
+        controlName: 'Shower_Bathtub',
+        parent: 'Bathroom5',
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
@@ -432,6 +807,30 @@ export const SERVER_DATA_ADD = {
             }
           },
           description: 'Shower/Bathtub',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_supplyline5_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_supplyline5'
+        },
+        mandatory: true,
+        tier: 3,
+        controlName: 'SupplyLine',
+        parent: 'Bathroom5',
+        tip: '',
+        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Toilet Supply Lines',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
         }
       },
@@ -448,8 +847,6 @@ export const SERVER_DATA_ADD = {
         tier: 2,
         controlName: 'Kitchen',
         parent: 'Plumbing',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
           viewMode: {
             advance: {
@@ -485,6 +882,28 @@ export const SERVER_DATA_ADD = {
         }
       },
       {
+        name: 'plumbing_kitchensink_add_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_kitchensink_add'
+        },
+        mandatory: true,
+        tier: 3,
+        controlName: 'KitchenSink',
+        parent: 'Kitchen',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Photos',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
         name: 'plumbing_kitchensink2_btn',
         type: 'button',
         modelName: 'userModel',
@@ -493,8 +912,8 @@ export const SERVER_DATA_ADD = {
         },
         mandatory: true,
         tier: 3,
-        controlName: 'KitchenSink2',
-        parent: 'Kitchen',
+        controlName: 'KitchenSink',
+        parent: 'Kitchen2',
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
@@ -505,6 +924,28 @@ export const SERVER_DATA_ADD = {
             }
           },
           description: 'Kitchen Sink',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_kitchensink2_add_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_kitchensink2_add'
+        },
+        mandatory: true,
+        tier: 3,
+        controlName: 'KitchenSink',
+        parent: 'Kitchen2',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Photos',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
         }
       },
@@ -517,8 +958,8 @@ export const SERVER_DATA_ADD = {
         },
         mandatory: true,
         tier: 3,
-        controlName: 'KitchenSink3',
-        parent: 'Kitchen',
+        controlName: 'KitchenSink',
+        parent: 'Kitchen3',
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
@@ -529,6 +970,28 @@ export const SERVER_DATA_ADD = {
             }
           },
           description: 'Kitchen Sink',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_kitchensink3_add_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_kitchensink3_add'
+        },
+        mandatory: true,
+        tier: 3,
+        controlName: 'KitchenSink',
+        parent: 'Kitchen3',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Photos',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
         }
       },
@@ -541,8 +1004,8 @@ export const SERVER_DATA_ADD = {
         },
         mandatory: true,
         tier: 3,
-        controlName: 'KitchenSink4',
-        parent: 'Kitchen',
+        controlName: 'KitchenSink',
+        parent: 'Kitchen4',
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
@@ -557,6 +1020,28 @@ export const SERVER_DATA_ADD = {
         }
       },
       {
+        name: 'plumbing_kitchensink4_add_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_kitchensink4_add'
+        },
+        mandatory: true,
+        tier: 3,
+        controlName: 'KitchenSink',
+        parent: 'Kitchen4',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Photos',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
         name: 'plumbing_kitchensink5_btn',
         type: 'button',
         modelName: 'userModel',
@@ -565,8 +1050,8 @@ export const SERVER_DATA_ADD = {
         },
         mandatory: true,
         tier: 3,
-        controlName: 'KitchenSink5',
-        parent: 'Kitchen',
+        controlName: 'KitchenSink',
+        parent: 'Kitchen5',
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
@@ -577,6 +1062,28 @@ export const SERVER_DATA_ADD = {
             }
           },
           description: 'Kitchen Sink',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_kitchensink5_add_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_kitchensink5_add'
+        },
+        mandatory: true,
+        tier: 3,
+        controlName: 'KitchenSink',
+        parent: 'Kitchen5',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Photos',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
         }
       },
@@ -592,8 +1099,6 @@ export const SERVER_DATA_ADD = {
         tier: 2,
         controlName: 'Kitchen2',
         parent: 'Plumbing',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
           hide: true,
           viewMode: {
@@ -603,6 +1108,18 @@ export const SERVER_DATA_ADD = {
           },
           description: 'Kitchen 2',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_kitchen2_edit_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_kitchen2_edit'
+        },
+        ui: {
+          hide: true,
+          class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
         }
       },
       {
@@ -617,8 +1134,6 @@ export const SERVER_DATA_ADD = {
         tier: 2,
         controlName: 'Kitchen3',
         parent: 'Plumbing',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
           hide: true,
           viewMode: {
@@ -628,6 +1143,18 @@ export const SERVER_DATA_ADD = {
           },
           description: 'Kitchen 3',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_kitchen3_edit_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_kitchen3_edit'
+        },
+        ui: {
+          hide: true,
+          class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
         }
       },
       {
@@ -642,8 +1169,6 @@ export const SERVER_DATA_ADD = {
         tier: 2,
         controlName: 'Kitchen4',
         parent: 'Plumbing',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
           hide: true,
           viewMode: {
@@ -653,6 +1178,18 @@ export const SERVER_DATA_ADD = {
           },
           description: 'Kitchen 4',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_kitchen4_edit_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_kitchen4_edit'
+        },
+        ui: {
+          hide: true,
+          class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
         }
       },
       {
@@ -667,8 +1204,6 @@ export const SERVER_DATA_ADD = {
         tier: 2,
         controlName: 'Kitchen5',
         parent: 'Plumbing',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
           hide: true,
           viewMode: {
@@ -678,6 +1213,18 @@ export const SERVER_DATA_ADD = {
           },
           description: 'Kitchen 5',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_kitchen5_edit_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_kitchen5_edit'
+        },
+        ui: {
+          hide: true,
+          class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
         }
       },
       {
@@ -700,6 +1247,28 @@ export const SERVER_DATA_ADD = {
             }
           },
           description: 'Water Heater',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_heater_add_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_heater_add'
+        },
+        mandatory: true,
+        tier: 2,
+        controlName: 'WaterHeater',
+        parent: 'Plumbing',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Photos',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
         }
       },
@@ -727,6 +1296,50 @@ export const SERVER_DATA_ADD = {
         }
       },
       {
+        name: 'plumbing_dishwasher_add_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_dishwasher_add'
+        },
+        mandatory: true,
+        tier: 2,
+        controlName: 'Dishwasher',
+        parent: 'Plumbing',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Photos',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_dishwasher_comments_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_dishwasher_comments'
+        },
+        mandatory: true,
+        tier: 2,
+        controlName: 'Dishwasher',
+        parent: 'Plumbing',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Comments',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
         name: 'plumbing_activeleaks_btn',
         type: 'button',
         modelName: 'userModel',
@@ -750,6 +1363,50 @@ export const SERVER_DATA_ADD = {
         }
       },
       {
+        name: 'plumbing_activeleaks_add_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_activeleaks_add'
+        },
+        mandatory: true,
+        tier: 2,
+        controlName: 'ActiveLeaks',
+        parent: 'Plumbing',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Photos',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_activeleaks_comments_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_activeleaks_comments'
+        },
+        mandatory: true,
+        tier: 2,
+        controlName: 'ActiveLeaks',
+        parent: 'Plumbing',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Comments',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
         name: 'plumbing_priorleaks_btn',
         type: 'button',
         modelName: 'userModel',
@@ -769,6 +1426,50 @@ export const SERVER_DATA_ADD = {
             }
           },
           description: 'Prior Leaks',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_priorleaks_add_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_priorleaks_add'
+        },
+        mandatory: true,
+        tier: 2,
+        controlName: 'PriorLeaks',
+        parent: 'Plumbing',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Photos',
+          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+        }
+      },
+      {
+        name: 'plumbing_priorleaks_comments_btn',
+        type: 'button',
+        modelName: 'userModel',
+        events: {
+          click: 'plumbing_priorleaks_comments'
+        },
+        mandatory: true,
+        tier: 2,
+        controlName: 'PriorLeaks',
+        parent: 'Plumbing',
+        ui: {
+          hide: true,
+          viewMode: {
+            advance: {
+              div: ['col-xs-6']
+            }
+          },
+          description: 'Add Comments',
           class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
         }
       },

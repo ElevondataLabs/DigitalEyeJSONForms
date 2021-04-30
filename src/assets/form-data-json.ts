@@ -197,29 +197,6 @@ export const SERVER_DATA = [
         }
       },
       {
-        name: 'base_dwelling_frontview_test_btn',
-        type: 'button',
-        modelName: 'userModel',
-        mandatory: true,
-        tier: 4,
-        controlName: 'Test',
-        parent: 'FrontView',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'base_dwelling_frontview_test'
-        },
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-xs-6']
-            }
-          },
-          description: 'Front View Test',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
-        }
-      },
-      {
         name: 'base_dwelling_backview_btn',
         type: 'button',
         modelName: 'userModel',

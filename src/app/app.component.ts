@@ -57,11 +57,13 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.serverData.forEach(objserverData => {
       objserverData.data.forEach(res => {
         if (res.name === this.commentDialogControlName) {
+          console.log(res);
           this.comments = res.value;
         }
       });
     });
-
+    console.log(this.commentDialogControlName);
+    console.log(this.comments);
     this.elm.classList.add('show');
     this.elm.style.width = '100vw';
   }
@@ -139,6 +141,8 @@ export class AppComponent implements OnInit, AfterViewInit {
               for (let i = 2; i <= res.repeatable;) {
                 newControl = this.repeatableSource + i;
                 if (resp.controlName === newControl && resp.enabled === false) {
+                  const editIndex = ele.data.findIndex((result) => result.name === resp.name.replace('_btn', '_edit_btn'));
+                  ele.data[editIndex].ui.hide = false;
                   found = true;
                   resp.ui.hide = false;
                   resp.enabled = true;
@@ -146,6 +150,7 @@ export class AppComponent implements OnInit, AfterViewInit {
                     this.dynamicFormBuildConfig.forEach(elem => {
                       if (elem.controlsConfig[resp.name] !== undefined) {
                         elem.controlsConfig[resp.name].hide = false;
+                        elem.controlsConfig[resp.name.replace('_btn', '_edit_btn')].hide = false;
                         elem.controlsConfig[resp.name].config.enabled = true;
                         this.controlLabel = elem.controlsConfig[resp.name].description;
                         this.labelDialogControlName = resp.name;
@@ -194,7 +199,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   addControlLabelsave(): void {
     this.serverData.forEach(objele => {
       objele.data.forEach(res => {
-        console.log(this.labelDialogControlName);
         if (res.name === this.labelDialogControlName) {
           res.ui.description = this.controlLabel;
           try {
@@ -311,21 +315,43 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     this.serverData.push(testData);
 
-    this.uiBindings.push('plumbing_title', 'plumbing_kitchen_title', 'plumbing_bathroom_title',
-      'plumbing_control_add_btn',
-      ['plumbing_kitchen_btn', 'plumbing_kitchen2_btn', 'plumbing_kitchen3_btn', 'plumbing_kitchen4_btn', 'plumbing_kitchen5_btn',
-        'plumbing_bathroom_btn', 'plumbing_bathroom2_btn', 'plumbing_bathroom3_btn',
-        'plumbing_bathroom4_btn', 'plumbing_bathroom4_edit_btn',
-        'plumbing_bathroom5_btn'],
-      ['plumbing_heater_btn', 'plumbing_dishwasher_btn'],
-      ['plumbing_activeleaks_btn', 'plumbing_priorleaks_btn', 'plumbing_wmhose_btn', 'plumbing_addComments_btn'],
-      ['plumbing_bathroomsink_btn', 'plumbing_bathtub_btn'],
-      ['plumbing_bathroomsink2_btn', 'plumbing_bathtub2_btn'],
-      ['plumbing_bathroomsink3_btn', 'plumbing_bathtub3_btn'],
-      ['plumbing_bathroomsink4_btn', 'plumbing_bathtub4_btn'],
-      ['plumbing_bathroomsink5_btn', 'plumbing_bathtub5_btn'],
-      'plumbing_kitchensink_btn', 'plumbing_kitchensink2_btn', 'plumbing_kitchensink3_btn', 'plumbing_kitchensink4_btn', 'plumbing_kitchensink5_btn',
-      'plumbing_bathroom_add_btn');
+    this.uiBindings.push(
+    ['plumbing_title', 'plumbing_kitchen_title', 'plumbing_bathroom_title', 'plumbing_heater_title',
+    'plumbing_dishwasher_title', 'plumbing_activeleaks_title', 'plumbing_priorleaks_title',
+    'plumbing_kitchen_sink_title', 'plumbing_bathroom_sink_title',
+     'plumbing_control_add_btn',
+    ['plumbing_bathroom_btn',
+    'plumbing_bathroom2_btn', 'plumbing_bathroom2_edit_btn',
+    'plumbing_bathroom3_btn', 'plumbing_bathroom3_edit_btn',
+    'plumbing_bathroom4_btn', 'plumbing_bathroom4_edit_btn',
+    'plumbing_bathroom5_btn', 'plumbing_bathroom5_edit_btn',
+    'plumbing_kitchen_btn',
+    'plumbing_kitchen2_btn', 'plumbing_kitchen2_edit_btn',
+    'plumbing_kitchen3_btn', 'plumbing_kitchen3_edit_btn',
+    'plumbing_kitchen4_btn', 'plumbing_kitchen4_edit_btn',
+    'plumbing_kitchen5_btn', 'plumbing_kitchen5_edit_btn',
+    'plumbing_heater_btn',
+    'plumbing_dishwasher_btn',
+    'plumbing_activeleaks_btn',
+    'plumbing_priorleaks_btn',
+    'plumbing_wmhose_btn',
+    'plumbing_addComments_btn'],
+    'plumbing_heater_add_btn',
+    'plumbing_dishwasher_add_btn', 'plumbing_dishwasher_comments_btn',
+    'plumbing_activeleaks_add_btn', 'plumbing_activeleaks_comments_btn',
+    'plumbing_priorleaks_add_btn', 'plumbing_priorleaks_comments_btn',
+    'plumbing_bathroomsink_btn', 'plumbing_bathroomsink_add_btn', 'plumbing_bathtub_btn', 'plumbing_supplyline_btn',
+    'plumbing_bathroomsink2_btn', 'plumbing_bathroomsink2_add_btn', 'plumbing_bathtub2_btn', 'plumbing_supplyline2_btn',
+    'plumbing_bathroomsink3_btn', 'plumbing_bathroomsink3_add_btn', 'plumbing_bathtub3_btn', 'plumbing_supplyline3_btn',
+    'plumbing_bathroomsink4_btn', 'plumbing_bathroomsink4_add_btn', 'plumbing_bathtub4_btn', 'plumbing_supplyline4_btn',
+    'plumbing_bathroomsink5_btn', 'plumbing_bathroomsink5_add_btn', 'plumbing_bathtub5_btn', 'plumbing_supplyline5_btn',
+    'plumbing_kitchensink_btn', 'plumbing_kitchensink_add_btn',
+    'plumbing_kitchensink2_btn', 'plumbing_kitchensink2_add_btn',
+    'plumbing_kitchensink3_btn', 'plumbing_kitchensink3_add_btn',
+    'plumbing_kitchensink4_btn', 'plumbing_kitchensink4_add_btn',
+    'plumbing_kitchensink5_btn', 'plumbing_kitchensink5_add_btn',
+    'plumbing_back_btn'
+    ]);
 
     for (let i = 0; i < this.serverData.length; i++) {
       this.dynamicFormBuildConfig[i] = this.formBuilder.formGroup(this.serverData[i].data, {
