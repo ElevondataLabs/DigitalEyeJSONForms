@@ -9,6 +9,7 @@ export const SERVER_DATA = [
           click: 'base_back'
         },
         tier: 1,
+        valueControl: false,
         controlName: 'BaseInspection',
         parent: '',
         ui: {
@@ -30,6 +31,7 @@ export const SERVER_DATA = [
         tier: 1,
         controlName: 'BaseInspection',
         parent: '',
+        valueControl: true,
         mandatory: false,
         ui: {
           viewMode: {
@@ -47,6 +49,7 @@ export const SERVER_DATA = [
         props: {
           text: 'Base Inspection > RoofLine'
         },
+        valueControl: false,
         mandatory: false,
         tier: 2,
         controlName: 'RoofLine',
@@ -68,6 +71,7 @@ export const SERVER_DATA = [
         props: {
           text: 'Base Inspection > Dwelling'
         },
+        valueControl: false,
         mandatory: false,
         tier: 2,
         controlName: 'Dwelling',
@@ -91,6 +95,7 @@ export const SERVER_DATA = [
         },
         mandatory: false,
         tier: 2,
+        valueControl: false,
         controlName: 'PropertySpecific',
         parent: 'BaseInspection',
         ui: {
@@ -135,6 +140,7 @@ export const SERVER_DATA = [
         events: {
           click: 'base_roofline_add'
         },
+        valueControl: false,
         mandatory: false,
         tier: 2,
         controlName: 'RoofLine',
@@ -302,6 +308,7 @@ export const SERVER_DATA = [
         modelName: 'userModel',
         mandatory: false,
         tier: 2,
+        valueControl: false,
         controlName: 'PropertySpecific',
         parent: 'BaseInspection',
         events: {
@@ -324,6 +331,7 @@ export const SERVER_DATA = [
         modelName: 'userModel',
         mandatory: false,
         tier: 2,
+        valueControl: false,
         controlName: 'PropertySpecific',
         parent: 'BaseInspection',
         events: {

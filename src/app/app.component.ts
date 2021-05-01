@@ -279,6 +279,7 @@ export class AppComponent implements OnInit, AfterViewInit {
           name: el.name,
           controlName: el.controlName,
           parent: el.parent,
+          valueControl: el.valueControl,
           tier: el.tier,
           metatags: el.metatags === undefined ? '' : el.metatags,
           tip: el.tip === undefined ? '' : el.tip

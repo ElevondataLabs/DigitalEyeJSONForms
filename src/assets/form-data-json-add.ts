@@ -8,6 +8,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_back'
         },
         tier: 1,
+        valueControl: false,
         controlName: 'Plumbing',
         parent: '',
         ui: {
@@ -27,6 +28,7 @@ export const SERVER_DATA_ADD = {
           text: 'Plumbing'
         },
         tier: 1,
+        valueControl: true,
         controlName: 'Plumbing',
         parent: '',
         ui: {
@@ -46,6 +48,7 @@ export const SERVER_DATA_ADD = {
           text: 'Plumbing > Kitchen'
         },
         tier: 2,
+        valueControl: false,
         controlName: 'Kitchen',
         parent: 'Plumbing',
         mandatory: false,
@@ -66,6 +69,7 @@ export const SERVER_DATA_ADD = {
           text: 'Plumbing > Bathroom'
         },
         tier: 2,
+        valueControl: false,
         controlName: 'Bathroom',
         parent: 'Plumbing',
         mandatory: false,
@@ -86,6 +90,7 @@ export const SERVER_DATA_ADD = {
           text: 'Plumbing > Water Heater'
         },
         tier: 2,
+        valueControl: false,
         controlName: 'WaterHeater',
         parent: 'Plumbing',
         mandatory: false,
@@ -108,6 +113,7 @@ export const SERVER_DATA_ADD = {
         tier: 2,
         controlName: 'Dishwasher',
         parent: 'Plumbing',
+        valueControl: false,
         mandatory: false,
         ui: {
           hide: true,
@@ -126,6 +132,7 @@ export const SERVER_DATA_ADD = {
           text: 'Plumbing > ActiveLeaks'
         },
         tier: 2,
+        valueControl: false,
         controlName: 'ActiveLeaks',
         parent: 'Plumbing',
         mandatory: false,
@@ -146,6 +153,7 @@ export const SERVER_DATA_ADD = {
           text: 'Plumbing > PriorLeaks'
         },
         tier: 2,
+        valueControl: false,
         controlName: 'PriorLeaks',
         parent: 'Plumbing',
         mandatory: false,
@@ -166,6 +174,7 @@ export const SERVER_DATA_ADD = {
           text: 'Plumbing > Kitchen > KitchenSink'
         },
         tier: 3,
+        valueControl: false,
         controlName: 'KitchenSink',
         parent: 'Kitchen',
         mandatory: false,
@@ -186,6 +195,7 @@ export const SERVER_DATA_ADD = {
           text: 'Plumbing > Bathroom > BathroomSink'
         },
         tier: 3,
+        valueControl: false,
         controlName: 'BathroomSink',
         parent: 'Bathroom',
         mandatory: false,
@@ -206,6 +216,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_bathroom'
         },
+        valueControl: true,
         mandatory: true,
         tier: 2,
         repeatable: 1,
@@ -229,6 +240,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_bathroom2'
         },
+        valueControl: false,
         mandatory: false,
         enabled: false,
         tier: 2,
@@ -249,6 +261,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_bathroom2_edit_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: false,
         events: {
           click: 'plumbing_bathroom2_edit'
         },
@@ -264,6 +277,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_bathroom3'
         },
+        valueControl: false,
         mandatory: false,
         enabled: false,
         tier: 2,
@@ -284,6 +298,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_bathroom3_edit_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: false,
         events: {
           click: 'plumbing_bathroom3_edit'
         },
@@ -299,6 +314,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_bathroom4'
         },
+        valueControl: false,
         mandatory: false,
         enabled: false,
         tier: 2,
@@ -319,6 +335,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_bathroom4_edit_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: false,
         events: {
           click: 'plumbing_bathroom4_edit'
         },
@@ -334,6 +351,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_bathroom5'
         },
+        valueControl: false,
         mandatory: false,
         enabled: false,
         tier: 2,
@@ -354,6 +372,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_bathroom5_edit_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: false,
         events: {
           click: 'plumbing_bathroom5_edit'
         },
@@ -371,6 +390,7 @@ export const SERVER_DATA_ADD = {
         },
         mandatory: true,
         tier: 3,
+        valueControl: true,
         controlName: 'BathroomSink',
         parent: 'Bathroom',
         tip: '',
@@ -394,6 +414,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathroomsink_add'
         },
         mandatory: true,
+        valueControl: false,
         tier: 3,
         controlName: 'BathroomSink',
         parent: 'Bathroom',
@@ -418,6 +439,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathtub'
         },
         mandatory: true,
+        valueControl: true,
         tier: 3,
         controlName: 'Shower_Bathtub',
         parent: 'Bathroom',
@@ -444,6 +466,7 @@ export const SERVER_DATA_ADD = {
         mandatory: true,
         tier: 3,
         controlName: 'SupplyLine',
+        valueControl: true,
         parent: 'Bathroom',
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
@@ -466,6 +489,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathroomsink2'
         },
         mandatory: true,
+        valueControl: false,
         tier: 3,
         controlName: 'BathroomSink',
         parent: 'Bathroom2',
@@ -490,6 +514,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathroomsink2_add'
         },
         mandatory: true,
+        valueControl: false,
         tier: 3,
         controlName: 'BathroomSink',
         parent: 'Bathroom2',
@@ -512,6 +537,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathtub2'
         },
         mandatory: true,
+        valueControl: false,
         tier: 3,
         controlName: 'Shower_Bathtub',
         parent: 'Bathroom2',
@@ -536,6 +562,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_supplyline2'
         },
         mandatory: true,
+        valueControl: false,
         tier: 3,
         controlName: 'SupplyLine',
         parent: 'Bathroom2',
@@ -560,6 +587,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathroomsink3'
         },
         mandatory: true,
+        valueControl: false,
         tier: 3,
         controlName: 'BathroomSink',
         parent: 'Bathroom3',
@@ -584,6 +612,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathroomsink3_add'
         },
         mandatory: true,
+        valueControl: false,
         tier: 3,
         controlName: 'BathroomSink',
         parent: 'Bathroom3',
@@ -606,6 +635,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathtub3'
         },
         mandatory: true,
+        valueControl: false,
         tier: 3,
         controlName: 'Shower_Bathtub',
         parent: 'Bathroom3',
@@ -630,6 +660,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_supplyline3'
         },
         mandatory: true,
+        valueControl: false,
         tier: 3,
         controlName: 'SupplyLine',
         parent: 'Bathroom3',
@@ -654,6 +685,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathroomsink4'
         },
         mandatory: true,
+        valueControl: false,
         tier: 3,
         controlName: 'BathroomSink',
         parent: 'Bathroom4',
@@ -678,6 +710,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathroomsink4_add'
         },
         mandatory: true,
+        valueControl: false,
         tier: 3,
         controlName: 'BathroomSink',
         parent: 'Bathroom4',
@@ -700,6 +733,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathtub4'
         },
         mandatory: true,
+        valueControl: false,
         tier: 3,
         controlName: 'Shower_Bathtub',
         parent: 'Bathroom4',
@@ -724,6 +758,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_supplyline4'
         },
         mandatory: true,
+        valueControl: false,
         tier: 3,
         controlName: 'SupplyLine',
         parent: 'Bathroom4',
@@ -747,6 +782,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_bathroomsink5'
         },
+        valueControl: false,
         mandatory: true,
         tier: 3,
         controlName: 'BathroomSink',
@@ -768,6 +804,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_bathroomsink5_add_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: false,
         events: {
           click: 'plumbing_bathroomsink5_add'
         },
@@ -794,6 +831,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathtub5'
         },
         mandatory: true,
+        valueControl: false,
         tier: 3,
         controlName: 'Shower_Bathtub',
         parent: 'Bathroom5',
@@ -821,6 +859,7 @@ export const SERVER_DATA_ADD = {
         tier: 3,
         controlName: 'SupplyLine',
         parent: 'Bathroom5',
+        valueControl: false,
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
@@ -842,6 +881,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_kitchen'
         },
         mandatory: true,
+        valueControl: true,
         repeatable: 1,
         maxLimit: 5,
         tier: 2,
@@ -867,6 +907,7 @@ export const SERVER_DATA_ADD = {
         mandatory: true,
         tier: 3,
         controlName: 'KitchenSink',
+        valueControl: true,
         parent: 'Kitchen',
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
@@ -888,6 +929,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_kitchensink_add'
         },
+        valueControl: false,
         mandatory: true,
         tier: 3,
         controlName: 'KitchenSink',
@@ -911,6 +953,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_kitchensink2'
         },
         mandatory: true,
+        valueControl: false,
         tier: 3,
         controlName: 'KitchenSink',
         parent: 'Kitchen2',
@@ -934,6 +977,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_kitchensink2_add'
         },
+        valueControl: false,
         mandatory: true,
         tier: 3,
         controlName: 'KitchenSink',
@@ -956,6 +1000,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_kitchensink3'
         },
+        valueControl: false,
         mandatory: true,
         tier: 3,
         controlName: 'KitchenSink',
@@ -980,6 +1025,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_kitchensink3_add'
         },
+        valueControl: false,
         mandatory: true,
         tier: 3,
         controlName: 'KitchenSink',
@@ -1002,6 +1048,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_kitchensink4'
         },
+        valueControl: false,
         mandatory: true,
         tier: 3,
         controlName: 'KitchenSink',
@@ -1026,6 +1073,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_kitchensink4_add'
         },
+        valueControl: false,
         mandatory: true,
         tier: 3,
         controlName: 'KitchenSink',
@@ -1048,6 +1096,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_kitchensink5'
         },
+        valueControl: false,
         mandatory: true,
         tier: 3,
         controlName: 'KitchenSink',
@@ -1072,6 +1121,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_kitchensink5_add'
         },
+        valueControl: false,
         mandatory: true,
         tier: 3,
         controlName: 'KitchenSink',
@@ -1094,6 +1144,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_kitchen2'
         },
+        valueControl: false,
         mandatory: false,
         enabled: false,
         tier: 2,
@@ -1114,6 +1165,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_kitchen2_edit_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: false,
         events: {
           click: 'plumbing_kitchen2_edit'
         },
@@ -1126,6 +1178,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_kitchen3_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: false,
         events: {
           click: 'plumbing_kitchen3'
         },
@@ -1152,6 +1205,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_kitchen3_edit'
         },
+        valueControl: false,
         ui: {
           hide: true,
           class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
@@ -1164,6 +1218,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_kitchen4'
         },
+        valueControl: false,
         mandatory: false,
         enabled: false,
         tier: 2,
@@ -1184,6 +1239,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_kitchen4_edit_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: false,
         events: {
           click: 'plumbing_kitchen4_edit'
         },
@@ -1199,6 +1255,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_kitchen5'
         },
+        valueControl: false,
         mandatory: false,
         enabled: false,
         tier: 2,
@@ -1219,6 +1276,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_kitchen5_edit_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: false,
         events: {
           click: 'plumbing_kitchen5_edit'
         },
@@ -1254,6 +1312,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_heater_add_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: false,
         events: {
           click: 'plumbing_heater_add'
         },
@@ -1276,6 +1335,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_dishwasher_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: true,
         events: {
           click: 'plumbing_dishwasher'
         },
@@ -1299,6 +1359,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_dishwasher_add_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: false,
         events: {
           click: 'plumbing_dishwasher_add'
         },
@@ -1321,6 +1382,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_dishwasher_comments_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: false,
         events: {
           click: 'plumbing_dishwasher_comments'
         },
@@ -1343,6 +1405,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_activeleaks_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: true,
         events: {
           click: 'plumbing_activeleaks'
         },
@@ -1366,6 +1429,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_activeleaks_add_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: false,
         events: {
           click: 'plumbing_activeleaks_add'
         },
@@ -1388,6 +1452,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_activeleaks_comments_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: false,
         events: {
           click: 'plumbing_activeleaks_comments'
         },
@@ -1414,6 +1479,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_priorleaks'
         },
         mandatory: true,
+        valueControl: true,
         tier: 2,
         controlName: 'PriorLeaks',
         parent: 'Plumbing',
@@ -1438,6 +1504,7 @@ export const SERVER_DATA_ADD = {
         },
         mandatory: true,
         tier: 2,
+        valueControl: false,
         controlName: 'PriorLeaks',
         parent: 'Plumbing',
         ui: {
@@ -1459,6 +1526,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_priorleaks_comments'
         },
         mandatory: true,
+        valueControl: false,
         tier: 2,
         controlName: 'PriorLeaks',
         parent: 'Plumbing',
@@ -1480,6 +1548,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_wmhose'
         },
+        valueControl: true,
         mandatory: true,
         tier: 2,
         controlName: 'WashingMachineHose',
@@ -1503,6 +1572,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_addComments'
         },
+        valueControl: true,
         mandatory: true,
         tier: 2,
         controlName: 'AdditionalComments',
@@ -1523,6 +1593,7 @@ export const SERVER_DATA_ADD = {
         name: 'plumbing_control_add_btn',
         type: 'button',
         modelName: 'userModel',
+        valueControl: false,
         events: {
           click: 'plumbing_contol_add'
         },
