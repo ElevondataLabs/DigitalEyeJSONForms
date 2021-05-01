@@ -91,6 +91,7 @@ export class UserModel extends FormControlConfig {
         else {
             this.base_reset();
             this.base_roofline_tier2();
+            this.gallerybtnClick(this.controlsConfig.base_propspec_btn.config.name);
         }
     }
 
@@ -102,6 +103,10 @@ export class UserModel extends FormControlConfig {
     base_propspec(): void {
         this.base_reset();
         this.base_hazard_tier2();
+        if (this.controlsConfig.base_propspec_btn.value !== '' ||
+                this.controlsConfig.base_propspec_btn.value !== undefined){
+            gallerybtnClick(this.controlsConfig.base_propspec_btn.config.name)
+        }
 
         if (this.controlsConfig.base_propspec_add_details.value === '' ||
             this.controlsConfig.base_propspec_add_details.value === undefined) {
@@ -828,7 +833,15 @@ export class UserModel extends FormControlConfig {
         const cameraTip = this.controlsConfig[control].config.tip;
         const controlTier = this.controlsConfig[control].config.tier;
 
-        this.component.test(btnname, controlName, parentName, metatags, cameraTip, controlTier);
+        this.component.cameraControl(btnname, controlName, parentName, metatags, cameraTip, controlTier);
+    }
+
+    gallerybtnClick(control: string): void {
+        const btnname = this.controlsConfig[control].config.name;
+        const controlName = this.controlsConfig[control].config.controlName;
+        const parentName = this.controlsConfig[control].config.parent;
+
+        this.component.galleryControl(btnname, controlName, parentName);
     }
 
     plumbing_bathroom2_edit(): void{
@@ -882,7 +895,8 @@ export class UserModel extends FormControlConfig {
 }
 
 export interface ComponentClickEvent {
-    test(control: string, child: string, parent: string, metatags: string, tip: string, tier: string): void;
+    galleryControl(control: string, child: string, parent: string): void;
+    cameraControl(control: string, child: string, parent: string, metatags: string, tip: string, tier: string): void;
     openCommentDialog(control: string): void;
     addControlopen(control: string): void;
     addControlLabelopen(description: string, ctrlName: string): void;
