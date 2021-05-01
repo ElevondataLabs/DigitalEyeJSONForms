@@ -146,12 +146,14 @@ export class AppComponent implements OnInit, AfterViewInit {
                   found = true;
                   resp.ui.hide = false;
                   resp.enabled = true;
+                  resp.valueControl = true;
                   try {
                     this.dynamicFormBuildConfig.forEach(elem => {
                       if (elem.controlsConfig[resp.name] !== undefined) {
                         elem.controlsConfig[resp.name].hide = false;
                         elem.controlsConfig[resp.name.replace('_btn', '_edit_btn')].hide = false;
                         elem.controlsConfig[resp.name].config.enabled = true;
+                        elem.controlsConfig[resp.name].config.valueControl = true;
                         this.controlLabel = elem.controlsConfig[resp.name].description;
                         this.labelDialogControlName = resp.name;
                       }
@@ -304,11 +306,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
       arr.push(root);
     });
-
-    arr.forEach(ele=>{
-      console.log(ele.children);
-      console.log(ele.metatags);
-    })
+    console.log(arr);
   }
 
   selectImageSource(): void {
