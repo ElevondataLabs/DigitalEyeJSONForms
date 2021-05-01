@@ -685,7 +685,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathroomsink4'
         },
         mandatory: true,
-        valueControl: false,
+        valueControl: true,
         tier: 3,
         controlName: 'BathroomSink',
         parent: 'Bathroom4',
@@ -733,7 +733,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathtub4'
         },
         mandatory: true,
-        valueControl: false,
+        valueControl: true,
         tier: 3,
         controlName: 'Shower_Bathtub',
         parent: 'Bathroom4',
@@ -758,7 +758,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_supplyline4'
         },
         mandatory: true,
-        valueControl: false,
+        valueControl: true,
         tier: 3,
         controlName: 'SupplyLine',
         parent: 'Bathroom4',
@@ -782,7 +782,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_bathroomsink5'
         },
-        valueControl: false,
+        valueControl: true,
         mandatory: true,
         tier: 3,
         controlName: 'BathroomSink',
@@ -831,7 +831,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathtub5'
         },
         mandatory: true,
-        valueControl: false,
+        valueControl: true,
         tier: 3,
         controlName: 'Shower_Bathtub',
         parent: 'Bathroom5',
@@ -859,7 +859,7 @@ export const SERVER_DATA_ADD = {
         tier: 3,
         controlName: 'SupplyLine',
         parent: 'Bathroom5',
-        valueControl: false,
+        valueControl: true,
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
@@ -953,7 +953,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_kitchensink2'
         },
         mandatory: true,
-        valueControl: false,
+        valueControl: true,
         tier: 3,
         controlName: 'KitchenSink',
         parent: 'Kitchen2',
@@ -1000,7 +1000,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_kitchensink3'
         },
-        valueControl: false,
+        valueControl: true,
         mandatory: true,
         tier: 3,
         controlName: 'KitchenSink',
@@ -1048,7 +1048,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_kitchensink4'
         },
-        valueControl: false,
+        valueControl: true,
         mandatory: true,
         tier: 3,
         controlName: 'KitchenSink',
@@ -1096,7 +1096,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_kitchensink5'
         },
-        valueControl: false,
+        valueControl: true,
         mandatory: true,
         tier: 3,
         controlName: 'KitchenSink',
@@ -1292,6 +1292,7 @@ export const SERVER_DATA_ADD = {
         events: {
           click: 'plumbing_heater'
         },
+        valueControl: true,
         mandatory: true,
         tier: 2,
         controlName: 'WaterHeater',

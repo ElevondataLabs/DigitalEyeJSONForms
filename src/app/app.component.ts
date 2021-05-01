@@ -257,22 +257,12 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   uploadFile(tier, parent, child, control): void {
-    const displayarr = [parent, child];
+    const displayarr = [{displaytier: tier, tierValue: child, tierchildren: []}];
     const zoneIndex = this.serverData.findIndex((ele1) => ele1.data.some((ele) => ele.name === control));
 
-    for (let i = tier - 1; i > 1; i--) {
-      this.serverData[zoneIndex].data.forEach(ele => {
-        if (ele.controlName === parent) {
-          displayarr.unshift(ele.parent);
-          parent = ele.parent;
-        }
-      });
-    }
-    console.log(displayarr);
-    // let unique = [...new Set(elem.data.map(item => item.controlName))];
-    // console.log(unique);
     const arr = [];
     let obj = [];
+    const testobj = [];
 
     this.serverData.forEach(elem => {
       obj = [];
@@ -302,11 +292,29 @@ export class AppComponent implements OnInit, AfterViewInit {
         }
         const parentEl = obj[idMapping[el.parent]];
         parentEl.children = [...(parentEl.children || []), el];
+
+        testobj.push(parentEl);
       });
 
       arr.push(root);
     });
-    console.log(arr);
+
+    const uniqueSet = [...new Set(testobj.filter(val => val.valueControl === true))];
+
+    for (let i = tier; i > 1; i--) {
+      this.serverData[zoneIndex].data.forEach(ele => {
+        if (ele.controlName === parent) {
+          const childIndex = uniqueSet.findIndex(item => item.controlName === ele.controlName);
+          displayarr.unshift({displaytier: i - 1,
+                              tierValue: ele.controlName,
+                              tierchildren: uniqueSet[childIndex].children.filter(elem => elem.valueControl === true)});
+          parent = ele.parent;
+        }
+      });
+    }
+
+    console.log(displayarr);
+
   }
 
   selectImageSource(): void {
