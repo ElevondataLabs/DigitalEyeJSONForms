@@ -300,10 +300,14 @@ export class AppComponent implements OnInit, AfterViewInit {
         const parentEl = obj[idMapping[el.parent]];
         parentEl.children = [...(parentEl.children || []), el];
       });
+
       arr.push(root);
     });
 
-    console.log(arr);
+    arr.forEach(ele=>{
+      console.log(ele.children);
+      console.log(ele.metatags);
+    })
   }
 
   selectImageSource(): void {
