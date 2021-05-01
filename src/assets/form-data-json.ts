@@ -138,8 +138,6 @@ export const SERVER_DATA = [
         tier: 2,
         controlName: 'RoofLine',
         parent: 'BaseInspection',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
           hide: true,
           viewMode: {
@@ -276,6 +274,8 @@ export const SERVER_DATA = [
         tier: 2,
         controlName: 'PropertySpecific',
         parent: 'BaseInspection',
+        tip: '',
+        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         events: {
           click: 'base_propspec'
         },
@@ -297,8 +297,6 @@ export const SERVER_DATA = [
         tier: 2,
         controlName: 'PropertySpecific',
         parent: 'BaseInspection',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         events: {
           click: 'base_propspec_add'
         },

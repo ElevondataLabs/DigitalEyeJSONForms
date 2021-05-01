@@ -113,7 +113,7 @@ export class UserModel extends FormControlConfig {
     }
 
     base_propspec_add(): void {
-        this.btnClick(this.controlsConfig.base_propspec_add_btn.config.name);
+        this.btnClick(this.controlsConfig.base_propspec_btn.config.name);
     }
 
     base_propspec_add_details(): void {
@@ -826,7 +826,7 @@ export class UserModel extends FormControlConfig {
         const parentName = this.controlsConfig[control].config.parent;
         const metatags = this.controlsConfig[control].config.metatags;
         const cameraTip = this.controlsConfig[control].config.tip;
-        const controlTier = this.controlsConfig[control].tier;
+        const controlTier = this.controlsConfig[control].config.tier;
 
         this.component.test(btnname, controlName, parentName, metatags, cameraTip, controlTier);
     }
