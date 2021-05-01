@@ -489,7 +489,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathroomsink2'
         },
         mandatory: true,
-        valueControl: false,
+        valueControl: true,
         tier: 3,
         controlName: 'BathroomSink',
         parent: 'Bathroom2',
@@ -537,7 +537,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathtub2'
         },
         mandatory: true,
-        valueControl: false,
+        valueControl: true,
         tier: 3,
         controlName: 'Shower_Bathtub',
         parent: 'Bathroom2',
@@ -562,7 +562,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_supplyline2'
         },
         mandatory: true,
-        valueControl: false,
+        valueControl: true,
         tier: 3,
         controlName: 'SupplyLine',
         parent: 'Bathroom2',
@@ -587,7 +587,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathroomsink3'
         },
         mandatory: true,
-        valueControl: false,
+        valueControl: true,
         tier: 3,
         controlName: 'BathroomSink',
         parent: 'Bathroom3',
@@ -635,7 +635,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_bathtub3'
         },
         mandatory: true,
-        valueControl: false,
+        valueControl: true,
         tier: 3,
         controlName: 'Shower_Bathtub',
         parent: 'Bathroom3',
@@ -660,7 +660,7 @@ export const SERVER_DATA_ADD = {
           click: 'plumbing_supplyline3'
         },
         mandatory: true,
-        valueControl: false,
+        valueControl: true,
         tier: 3,
         controlName: 'SupplyLine',
         parent: 'Bathroom3',
