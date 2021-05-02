@@ -91,7 +91,7 @@ export class UserModel extends FormControlConfig {
         else {
             this.base_reset();
             this.base_roofline_tier2();
-            this.gallerybtnClick(this.controlsConfig.base_propspec_btn.config.name);
+            this.gallerybtnClick(this.controlsConfig.base_roofline_btn.config.name);
         }
     }
 
@@ -105,7 +105,7 @@ export class UserModel extends FormControlConfig {
         this.base_hazard_tier2();
         if (this.controlsConfig.base_propspec_btn.value !== '' ||
                 this.controlsConfig.base_propspec_btn.value !== undefined){
-            gallerybtnClick(this.controlsConfig.base_propspec_btn.config.name)
+            this.gallerybtnClick(this.controlsConfig.base_propspec_btn.config.name);
         }
 
         if (this.controlsConfig.base_propspec_add_details.value === '' ||
