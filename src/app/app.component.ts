@@ -5,9 +5,6 @@ import { ReactiveFormConfig } from '@rxweb/reactive-form-validators';
 import { SERVER_DATA } from '../assets/form-data-json';
 import { SERVER_DATA_ADD } from '../assets/form-data-json-add';
 import { UserModel } from '../assets/config';
-import { exit } from 'node:process';
-import { element } from 'protractor';
-
 
 @Component({
   selector: 'app-root',
@@ -244,7 +241,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
 
-  test(control: string, child: string, parent: string, metatags: string, tip: string, tier: string): void {
+  cameraControl(control: string, child: string, parent: string, metatags: string, tip: string, tier: string): void {
 
     console.log('Test Method clicked');
     console.log('Control : ' + control);
@@ -315,6 +312,10 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     console.log(displayarr);
 
+  }
+
+  galleryReset(): void{
+    console.log('Gallery Rest')
   }
 
   selectImageSource(): void {

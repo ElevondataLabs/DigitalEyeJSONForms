@@ -20,6 +20,7 @@ export class UserModel extends FormControlConfig {
         if (this.controlsConfig.base_back_btn.tier === 2) {
             this.base_reset();
             this.base_tier1();
+            this.component.galleryReset();
         }
     }
 
@@ -194,6 +195,7 @@ export class UserModel extends FormControlConfig {
 
 
     plumbing_back(): void{
+        this.component.galleryReset();
         if (this.controlsConfig.plumbing_back_btn.tier === 2){
             this.controlsConfig.plumbing_back_btn.tier = 1;
             this.plumbing_reset();
@@ -475,6 +477,11 @@ export class UserModel extends FormControlConfig {
 
             this.controlsConfig.plumbing_heater_title.hide = false;
             this.controlsConfig.plumbing_heater_add_btn.hide = false;
+
+            if (this.controlsConfig.plumbing_heater_btn.value !== '' ||
+                this.controlsConfig.plumbing_heater_btn.value !== undefined) {
+                this.gallerybtnClick(this.controlsConfig.plumbing_heater_btn.config.name);
+            }
         }
     }
 
@@ -491,6 +498,11 @@ export class UserModel extends FormControlConfig {
         this.controlsConfig.plumbing_dishwasher_title.hide = false;
         this.controlsConfig.plumbing_dishwasher_add_btn.hide = false;
         this.controlsConfig.plumbing_dishwasher_comments_btn.hide = false;
+
+        if (this.controlsConfig.plumbing_dishwasher_btn.value !== '' ||
+            this.controlsConfig.plumbing_dishwasher_btn.value !== undefined) {
+            this.gallerybtnClick(this.controlsConfig.plumbing_dishwasher_btn.config.name);
+        }
 
         if (this.controlsConfig.plumbing_dishwasher_comments_btn.value === '' ||
             this.controlsConfig.plumbing_dishwasher_comments_btn.value === undefined) {
@@ -518,6 +530,11 @@ export class UserModel extends FormControlConfig {
         this.controlsConfig.plumbing_activeleaks_title.hide = false;
         this.controlsConfig.plumbing_activeleaks_add_btn.hide = false;
         this.controlsConfig.plumbing_activeleaks_comments_btn.hide = false;
+
+        if (this.controlsConfig.plumbing_activeleaks_btn.value !== '' ||
+            this.controlsConfig.plumbing_activeleaks_btn.value !== undefined) {
+            this.gallerybtnClick(this.controlsConfig.plumbing_activeleaks_btn.config.name);
+        }
 
         if (this.controlsConfig.plumbing_activeleaks_comments_btn.value === '' ||
             this.controlsConfig.plumbing_activeleaks_comments_btn.value === undefined) {
@@ -547,6 +564,11 @@ export class UserModel extends FormControlConfig {
         this.controlsConfig.plumbing_priorleaks_add_btn.hide = false;
         this.controlsConfig.plumbing_priorleaks_comments_btn.hide = false;
 
+        if (this.controlsConfig.plumbing_priorleaks_btn.value !== '' ||
+            this.controlsConfig.plumbing_priorleaks_btn.value !== undefined) {
+            this.gallerybtnClick(this.controlsConfig.plumbing_priorleaks_btn.config.name);
+        }
+
         if (this.controlsConfig.plumbing_priorleaks_comments_btn.value === '' ||
             this.controlsConfig.plumbing_priorleaks_comments_btn.value === undefined) {
             this.controlsConfig.plumbing_priorleaks_comments_btn.description = 'Add Comments';
@@ -573,7 +595,7 @@ export class UserModel extends FormControlConfig {
     }
 
     plumbing_bathroomsink(): void {
-        this.controlsConfig.plumbing_bathroomsink_btn.value = 'Test';
+        // this.controlsConfig.plumbing_bathroomsink_btn.value = 'Test';
         if (this.controlsConfig.plumbing_bathroomsink_btn.value === '' ||
                 this.controlsConfig.plumbing_bathroomsink_btn.value === undefined) {
             this.btnClick(this.controlsConfig.plumbing_bathroomsink_btn.config.name);
@@ -586,6 +608,9 @@ export class UserModel extends FormControlConfig {
 
             this.controlsConfig.plumbing_bathroom_sink_title.hide = false;
             this.controlsConfig.plumbing_bathroomsink_add_btn.hide = false;
+
+            this.gallerybtnClick(this.controlsConfig.plumbing_bathroomsink_btn.config.name);
+
         }
     }
 
@@ -594,7 +619,7 @@ export class UserModel extends FormControlConfig {
     }
 
     plumbing_bathroomsink2(): void {
-        this.controlsConfig.plumbing_bathroomsink2_btn.value = 'Test';
+        // this.controlsConfig.plumbing_bathroomsink2_btn.value = 'Test';
         if (this.controlsConfig.plumbing_bathroomsink2_btn.value === '' ||
                 this.controlsConfig.plumbing_bathroomsink2_btn.value === undefined) {
             this.btnClick(this.controlsConfig.plumbing_bathroomsink2_btn.config.name);
@@ -607,6 +632,9 @@ export class UserModel extends FormControlConfig {
 
             this.controlsConfig.plumbing_bathroom_sink_title.hide = false;
             this.controlsConfig.plumbing_bathroomsink2_add_btn.hide = false;
+
+            this.gallerybtnClick(this.controlsConfig.plumbing_bathroomsink2_btn.config.name);
+
         }
     }
 
@@ -615,7 +643,7 @@ export class UserModel extends FormControlConfig {
     }
 
     plumbing_bathroomsink3(): void {
-        this.controlsConfig.plumbing_bathroomsink3_btn.value = 'Test';
+        // this.controlsConfig.plumbing_bathroomsink3_btn.value = 'Test';
         if (this.controlsConfig.plumbing_bathroomsink3_btn.value === '' ||
                 this.controlsConfig.plumbing_bathroomsink3_btn.value === undefined) {
             this.btnClick(this.controlsConfig.plumbing_bathroomsink3_btn.config.name);
@@ -628,6 +656,9 @@ export class UserModel extends FormControlConfig {
 
             this.controlsConfig.plumbing_bathroom_sink_title.hide = false;
             this.controlsConfig.plumbing_bathroomsink3_add_btn.hide = false;
+
+            this.gallerybtnClick(this.controlsConfig.plumbing_bathroomsink3_btn.config.name);
+
         }
     }
 
@@ -636,7 +667,7 @@ export class UserModel extends FormControlConfig {
     }
 
     plumbing_bathroomsink4(): void {
-        this.controlsConfig.plumbing_bathroomsink4_btn.value = 'Test';
+        // this.controlsConfig.plumbing_bathroomsink4_btn.value = 'Test';
         if (this.controlsConfig.plumbing_bathroomsink4_btn.value === '' ||
                 this.controlsConfig.plumbing_bathroomsink4_btn.value === undefined) {
             this.btnClick(this.controlsConfig.plumbing_bathroomsink4_btn.config.name);
@@ -649,6 +680,9 @@ export class UserModel extends FormControlConfig {
 
             this.controlsConfig.plumbing_bathroom_sink_title.hide = false;
             this.controlsConfig.plumbing_bathroomsink4_add_btn.hide = false;
+
+            this.gallerybtnClick(this.controlsConfig.plumbing_bathroomsink4_btn.config.name);
+
         }
     }
 
@@ -657,7 +691,7 @@ export class UserModel extends FormControlConfig {
     }
 
     plumbing_bathroomsink5(): void {
-        this.controlsConfig.plumbing_bathroomsink5_btn.value = 'Test';
+        // this.controlsConfig.plumbing_bathroomsink5_btn.value = 'Test';
         if (this.controlsConfig.plumbing_bathroomsink5_btn.value === '' ||
                 this.controlsConfig.plumbing_bathroomsink5_btn.value === undefined) {
             this.btnClick(this.controlsConfig.plumbing_bathroomsink5_btn.config.name);
@@ -670,6 +704,8 @@ export class UserModel extends FormControlConfig {
 
             this.controlsConfig.plumbing_bathroom_sink_title.hide = false;
             this.controlsConfig.plumbing_bathroomsink5_add_btn.hide = false;
+
+            this.gallerybtnClick(this.controlsConfig.plumbing_bathroomsink5_btn.config.name);
         }
     }
 
@@ -718,7 +754,7 @@ export class UserModel extends FormControlConfig {
     }
 
     plumbing_kitchensink(): void {
-        this.controlsConfig.plumbing_kitchensink_btn.value = 'Test';
+        // this.controlsConfig.plumbing_kitchensink_btn.value = 'Test';
         if (this.controlsConfig.plumbing_kitchensink_btn.value === '' || this.controlsConfig.plumbing_kitchensink_btn.value === undefined) {
             this.btnClick(this.controlsConfig.plumbing_kitchensink_btn.config.name);
         }
@@ -730,6 +766,8 @@ export class UserModel extends FormControlConfig {
 
             this.controlsConfig.plumbing_kitchen_sink_title.hide = false;
             this.controlsConfig.plumbing_kitchensink_add_btn.hide = false;
+
+            this.gallerybtnClick(this.controlsConfig.plumbing_kitchensink_btn.config.name);
         }
     }
 
@@ -738,7 +776,7 @@ export class UserModel extends FormControlConfig {
     }
 
     plumbing_kitchensink2(): void {
-        this.controlsConfig.plumbing_kitchensink2_btn.value = 'Test';
+        // this.controlsConfig.plumbing_kitchensink2_btn.value = 'Test';
         if (this.controlsConfig.plumbing_kitchensink2_btn.value === '' ||
                 this.controlsConfig.plumbing_kitchensink2_btn.value === undefined) {
             this.btnClick(this.controlsConfig.plumbing_kitchensink2_btn.config.name);
@@ -751,6 +789,9 @@ export class UserModel extends FormControlConfig {
 
             this.controlsConfig.plumbing_kitchen_sink_title.hide = false;
             this.controlsConfig.plumbing_kitchensink2_add_btn.hide = false;
+
+            this.gallerybtnClick(this.controlsConfig.plumbing_kitchensink2_btn.config.name);
+
         }
     }
 
@@ -759,7 +800,7 @@ export class UserModel extends FormControlConfig {
     }
 
     plumbing_kitchensink3(): void {
-        this.controlsConfig.plumbing_kitchensink3_btn.value = 'Test';
+        // this.controlsConfig.plumbing_kitchensink3_btn.value = 'Test';
         if (this.controlsConfig.plumbing_kitchensink3_btn.value === '' ||
                 this.controlsConfig.plumbing_kitchensink3_btn.value === undefined) {
             this.btnClick(this.controlsConfig.plumbing_kitchensink3_btn.config.name);
@@ -772,6 +813,8 @@ export class UserModel extends FormControlConfig {
 
             this.controlsConfig.plumbing_kitchen_sink_title.hide = false;
             this.controlsConfig.plumbing_kitchensink3_add_btn.hide = false;
+
+            this.gallerybtnClick(this.controlsConfig.plumbing_kitchensink3_btn.config.name);
         }
     }
 
@@ -780,7 +823,7 @@ export class UserModel extends FormControlConfig {
     }
 
     plumbing_kitchensink4(): void {
-        this.controlsConfig.plumbing_kitchensink4_btn.value = 'Test';
+        // this.controlsConfig.plumbing_kitchensink4_btn.value = 'Test';
         if (this.controlsConfig.plumbing_kitchensink4_btn.value === '' ||
                 this.controlsConfig.plumbing_kitchensink4_btn.value === undefined) {
             this.btnClick(this.controlsConfig.plumbing_kitchensink4_btn.config.name);
@@ -793,6 +836,8 @@ export class UserModel extends FormControlConfig {
 
             this.controlsConfig.plumbing_kitchen_sink_title.hide = false;
             this.controlsConfig.plumbing_kitchensink4_add_btn.hide = false;
+
+            this.gallerybtnClick(this.controlsConfig.plumbing_kitchensink4_btn.config.name);
         }
     }
 
@@ -801,7 +846,7 @@ export class UserModel extends FormControlConfig {
     }
 
     plumbing_kitchensink5(): void {
-        this.controlsConfig.plumbing_kitchensink5_btn.value = 'Test';
+        // this.controlsConfig.plumbing_kitchensink5_btn.value = 'Test';
         if (this.controlsConfig.plumbing_kitchensink5_btn.value === '' ||
                 this.controlsConfig.plumbing_kitchensink5_btn.value === undefined) {
             this.btnClick(this.controlsConfig.plumbing_kitchensink5_btn.config.name);
@@ -814,6 +859,9 @@ export class UserModel extends FormControlConfig {
 
             this.controlsConfig.plumbing_kitchen_sink_title.hide = false;
             this.controlsConfig.plumbing_kitchensink5_add_btn.hide = false;
+
+            this.gallerybtnClick(this.controlsConfig.plumbing_kitchensink5_btn.config.name);
+
         }
     }
 
@@ -900,4 +948,5 @@ export interface ComponentClickEvent {
     openCommentDialog(control: string): void;
     addControlopen(control: string): void;
     addControlLabelopen(description: string, ctrlName: string): void;
+    galleryReset(): void;
 }
