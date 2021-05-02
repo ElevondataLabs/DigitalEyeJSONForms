@@ -269,6 +269,11 @@ export const SERVER_DATA_ADD = {
         },
         ui: {
           hide: true,
+          viewMode: {
+            advance: {
+              div: ['edit_form_tag']
+            }
+          },
           class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
         }
       },
@@ -307,6 +312,11 @@ export const SERVER_DATA_ADD = {
         },
         ui: {
           hide: true,
+          viewMode: {
+            advance: {
+              div: ['edit_form_tag']
+            }
+          },
           class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
         }
       },
@@ -345,6 +355,11 @@ export const SERVER_DATA_ADD = {
         },
         ui: {
           hide: true,
+          viewMode: {
+            advance: {
+              div: ['edit_form_tag']
+            }
+          },
           class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
         }
       },
@@ -383,6 +398,11 @@ export const SERVER_DATA_ADD = {
         },
         ui: {
           hide: true,
+          viewMode: {
+            advance: {
+              div: ['edit_form_tag']
+            }
+          },
           class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
         }
       },
@@ -1208,6 +1228,11 @@ export const SERVER_DATA_ADD = {
         },
         ui: {
           hide: true,
+          viewMode: {
+            advance: {
+              div: ['edit_form_tag']
+            }
+          },
           class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
         }
       },
@@ -1246,6 +1271,11 @@ export const SERVER_DATA_ADD = {
         valueControl: false,
         ui: {
           hide: true,
+          viewMode: {
+            advance: {
+              div: ['edit_form_tag']
+            }
+          },
           class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
         }
       },
@@ -1284,6 +1314,11 @@ export const SERVER_DATA_ADD = {
         },
         ui: {
           hide: true,
+          viewMode: {
+            advance: {
+              div: ['edit_form_tag']
+            }
+          },
           class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
         }
       },
@@ -1322,6 +1357,11 @@ export const SERVER_DATA_ADD = {
         },
         ui: {
           hide: true,
+          viewMode: {
+            advance: {
+              div: ['edit_form_tag']
+            }
+          },
           class: ['btneditable', 'text-center', 'bi', 'bi-pencil'],
         }
       },
