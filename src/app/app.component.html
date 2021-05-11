@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container text-center">
   <div class="row">
     <div class="col-md-4" *ngFor="let bb of dynamicFormBuildConfig; let i=index">
       <!-- <form [formGroup]="dynamicFormBuildConfig.formGroup" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./assets/background.jpg);"> -->
       <form [formGroup]="dynamicFormBuildConfig[i].formGroup" class="formbg">
         <label class="h1">Zone {{i + 1}}</label>
-        <div viewMode="advance" [rxwebDynamicForm]="dynamicFormBuildConfig[i]" [uiBindings]="uiBindings">
+        <div *ngIf="uiBindings" viewMode="advance" [rxwebDynamicForm]="dynamicFormBuildConfig[i]" [uiBindings]="uiBindings">
         </div>
       </form>
 

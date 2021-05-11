@@ -5,6 +5,7 @@ import { ReactiveFormConfig } from '@rxweb/reactive-form-validators';
 import { SERVER_DATA } from '../assets/form-data-json';
 import { SERVER_DATA_ADD } from '../assets/form-data-json-add';
 import { UserModel } from '../assets/config';
+import { AppserviceService } from './appservice.service';
 
 @Component({
   selector: 'app-root',
@@ -31,22 +32,80 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   serverData: any[] = SERVER_DATA;
 
-  uiBindings: string[] = ['base_dwelling_frontview_test_btn', 'lblDetExterior',
-    ['btnDriveway', 'btnFoundation'],
-    ['btnSidewalks', 'btnPorches'],
-    ['btnStairs', 'btnTrees'],
-    ['btnChimney', 'btnFence'],
-    ['btnSiding', 'btnGutters'],
-    ['btnYard'],
+  uiBindings: string[] = ['base_back_btn',
     'base_title', 'base_roofline_title', 'base_dwelling_title', 'base_propspec_title',
     ['base_roofline_btn', 'base_dwelling_btn'],
     ['base_propspec_btn'], 'base_roofline_add_btn',
     ['base_dwelling_frontview_btn', 'base_dwelling_backview_btn'],
     ['base_dwelling_rightview_btn', 'base_dwelling_leftview_btn'],
-    ['base_propspec_add_btn', 'base_propspec_add_details'], 'base_back_btn'];
+    ['base_propspec_add_btn', 'base_propspec_add_details'], 
 
+    'lblDetExterior',
+    ['btnDriveway', 'btnFoundation'],
+    ['btnSidewalks', 'btnPorches'],
+    ['btnStairs', 'btnTrees'],
+    ['btnChimney', 'btnFence'],
+    ['btnSiding', 'btnGutters'],
+    ['btnYard']
+  ];
 
   dynamicFormBuildConfig: DynamicFormBuildConfig[] = [];
+
+  constructor(private formBuilder: RxDynamicFormBuilder, public _appService: AppserviceService) { }
+
+  ngAfterViewInit(): void {
+    this.elm = this.myModal.nativeElement as HTMLElement;
+    this.elm1 = this.myModal1.nativeElement as HTMLElement;
+    this.elm2 = this.myModal2.nativeElement as HTMLElement;
+  }
+
+  async ngOnInit(): void {
+
+    await this.fetchTemplate();
+    // this.fetchDataTemplate('');
+
+    setTimeout(() => {
+      console.log(this.serverData);
+      console.log(this.uiBindings);
+      ReactiveFormConfig.set({ validationMessage: { required: 'This field is required***' } });
+
+      for (let i = 0; i < this.serverData.length; i++) {
+        this.dynamicFormBuildConfig[i] = this.formBuilder.formGroup(this.serverData[i].data, {
+          additionalConfig: this.additionalConfig,
+          controlConfigModels: [{ modelName: 'userModel', model: UserModel, arguments: [this] }]
+        });
+      }
+    }, 3000);
+
+
+
+    // this.serverData.forEach(res => {
+    //   res.data.forEach(elemres => {
+    //     if(elemres.value != undefined){
+    //       elemres.ui.class.push('btn-circlecompleted');
+    //     }
+    //   });
+    // })
+  }
+
+  cameraControl(control: string, child: string, parent: string, metatags: string, tip: string, tier: string): void {
+
+    console.log('Test Method clicked');
+    console.log('Control : ' + control);
+    console.log('Child : ' + child);
+    console.log('Parent : ' + parent);
+    console.log('MetaTags : ' + metatags);
+    console.log('Tip : ' + tip);
+    console.log('Tier : ' + tier);
+    this.uploadFile(tier, parent, child, control);
+  }
+
+  galleryControl(control: string, child: string, parent: string): void {
+    console.log('galleryControl Method clicked');
+    console.log('Control : ' + control);
+    console.log('Child : ' + child);
+    console.log('Parent : ' + parent);
+  }
 
   openCommentDialog(control: string): void {
     this.commentDialogControlName = control;
@@ -220,41 +279,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     }, 75);
   }
 
-
-  ngAfterViewInit(): void {
-    this.elm = this.myModal.nativeElement as HTMLElement;
-    this.elm1 = this.myModal1.nativeElement as HTMLElement;
-    this.elm2 = this.myModal2.nativeElement as HTMLElement;
-  }
-
-  constructor(private formBuilder: RxDynamicFormBuilder) { }
-
-  ngOnInit(): void {
-
-    ReactiveFormConfig.set({ validationMessage: { required: 'This field is required***' } });
-
-    for (let i = 0; i < this.serverData.length; i++) {
-      this.dynamicFormBuildConfig[i] = this.formBuilder.formGroup(this.serverData[i].data, {
-        additionalConfig: this.additionalConfig,
-        controlConfigModels: [{ modelName: 'userModel', model: UserModel, arguments: [this] }]
-      });
-    }
-  }
-
-  cameraControl(control: string, child: string, parent: string, metatags: string, tip: string, tier: string): void {
-
-    console.log('Test Method clicked');
-    console.log('Control : ' + control);
-    console.log('Child : ' + child);
-    console.log('Parent : ' + parent);
-    console.log('MetaTags : ' + metatags);
-    console.log('Tip : ' + tip);
-    console.log('Tier : ' + tier);
-    this.uploadFile(tier, parent, child, control);
-  }
-
   uploadFile(tier, parent, child, control): void {
-    const displayarr = [{displaytier: tier, tierValue: child, tierchildren: []}];
+    const displayarr = [{ displaytier: tier, tierValue: child, tierchildren: [] }];
     const zoneIndex = this.serverData.findIndex((ele1) => ele1.data.some((ele) => ele.name === control));
 
     const arr = [];
@@ -302,9 +328,11 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.serverData[zoneIndex].data.forEach(ele => {
         if (ele.controlName === parent) {
           const childIndex = uniqueSet.findIndex(item => item.controlName === ele.controlName);
-          displayarr.unshift({displaytier: i - 1,
-                              tierValue: ele.controlName,
-                              tierchildren: uniqueSet[childIndex].children.filter(elem => elem.valueControl === true)});
+          displayarr.unshift({
+            displaytier: i - 1,
+            tierValue: ele.controlName,
+            tierchildren: uniqueSet[childIndex].children.filter(elem => elem.valueControl === true)
+          });
           parent = ele.parent;
         }
       });
@@ -314,12 +342,71 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   }
 
-  galleryReset(): void{
-    console.log('Gallery Rest')
+  galleryReset(): void {
+    console.log('Gallery Rest');
   }
 
   selectImageSource(): void {
 
+  }
+
+  async fetchTemplate(): void {
+
+    this.serverData = [];
+    this.uiBindings = [];
+    let testData = '';
+    var tempArray = [];
+
+    const postJson = {
+      userId: 'DYSFBAGT2',
+      userType: 'agent',
+      orgId: 'DEYESORG1',
+      TempId: ''
+    };
+
+    this._appService.postData('getOrgTemplate', postJson).subscribe((res: any) => {
+      if (res.StatusCode === '200') {
+        res.Data.forEach(element => {
+
+          const objUIBinding = JSON.parse(element.uiBindings);
+          const objJson = JSON.parse(element.templateJson);
+          testData = JSON.stringify(objUIBinding[0].data.replaceAll('\'', '\"'));
+          const parseData = JSON.parse(testData);
+          tempArray.push(JSON.parse(parseData));
+          this.serverData.push(objJson[0]);
+        });
+        this.uiBindings = [].concat.apply([], tempArray);
+
+      } else {
+        console.log(res.Message);
+      }
+    }, (err) => {
+      // Handle error
+      console.log('error' + err);
+    });
+  }
+
+  fetchDataTemplate(taskid) : void {
+
+    const postJson = {
+      userId: 'DYSFBAGT22',
+      userType: 'agent',
+      taskId: 'DYSFBTSK49'
+    };
+    this._appService.postData('getTaskTemplate', postJson).subscribe((res: any) => {
+      if (res.StatusCode === '200') {
+        // res.Data.forEach(element => {
+        //   console.log(JSON.parse(element['templateJson']));
+        //   this.serverData.push(JSON.parse(element['templateJson']));
+        // });
+        console.log(res);
+      } else {
+        console.log(res.Message);
+      }
+    }, (err) => {
+      // Handle error
+      console.log('error' + err);
+    });
   }
 
   addzone(): void {
@@ -327,43 +414,41 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     this.serverData.push(testData);
 
-    this.uiBindings.push(
-    ['plumbing_title', 'plumbing_kitchen_title', 'plumbing_bathroom_title', 'plumbing_heater_title',
-    'plumbing_dishwasher_title', 'plumbing_activeleaks_title', 'plumbing_priorleaks_title',
-    'plumbing_kitchen_sink_title', 'plumbing_bathroom_sink_title',
-     'plumbing_control_add_btn',
-    ['plumbing_bathroom_btn',
-    'plumbing_bathroom2_btn', 'plumbing_bathroom2_edit_btn',
-    'plumbing_bathroom3_btn', 'plumbing_bathroom3_edit_btn',
-    'plumbing_bathroom4_btn', 'plumbing_bathroom4_edit_btn',
-    'plumbing_bathroom5_btn', 'plumbing_bathroom5_edit_btn',
-    'plumbing_kitchen_btn',
-    'plumbing_kitchen2_btn', 'plumbing_kitchen2_edit_btn',
-    'plumbing_kitchen3_btn', 'plumbing_kitchen3_edit_btn',
-    'plumbing_kitchen4_btn', 'plumbing_kitchen4_edit_btn',
-    'plumbing_kitchen5_btn', 'plumbing_kitchen5_edit_btn',
-    'plumbing_heater_btn',
-    'plumbing_dishwasher_btn',
-    'plumbing_activeleaks_btn',
-    'plumbing_priorleaks_btn',
-    'plumbing_wmhose_btn',
-    'plumbing_addComments_btn'],
-    'plumbing_heater_add_btn',
-    'plumbing_dishwasher_add_btn', 'plumbing_dishwasher_comments_btn',
-    'plumbing_activeleaks_add_btn', 'plumbing_activeleaks_comments_btn',
-    'plumbing_priorleaks_add_btn', 'plumbing_priorleaks_comments_btn',
-    'plumbing_bathroomsink_btn', 'plumbing_bathroomsink_add_btn', 'plumbing_bathtub_btn', 'plumbing_supplyline_btn',
-    'plumbing_bathroomsink2_btn', 'plumbing_bathroomsink2_add_btn', 'plumbing_bathtub2_btn', 'plumbing_supplyline2_btn',
-    'plumbing_bathroomsink3_btn', 'plumbing_bathroomsink3_add_btn', 'plumbing_bathtub3_btn', 'plumbing_supplyline3_btn',
-    'plumbing_bathroomsink4_btn', 'plumbing_bathroomsink4_add_btn', 'plumbing_bathtub4_btn', 'plumbing_supplyline4_btn',
-    'plumbing_bathroomsink5_btn', 'plumbing_bathroomsink5_add_btn', 'plumbing_bathtub5_btn', 'plumbing_supplyline5_btn',
-    'plumbing_kitchensink_btn', 'plumbing_kitchensink_add_btn',
-    'plumbing_kitchensink2_btn', 'plumbing_kitchensink2_add_btn',
-    'plumbing_kitchensink3_btn', 'plumbing_kitchensink3_add_btn',
-    'plumbing_kitchensink4_btn', 'plumbing_kitchensink4_add_btn',
-    'plumbing_kitchensink5_btn', 'plumbing_kitchensink5_add_btn',
-    'plumbing_back_btn'
-    ]);
+    this.uiBindings.push('plumbing_control_add_btn', 'plumbing_back_btn',
+      ['plumbing_title', 'plumbing_kitchen_title', 'plumbing_bathroom_title', 'plumbing_heater_title',
+        'plumbing_dishwasher_title', 'plumbing_activeleaks_title', 'plumbing_priorleaks_title',
+        'plumbing_kitchen_sink_title', 'plumbing_bathroom_sink_title',
+        ['plumbing_bathroom_btn',
+          'plumbing_bathroom2_btn', 'plumbing_bathroom2_edit_btn',
+          'plumbing_bathroom3_btn', 'plumbing_bathroom3_edit_btn',
+          'plumbing_bathroom4_btn', 'plumbing_bathroom4_edit_btn',
+          'plumbing_bathroom5_btn', 'plumbing_bathroom5_edit_btn',
+          'plumbing_kitchen_btn',
+          'plumbing_kitchen2_btn', 'plumbing_kitchen2_edit_btn',
+          'plumbing_kitchen3_btn', 'plumbing_kitchen3_edit_btn',
+          'plumbing_kitchen4_btn', 'plumbing_kitchen4_edit_btn',
+          'plumbing_kitchen5_btn', 'plumbing_kitchen5_edit_btn',
+          'plumbing_heater_btn',
+          'plumbing_dishwasher_btn',
+          'plumbing_activeleaks_btn',
+          'plumbing_priorleaks_btn',
+          'plumbing_wmhose_btn',
+          'plumbing_addComments_btn'],
+        'plumbing_heater_add_btn',
+        'plumbing_dishwasher_add_btn', 'plumbing_dishwasher_comments_btn',
+        'plumbing_activeleaks_add_btn', 'plumbing_activeleaks_comments_btn',
+        'plumbing_priorleaks_add_btn', 'plumbing_priorleaks_comments_btn',
+        'plumbing_bathroomsink_btn', 'plumbing_bathroomsink_add_btn', 'plumbing_bathtub_btn', 'plumbing_supplyline_btn',
+        'plumbing_bathroomsink2_btn', 'plumbing_bathroomsink2_add_btn', 'plumbing_bathtub2_btn', 'plumbing_supplyline2_btn',
+        'plumbing_bathroomsink3_btn', 'plumbing_bathroomsink3_add_btn', 'plumbing_bathtub3_btn', 'plumbing_supplyline3_btn',
+        'plumbing_bathroomsink4_btn', 'plumbing_bathroomsink4_add_btn', 'plumbing_bathtub4_btn', 'plumbing_supplyline4_btn',
+        'plumbing_bathroomsink5_btn', 'plumbing_bathroomsink5_add_btn', 'plumbing_bathtub5_btn', 'plumbing_supplyline5_btn',
+        'plumbing_kitchensink_btn', 'plumbing_kitchensink_add_btn',
+        'plumbing_kitchensink2_btn', 'plumbing_kitchensink2_add_btn',
+        'plumbing_kitchensink3_btn', 'plumbing_kitchensink3_add_btn',
+        'plumbing_kitchensink4_btn', 'plumbing_kitchensink4_add_btn',
+        'plumbing_kitchensink5_btn', 'plumbing_kitchensink5_add_btn'
+      ]);
 
     for (let i = 0; i < this.serverData.length; i++) {
       this.dynamicFormBuildConfig[i] = this.formBuilder.formGroup(this.serverData[i].data, {

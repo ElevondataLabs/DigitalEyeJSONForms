@@ -16,10 +16,10 @@ export const SERVER_DATA = [
           hide: true,
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['backbtn', 'col-12', 'm-b-0']
             }
           },
-          class: ['backbtn', 'btn-dark', 'text-center', 'bi', 'bi-arrow-90deg-left'],
+          class: ['text-white', 'bi', 'bi-arrow-90deg-left'],
         }
       },
       {
@@ -40,14 +40,14 @@ export const SERVER_DATA = [
             }
           },
           description: '',
-          class: ['h1', 'text-center'],
+          class: ['formTitle'],
         }
       },
       {
         name: 'base_roofline_title',
         type: 'span',
         props: {
-          text: 'Base Inspection > RoofLine'
+          text: 'RoofLine'
         },
         valueControl: false,
         mandatory: true,
@@ -61,15 +61,14 @@ export const SERVER_DATA = [
               div: ['col-md-12']
             }
           },
-          // description: 'RoofLine',
-          class: ['h1', 'text-center'],
+          class: ['formTitle'],
         }
       },
       {
         name: 'base_dwelling_title',
         type: 'span',
         props: {
-          text: 'Base Inspection > Dwelling'
+          text: 'Dwelling'
         },
         valueControl: false,
         mandatory: true,
@@ -83,15 +82,14 @@ export const SERVER_DATA = [
               div: ['col-md-12']
             }
           },
-          // description: 'Dwelling',
-          class: ['h1', 'text-center'],
+          class: ['formTitle'],
         }
       },
       {
         name: 'base_propspec_title',
         type: 'span',
         props: {
-          text: 'Base Inspection > Hazard'
+          text: 'Hazard Details'
         },
         mandatory: true,
         tier: 2,
@@ -105,8 +103,7 @@ export const SERVER_DATA = [
               div: ['col-md-12']
             }
           },
-          // description: 'Property Specific',
-          class: ['h1', 'text-center'],
+          class: ['formTitle'],
         }
       },
       {
@@ -120,18 +117,19 @@ export const SERVER_DATA = [
         valueControl: true,
         multiple: true,
         tier: 2,
+        value: 'test',
         controlName: 'RoofLine',
         parent: 'BaseInspection',
-        tip: '',
+        tip: 'Please include all side of roof',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
         ui: {
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'RoofLine',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -151,11 +149,11 @@ export const SERVER_DATA = [
           hide: true,
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Add Photos',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -174,11 +172,11 @@ export const SERVER_DATA = [
         ui: {
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Dwelling',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -200,11 +198,11 @@ export const SERVER_DATA = [
           hide: true,
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Front View',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -226,11 +224,11 @@ export const SERVER_DATA = [
           hide: true,
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Back View',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -252,11 +250,11 @@ export const SERVER_DATA = [
           hide: true,
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Right View',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -278,11 +276,11 @@ export const SERVER_DATA = [
           hide: true,
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Left View',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -303,11 +301,11 @@ export const SERVER_DATA = [
         ui: {
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Add Hazard',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-plus'],
+          class: ['btn-circle', 'bi', 'bi-plus'],
         }
       },
       {
@@ -327,11 +325,11 @@ export const SERVER_DATA = [
           hide: true,
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Add Photos',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -350,11 +348,11 @@ export const SERVER_DATA = [
           hide: true,
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Add Comments',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-sticky'],
+          class: ['btn-circle', 'bi', 'bi-sticky'],
         }
       },
     ]
@@ -376,11 +374,11 @@ export const SERVER_DATA = [
         ui: {
           viewMode: {
             advance: {
-              div: ['col-md-12', 'text-center']
+              div: ['col-md-12']
             }
           },
           description: '',
-          class: ['h1', 'text-center'],
+          class: ['formTitle'],
         }
       },
       {
@@ -401,11 +399,11 @@ export const SERVER_DATA = [
         ui: {
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Driveway',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -426,11 +424,11 @@ export const SERVER_DATA = [
         ui: {
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Foundation',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -451,11 +449,11 @@ export const SERVER_DATA = [
         ui: {
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Sidewalks',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -476,11 +474,11 @@ export const SERVER_DATA = [
         ui: {
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Porches/Patios/Balconies',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -501,11 +499,11 @@ export const SERVER_DATA = [
         ui: {
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Stairs',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -526,11 +524,11 @@ export const SERVER_DATA = [
         ui: {
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Trees (Near the Dwelling)',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -551,11 +549,11 @@ export const SERVER_DATA = [
         ui: {
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Chimney',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -576,11 +574,11 @@ export const SERVER_DATA = [
         ui: {
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Fence',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -601,11 +599,11 @@ export const SERVER_DATA = [
         ui: {
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Siding',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -626,11 +624,11 @@ export const SERVER_DATA = [
         ui: {
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Gutters',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
       {
@@ -651,11 +649,11 @@ export const SERVER_DATA = [
         ui: {
           viewMode: {
             advance: {
-              div: ['col-xs-6']
+              div: ['col-6']
             }
           },
           description: 'Yard (including any debris)',
-          class: ['btn-circle', 'btn-secondary', 'text-center', 'bi', 'bi-camera'],
+          class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
     ]

@@ -85,7 +85,6 @@ export class UserModel extends FormControlConfig {
     }
 
     base_roofline(): void {
-        // this.controlsConfig.base_roofline_btn.value = 'test';
         if (this.controlsConfig.base_roofline_btn.value === '' || this.controlsConfig.base_roofline_btn.value === undefined) {
             this.btnClick(this.controlsConfig.base_roofline_btn.config.name);
         }
