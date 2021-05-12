@@ -1,4 +1,5 @@
-export const SERVER_DATA = [
+export const SERVER_DATA = 
+[
   {
     data: [
       {
@@ -657,4 +658,5 @@ export const SERVER_DATA = [
         }
       },
     ]
-  }];
+  }
+];

@@ -14,6 +14,10 @@ import { AppserviceService } from './appservice.service';
 })
 
 export class AppComponent implements OnInit, AfterViewInit {
+
+  objectKeys = Object.keys;
+
+  objData = [];
   title = 'angular-tour-of-heroes';
   commentDialogControlName = '';
   comments = '';
@@ -30,24 +34,27 @@ export class AppComponent implements OnInit, AfterViewInit {
   elm1: HTMLElement;
   elm2: HTMLElement;
 
-  serverData: any[] = SERVER_DATA;
+  // serverData: any[] = SERVER_DATA;
+  serverData: any[] ;
 
-  uiBindings: string[] = ['base_back_btn',
-    'base_title', 'base_roofline_title', 'base_dwelling_title', 'base_propspec_title',
-    ['base_roofline_btn', 'base_dwelling_btn'],
-    ['base_propspec_btn'], 'base_roofline_add_btn',
-    ['base_dwelling_frontview_btn', 'base_dwelling_backview_btn'],
-    ['base_dwelling_rightview_btn', 'base_dwelling_leftview_btn'],
-    ['base_propspec_add_btn', 'base_propspec_add_details'], 
+  // uiBindings: string[] = ['base_back_btn',
+  //   'base_title', 'base_roofline_title', 'base_dwelling_title', 'base_propspec_title',
+  //   ['base_roofline_btn', 'base_dwelling_btn'],
+  //   ['base_propspec_btn'], 'base_roofline_add_btn',
+  //   ['base_dwelling_frontview_btn', 'base_dwelling_backview_btn'],
+  //   ['base_dwelling_rightview_btn', 'base_dwelling_leftview_btn'],
+  //   ['base_propspec_add_btn', 'base_propspec_add_details'], 
 
-    'lblDetExterior',
-    ['btnDriveway', 'btnFoundation'],
-    ['btnSidewalks', 'btnPorches'],
-    ['btnStairs', 'btnTrees'],
-    ['btnChimney', 'btnFence'],
-    ['btnSiding', 'btnGutters'],
-    ['btnYard']
-  ];
+  //   'lblDetExterior',
+  //   ['btnDriveway', 'btnFoundation'],
+  //   ['btnSidewalks', 'btnPorches'],
+  //   ['btnStairs', 'btnTrees'],
+  //   ['btnChimney', 'btnFence'],
+  //   ['btnSiding', 'btnGutters'],
+  //   ['btnYard']
+  // ];
+
+  uiBindings: string[];
 
   dynamicFormBuildConfig: DynamicFormBuildConfig[] = [];
 
@@ -61,23 +68,22 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   async ngOnInit(): void {
 
-    await this.fetchTemplate();
-    // this.fetchDataTemplate('');
+    await this.fetchDataTemplate('');
 
     setTimeout(() => {
-      console.log(this.serverData);
-      console.log(this.uiBindings);
+      // console.log(this.serverData);
+      // console.log(this.uiBindings);
+
+      this.objData = this.objectKeys(this.serverData);
       ReactiveFormConfig.set({ validationMessage: { required: 'This field is required***' } });
 
-      for (let i = 0; i < this.serverData.length; i++) {
-        this.dynamicFormBuildConfig[i] = this.formBuilder.formGroup(this.serverData[i].data, {
+      for (let i = 0; i < this.objData.length; i++) {
+        this.dynamicFormBuildConfig[i] = this.formBuilder.formGroup(this.serverData[this.objData[i]][0].data, {
           additionalConfig: this.additionalConfig,
           controlConfigModels: [{ modelName: 'userModel', model: UserModel, arguments: [this] }]
         });
       }
     }, 3000);
-
-
 
     // this.serverData.forEach(res => {
     //   res.data.forEach(elemres => {
@@ -110,8 +116,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   openCommentDialog(control: string): void {
     this.commentDialogControlName = control;
 
-    this.serverData.forEach(objserverData => {
-      objserverData.data.forEach(res => {
+    this.objData.forEach(objserverData => {
+      this.serverData[objserverData][0].data.forEach(res => {
         if (res.name === this.commentDialogControlName) {
           console.log(res);
           this.comments = res.value;
@@ -132,8 +138,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   saveCommentDialog(): void {
-    this.serverData.forEach(objele => {
-      objele.data.forEach(res => {
+    this.objData.forEach(objele => {
+      this.serverData[objele][0].data.forEach(res => {
         if (res.name === this.commentDialogControlName) {
           if (this.comments !== undefined && this.comments.trim().length > 0) {
             res.value = this.comments.trim();
@@ -164,8 +170,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.repeatSource = [];
     this.repeatableSource = '';
 
-    this.serverData.forEach(objele => {
-      objele.data.forEach(res => {
+    this.objData.forEach(objele => {
+      this.serverData[objele][0].data.forEach(res => {
         if (res.repeatable !== undefined && res.repeatable < 5) {
           this.repeatSource.push({
             controlName: res.controlName
@@ -186,19 +192,21 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   addControlsave(): void {
-    this.serverData.forEach(objele => {
-      objele.data.forEach(res => {
+    this.objData.forEach(objele => {
+      this.serverData[objele][0].data.forEach(res => {
         if (res.controlName === this.repeatableSource && res.type === 'button') {
           res.repeatable += 1;
           let newControl = this.repeatableSource + res.repeatable;
           let found = false;
-          this.serverData.forEach(ele => {
-            ele.data.forEach(resp => {
+          this.objData.forEach(ele => {
+            this.serverData[ele][0].data.forEach(resp => {
               for (let i = 2; i <= res.repeatable;) {
                 newControl = this.repeatableSource + i;
                 if (resp.controlName === newControl && resp.enabled === false) {
-                  const editIndex = ele.data.findIndex((result) => result.name === resp.name.replace('_btn', '_edit_btn'));
-                  ele.data[editIndex].ui.hide = false;
+                  const editIndex =
+                    this.serverData[ele][0].data.findIndex((result) => result.name === resp.name.replace('_btn', '_edit_btn'));
+
+                  this.serverData[ele][0].data[editIndex].ui.hide = false;
                   found = true;
                   resp.ui.hide = false;
                   resp.enabled = true;
@@ -255,8 +263,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   addControlLabelsave(): void {
-    this.serverData.forEach(objele => {
-      objele.data.forEach(res => {
+    this.objData.forEach(objele => {
+      this.serverData[objele][0].data.forEach(res => {
         if (res.name === this.labelDialogControlName) {
           res.ui.description = this.controlLabel;
           try {
@@ -280,16 +288,18 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   uploadFile(tier, parent, child, control): void {
-    const displayarr = [{ displaytier: tier, tierValue: child, tierchildren: [] }];
-    const zoneIndex = this.serverData.findIndex((ele1) => ele1.data.some((ele) => ele.name === control));
 
+    const displayarr = [{ displaytier: tier, tierValue: child, tierchildren: [] }];
+    const zoneIndex = this.objData.findIndex(elemn => this.serverData[elemn][0].data.some((ele) => ele.name === control));
+
+    console.log(zoneIndex);
     const arr = [];
     let obj = [];
     const testobj = [];
 
-    this.serverData.forEach(elem => {
+    this.objData.forEach(elem => {
       obj = [];
-      elem.data.forEach(el => {
+      this.serverData[elem][0].data.forEach(el => {
         obj.push({
           name: el.name,
           controlName: el.controlName,
@@ -325,7 +335,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     const uniqueSet = [...new Set(testobj.filter(val => val.valueControl === true))];
 
     for (let i = tier; i > 1; i--) {
-      this.serverData[zoneIndex].data.forEach(ele => {
+      this.serverData[this.objData[zoneIndex]][0].data.forEach(ele => {
         if (ele.controlName === parent) {
           const childIndex = uniqueSet.findIndex(item => item.controlName === ele.controlName);
           displayarr.unshift({
@@ -352,29 +362,64 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   async fetchTemplate(): void {
 
+    let testData = '';
+    var tempArray = [];
+
+    const postJson = {
+      userId: 'DYSFBAGT22',
+      userType: 'agent',
+      orgId: 'DEYESORG1',
+      templateId: 'DYSFBTMP6'
+    };
+
+    this._appService.postData('getOrgTemplate', postJson).subscribe((res: any) => {
+      if (res.StatusCode === '200') {
+        // console.log(res);
+        res.Data.forEach(element => {
+          const objUIBinding = JSON.parse(element.uiBindings);
+          testData = JSON.stringify(objUIBinding[0].data.replaceAll('\'', '\"'));
+          const parseData = JSON.parse(testData);
+          tempArray.push(JSON.parse(parseData));
+
+          const zoneTemplate = element.zoneTemplateName;
+          const objJson = JSON.parse(element.templateJson);
+          this.serverData[zoneTemplate] = objJson;
+        });
+        this.uiBindings = [].concat.apply(this.uiBindings, tempArray);
+
+        console.log(this.uiBindings)
+      } else {
+        console.log(res.Message);
+      }
+    }, (err) => {
+      // Handle error
+      console.log('error' + err);
+    });
+  }
+
+  async fetchDataTemplate(taskid) : void {
+
     this.serverData = [];
     this.uiBindings = [];
     let testData = '';
     var tempArray = [];
 
     const postJson = {
-      userId: 'DYSFBAGT2',
+      userId: 'DYSFBAGT22',
       userType: 'agent',
-      orgId: 'DEYESORG1',
-      TempId: ''
+      taskId: 'DYSFBTSK55'
     };
-
-    this._appService.postData('getOrgTemplate', postJson).subscribe((res: any) => {
+    this._appService.postData('getTaskTemplate', postJson).subscribe((res: any) => {
       if (res.StatusCode === '200') {
-        res.Data.forEach(element => {
+        this.serverData = res.Data[0].templateJson;
+        this.uiBindings = res.Data[0].uiBindings;
 
-          const objUIBinding = JSON.parse(element.uiBindings);
-          const objJson = JSON.parse(element.templateJson);
-          testData = JSON.stringify(objUIBinding[0].data.replaceAll('\'', '\"'));
+        this.objectKeys(this.uiBindings).forEach(ele => {
+          testData = JSON.stringify(this.uiBindings[ele][0].data.replaceAll('\'', '\"'));
           const parseData = JSON.parse(testData);
           tempArray.push(JSON.parse(parseData));
-          this.serverData.push(objJson[0]);
         });
+
         this.uiBindings = [].concat.apply([], tempArray);
 
       } else {
@@ -386,75 +431,18 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
   }
 
-  fetchDataTemplate(taskid) : void {
+  async addzone(): void {
+    await this.fetchTemplate();
 
-    const postJson = {
-      userId: 'DYSFBAGT22',
-      userType: 'agent',
-      taskId: 'DYSFBTSK49'
-    };
-    this._appService.postData('getTaskTemplate', postJson).subscribe((res: any) => {
-      if (res.StatusCode === '200') {
-        // res.Data.forEach(element => {
-        //   console.log(JSON.parse(element['templateJson']));
-        //   this.serverData.push(JSON.parse(element['templateJson']));
-        // });
-        console.log(res);
-      } else {
-        console.log(res.Message);
+    setTimeout(() => {
+      this.objData = this.objectKeys(this.serverData);
+
+      for (let i = 0; i < this.objData.length; i++) {
+        this.dynamicFormBuildConfig[i] = this.formBuilder.formGroup(this.serverData[this.objData[i]][0].data, {
+          additionalConfig: this.additionalConfig,
+          controlConfigModels: [{ modelName: 'userModel', model: UserModel, arguments: [this] }]
+        });
       }
-    }, (err) => {
-      // Handle error
-      console.log('error' + err);
-    });
-  }
-
-  addzone(): void {
-    const testData = SERVER_DATA_ADD;
-
-    this.serverData.push(testData);
-
-    this.uiBindings.push('plumbing_control_add_btn', 'plumbing_back_btn',
-      ['plumbing_title', 'plumbing_kitchen_title', 'plumbing_bathroom_title', 'plumbing_heater_title',
-        'plumbing_dishwasher_title', 'plumbing_activeleaks_title', 'plumbing_priorleaks_title',
-        'plumbing_kitchen_sink_title', 'plumbing_bathroom_sink_title',
-        ['plumbing_bathroom_btn',
-          'plumbing_bathroom2_btn', 'plumbing_bathroom2_edit_btn',
-          'plumbing_bathroom3_btn', 'plumbing_bathroom3_edit_btn',
-          'plumbing_bathroom4_btn', 'plumbing_bathroom4_edit_btn',
-          'plumbing_bathroom5_btn', 'plumbing_bathroom5_edit_btn',
-          'plumbing_kitchen_btn',
-          'plumbing_kitchen2_btn', 'plumbing_kitchen2_edit_btn',
-          'plumbing_kitchen3_btn', 'plumbing_kitchen3_edit_btn',
-          'plumbing_kitchen4_btn', 'plumbing_kitchen4_edit_btn',
-          'plumbing_kitchen5_btn', 'plumbing_kitchen5_edit_btn',
-          'plumbing_heater_btn',
-          'plumbing_dishwasher_btn',
-          'plumbing_activeleaks_btn',
-          'plumbing_priorleaks_btn',
-          'plumbing_wmhose_btn',
-          'plumbing_addComments_btn'],
-        'plumbing_heater_add_btn',
-        'plumbing_dishwasher_add_btn', 'plumbing_dishwasher_comments_btn',
-        'plumbing_activeleaks_add_btn', 'plumbing_activeleaks_comments_btn',
-        'plumbing_priorleaks_add_btn', 'plumbing_priorleaks_comments_btn',
-        'plumbing_bathroomsink_btn', 'plumbing_bathroomsink_add_btn', 'plumbing_bathtub_btn', 'plumbing_supplyline_btn',
-        'plumbing_bathroomsink2_btn', 'plumbing_bathroomsink2_add_btn', 'plumbing_bathtub2_btn', 'plumbing_supplyline2_btn',
-        'plumbing_bathroomsink3_btn', 'plumbing_bathroomsink3_add_btn', 'plumbing_bathtub3_btn', 'plumbing_supplyline3_btn',
-        'plumbing_bathroomsink4_btn', 'plumbing_bathroomsink4_add_btn', 'plumbing_bathtub4_btn', 'plumbing_supplyline4_btn',
-        'plumbing_bathroomsink5_btn', 'plumbing_bathroomsink5_add_btn', 'plumbing_bathtub5_btn', 'plumbing_supplyline5_btn',
-        'plumbing_kitchensink_btn', 'plumbing_kitchensink_add_btn',
-        'plumbing_kitchensink2_btn', 'plumbing_kitchensink2_add_btn',
-        'plumbing_kitchensink3_btn', 'plumbing_kitchensink3_add_btn',
-        'plumbing_kitchensink4_btn', 'plumbing_kitchensink4_add_btn',
-        'plumbing_kitchensink5_btn', 'plumbing_kitchensink5_add_btn'
-      ]);
-
-    for (let i = 0; i < this.serverData.length; i++) {
-      this.dynamicFormBuildConfig[i] = this.formBuilder.formGroup(this.serverData[i].data, {
-        additionalConfig: this.additionalConfig,
-        controlConfigModels: [{ modelName: 'userModel', model: UserModel, arguments: [this] }]
-      });
-    }
+    }, 2000);
   }
 }
