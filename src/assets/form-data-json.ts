@@ -1,6 +1,7 @@
-export const SERVER_DATA = 
-[
-  {
+export const SERVER_DATA =
+{
+  "Test1": [
+    {
     data: [
       {
         name: 'base_back_btn',
@@ -33,7 +34,7 @@ export const SERVER_DATA =
         controlName: 'BaseInspection',
         parent: '',
         valueControl: true,
-        mandatory: true,
+        mandatory: 0,
         ui: {
           viewMode: {
             advance: {
@@ -51,7 +52,7 @@ export const SERVER_DATA =
           text: 'RoofLine'
         },
         valueControl: false,
-        mandatory: true,
+        mandatory: 0,
         tier: 2,
         controlName: 'RoofLine',
         parent: 'BaseInspection',
@@ -72,7 +73,7 @@ export const SERVER_DATA =
           text: 'Dwelling'
         },
         valueControl: false,
-        mandatory: true,
+        mandatory: 0,
         tier: 2,
         controlName: 'Dwelling',
         parent: 'BaseInspection',
@@ -92,9 +93,9 @@ export const SERVER_DATA =
         props: {
           text: 'Hazard Details'
         },
-        mandatory: true,
-        tier: 2,
         valueControl: false,
+        mandatory: 0,
+        tier: 2,
         controlName: 'PropertySpecific',
         parent: 'BaseInspection',
         ui: {
@@ -114,8 +115,8 @@ export const SERVER_DATA =
         events: {
           click: 'base_roofline'
         },
-        mandatory: true,
         valueControl: true,
+        mandatory: 0,
         multiple: true,
         tier: 2,
         value: 'test',
@@ -141,7 +142,7 @@ export const SERVER_DATA =
           click: 'base_roofline_add'
         },
         valueControl: false,
-        mandatory: true,
+        mandatory: 0,
         multiple: true,
         tier: 2,
         controlName: 'RoofLine',
@@ -161,8 +162,8 @@ export const SERVER_DATA =
         name: 'base_dwelling_btn',
         type: 'button',
         modelName: 'userModel',
-        mandatory: true,
         valueControl: true,
+        mandatory: 0,
         multiple: false,
         tier: 2,
         controlName: 'Dwelling',
@@ -184,8 +185,8 @@ export const SERVER_DATA =
         name: 'base_dwelling_frontview_btn',
         type: 'button',
         modelName: 'userModel',
-        mandatory: true,
         valueControl: true,
+        mandatory: 0,
         multiple: false,
         tier: 3,
         controlName: 'FrontView',
@@ -210,10 +211,10 @@ export const SERVER_DATA =
         name: 'base_dwelling_backview_btn',
         type: 'button',
         modelName: 'userModel',
-        mandatory: true,
         tier: 3,
         controlName: 'BackView',
         valueControl: true,
+        mandatory: 0,
         multiple: false,
         parent: 'Dwelling',
         tip: '',
@@ -236,8 +237,8 @@ export const SERVER_DATA =
         name: 'base_dwelling_rightview_btn',
         type: 'button',
         modelName: 'userModel',
-        mandatory: true,
         valueControl: true,
+        mandatory: 0,
         multiple: false,
         tier: 3,
         controlName: 'RightView',
@@ -262,8 +263,8 @@ export const SERVER_DATA =
         name: 'base_dwelling_leftview_btn',
         type: 'button',
         modelName: 'userModel',
-        mandatory: true,
         valueControl: true,
+        mandatory: 0,
         multiple: false,
         tier: 3,
         controlName: 'LeftView',
@@ -288,11 +289,11 @@ export const SERVER_DATA =
         name: 'base_propspec_btn',
         type: 'button',
         modelName: 'userModel',
-        mandatory: true,
         tier: 2,
         controlName: 'PropertySpecific',
         parent: 'BaseInspection',
         valueControl: true,
+        mandatory: 0,
         multiple: true,
         tip: '',
         metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
@@ -313,9 +314,9 @@ export const SERVER_DATA =
         name: 'base_propspec_add_btn',
         type: 'button',
         modelName: 'userModel',
-        mandatory: true,
         tier: 2,
         valueControl: false,
+        mandatory: 0,
         multiple: true,
         controlName: 'PropertySpecific',
         parent: 'BaseInspection',
@@ -337,9 +338,9 @@ export const SERVER_DATA =
         name: 'base_propspec_add_details',
         type: 'button',
         modelName: 'userModel',
-        mandatory: true,
         tier: 2,
         valueControl: false,
+        mandatory: 0,
         controlName: 'PropertySpecific',
         parent: 'BaseInspection',
         events: {
@@ -356,9 +357,9 @@ export const SERVER_DATA =
           class: ['btn-circle', 'bi', 'bi-sticky'],
         }
       },
-    ]
-  },
-  {
+  ]},
+],
+  "Test": [{
     data: [
       {
         name: 'lblDetExterior',
@@ -657,6 +658,6 @@ export const SERVER_DATA =
           class: ['btn-circle', 'bi', 'bi-camera'],
         }
       },
-    ]
-  }
-];
+    ]}
+  ]
+};

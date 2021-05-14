@@ -16,8 +16,9 @@ import { AppserviceService } from './appservice.service';
 export class AppComponent implements OnInit, AfterViewInit {
 
   objectKeys = Object.keys;
-
+  treeArr = [];
   objData = [];
+  childArrobj = [];
   title = 'angular-tour-of-heroes';
   commentDialogControlName = '';
   comments = '';
@@ -36,24 +37,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   // serverData: any[] = SERVER_DATA;
   serverData: any[] ;
-
-  // uiBindings: string[] = ['base_back_btn',
-  //   'base_title', 'base_roofline_title', 'base_dwelling_title', 'base_propspec_title',
-  //   ['base_roofline_btn', 'base_dwelling_btn'],
-  //   ['base_propspec_btn'], 'base_roofline_add_btn',
-  //   ['base_dwelling_frontview_btn', 'base_dwelling_backview_btn'],
-  //   ['base_dwelling_rightview_btn', 'base_dwelling_leftview_btn'],
-  //   ['base_propspec_add_btn', 'base_propspec_add_details'], 
-
-  //   'lblDetExterior',
-  //   ['btnDriveway', 'btnFoundation'],
-  //   ['btnSidewalks', 'btnPorches'],
-  //   ['btnStairs', 'btnTrees'],
-  //   ['btnChimney', 'btnFence'],
-  //   ['btnSiding', 'btnGutters'],
-  //   ['btnYard']
-  // ];
-
+  uiBindingsData: any[];
   uiBindings: string[];
 
   dynamicFormBuildConfig: DynamicFormBuildConfig[] = [];
@@ -73,11 +57,13 @@ export class AppComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       // console.log(this.serverData);
       // console.log(this.uiBindings);
-
+      // console.log(this.uiBindingsData);
+      // console.log(this.serverData);
       this.objData = this.objectKeys(this.serverData);
       ReactiveFormConfig.set({ validationMessage: { required: 'This field is required***' } });
 
       for (let i = 0; i < this.objData.length; i++) {
+        console.log(this.serverData[this.objData[i]]);
         this.dynamicFormBuildConfig[i] = this.formBuilder.formGroup(this.serverData[this.objData[i]][0].data, {
           additionalConfig: this.additionalConfig,
           controlConfigModels: [{ modelName: 'userModel', model: UserModel, arguments: [this] }]
@@ -287,28 +273,26 @@ export class AppComponent implements OnInit, AfterViewInit {
     }, 75);
   }
 
-  uploadFile(tier, parent, child, control): void {
+  createTree(): void{
 
-    const displayarr = [{ displaytier: tier, tierValue: child, tierchildren: [] }];
-    const zoneIndex = this.objData.findIndex(elemn => this.serverData[elemn][0].data.some((ele) => ele.name === control));
-
-    console.log(zoneIndex);
-    const arr = [];
     let obj = [];
-    const testobj = [];
+    this.childArrobj = [];
+    this.treeArr = [];
 
     this.objData.forEach(elem => {
       obj = [];
       this.serverData[elem][0].data.forEach(el => {
-        obj.push({
-          name: el.name,
-          controlName: el.controlName,
-          parent: el.parent,
-          valueControl: el.valueControl,
-          tier: el.tier,
-          metatags: el.metatags === undefined ? '' : el.metatags,
-          tip: el.tip === undefined ? '' : el.tip
-        });
+          obj.push({
+            name: el.name,
+            controlName: el.controlName,
+            parent: el.parent,
+            valueControl: el.valueControl,
+            mandatory: el.mandatory,
+            tier: el.tier,
+            value: el.value === undefined ? '' : el.value,
+            metatags: el.metatags === undefined ? '' : el.metatags,
+            tip: el.tip === undefined ? '' : el.tip
+          });
       });
 
       const idMapping = obj.reduce((acc, el, i) => {
@@ -326,13 +310,21 @@ export class AppComponent implements OnInit, AfterViewInit {
         const parentEl = obj[idMapping[el.parent]];
         parentEl.children = [...(parentEl.children || []), el];
 
-        testobj.push(parentEl);
+        this.childArrobj.push(parentEl);
       });
 
-      arr.push(root);
+      this.treeArr.push(root);
     });
+  }
 
-    const uniqueSet = [...new Set(testobj.filter(val => val.valueControl === true))];
+  uploadFile(tier, parent, child, control): void {
+
+    const displayarr = [{ displaytier: tier, tierValue: child, tierchildren: [] }];
+    const zoneIndex = this.objData.findIndex(elemn => this.serverData[elemn][0].data.some((ele) => ele.name === control));
+
+    this.createTree();
+
+    const uniqueSet = [...new Set(this.childArrobj.filter(val => val.valueControl === true))];
 
     for (let i = tier; i > 1; i--) {
       this.serverData[this.objData[zoneIndex]][0].data.forEach(ele => {
@@ -356,8 +348,59 @@ export class AppComponent implements OnInit, AfterViewInit {
     console.log('Gallery Rest');
   }
 
+  get_tree_List = (items, controlName = "", link = 'parent') => items
+    .filter(item => item[link] == controlName && item.valueControl)
+    .map(item => ({ ...item, children: this.get_tree_List(items, item.controlName) }));
+
   selectImageSource(): void {
 
+    // this.saveTemplate(this.serverData, this.uiBindingsData);
+
+    this.objData.forEach( ele => {
+      var abc = this.get_tree_List(this.serverData[ele][0].data);
+
+      abc.forEach(element => {
+        this.getValidationList(element);
+      });
+    });
+
+  }
+
+  getValidationList(element){
+    if(element.hasOwnProperty('children')){
+      if(element.children == []){
+        console.log("Child Found");
+      }
+      else{
+        element.children.forEach(res => {
+          console.log(res);
+          this.getValidationList(res);
+        });
+      }
+    }
+  }
+
+  saveTemplate(Data, Bindings): void{
+    console.log(Data);
+    const postJson = {
+      userId: 'DYSFBAGT2',
+      userType: 'agent',
+      taskId: 'DYSFBTSK59',
+      templateJson: Data,
+      uiBindings: Bindings,
+      status: 1
+    };
+
+    this._appService.postData('addTaskTemplate', postJson).subscribe((res: any) => {
+      if (res.StatusCode === '200') {
+        console.log(res.Message);
+      } else {
+        console.log(res.Message);
+      }
+    }, (err) => {
+      // Handle error
+      console.log('error' + err);
+    });
   }
 
   async fetchTemplate(): void {
@@ -366,17 +409,17 @@ export class AppComponent implements OnInit, AfterViewInit {
     var tempArray = [];
 
     const postJson = {
-      userId: 'DYSFBAGT22',
+      userId: 'DYSFBAGT2',
       userType: 'agent',
       orgId: 'DEYESORG1',
-      templateId: 'DYSFBTMP6'
+      templateId: 'DYSFBTMP9'
     };
 
     this._appService.postData('getOrgTemplate', postJson).subscribe((res: any) => {
       if (res.StatusCode === '200') {
-        // console.log(res);
         res.Data.forEach(element => {
           const objUIBinding = JSON.parse(element.uiBindings);
+          // console.log(objUIBinding[0].data);
           testData = JSON.stringify(objUIBinding[0].data.replaceAll('\'', '\"'));
           const parseData = JSON.parse(testData);
           tempArray.push(JSON.parse(parseData));
@@ -384,10 +427,10 @@ export class AppComponent implements OnInit, AfterViewInit {
           const zoneTemplate = element.zoneTemplateName;
           const objJson = JSON.parse(element.templateJson);
           this.serverData[zoneTemplate] = objJson;
+          this.uiBindingsData[zoneTemplate] = objUIBinding;
         });
         this.uiBindings = [].concat.apply(this.uiBindings, tempArray);
 
-        console.log(this.uiBindings)
       } else {
         console.log(res.Message);
       }
@@ -407,13 +450,15 @@ export class AppComponent implements OnInit, AfterViewInit {
     const postJson = {
       userId: 'DYSFBAGT22',
       userType: 'agent',
-      taskId: 'DYSFBTSK55'
+      taskId: 'DYSFBTSK59'
     };
     this._appService.postData('getTaskTemplate', postJson).subscribe((res: any) => {
       if (res.StatusCode === '200') {
-        this.serverData = res.Data[0].templateJson;
-        this.uiBindings = res.Data[0].uiBindings;
-
+        console.log(res);
+        this.serverData = JSON.parse(res.Data[0].templateJson);
+        this.uiBindingsData = JSON.parse(res.Data[0].uiBindings);
+        this.uiBindings = JSON.parse(res.Data[0].uiBindings);
+        
         this.objectKeys(this.uiBindings).forEach(ele => {
           testData = JSON.stringify(this.uiBindings[ele][0].data.replaceAll('\'', '\"'));
           const parseData = JSON.parse(testData);
