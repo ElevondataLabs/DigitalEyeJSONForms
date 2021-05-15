@@ -103,9 +103,9 @@ export class UserModel extends FormControlConfig {
     base_propspec(): void {
         this.base_reset();
         this.base_hazard_tier2();
-        if (this.controlsConfig.base_propspec_btn.value !== '' ||
-                this.controlsConfig.base_propspec_btn.value !== undefined){
-            this.gallerybtnClick(this.controlsConfig.base_propspec_btn.config.name);
+        if (this.controlsConfig.base_propspec_add_btn.value !== '' ||
+                this.controlsConfig.base_propspec_add_btn.value !== undefined){
+            this.gallerybtnClick(this.controlsConfig.base_propspec_add_btn.config.name);
         }
 
         if (this.controlsConfig.base_propspec_add_details.value === '' ||
@@ -118,7 +118,7 @@ export class UserModel extends FormControlConfig {
     }
 
     base_propspec_add(): void {
-        this.btnClick(this.controlsConfig.base_propspec_btn.config.name);
+        this.btnClick(this.controlsConfig.base_propspec_add_btn.config.name);
     }
 
     base_propspec_add_details(): void {
@@ -191,7 +191,6 @@ export class UserModel extends FormControlConfig {
         this.btnClick(this.controlsConfig.btnYard.config.name);
 
     }
-
 
     plumbing_back(): void{
         this.component.galleryReset();
@@ -498,9 +497,9 @@ export class UserModel extends FormControlConfig {
         this.controlsConfig.plumbing_dishwasher_add_btn.hide = false;
         this.controlsConfig.plumbing_dishwasher_comments_btn.hide = false;
 
-        if (this.controlsConfig.plumbing_dishwasher_btn.value !== '' ||
-            this.controlsConfig.plumbing_dishwasher_btn.value !== undefined) {
-            this.gallerybtnClick(this.controlsConfig.plumbing_dishwasher_btn.config.name);
+        if (this.controlsConfig.plumbing_dishwasher_add_btn.value !== '' ||
+            this.controlsConfig.plumbing_dishwasher_add_btn.value !== undefined) {
+            this.gallerybtnClick(this.controlsConfig.plumbing_dishwasher_add_btn.config.name);
         }
 
         if (this.controlsConfig.plumbing_dishwasher_comments_btn.value === '' ||
@@ -513,7 +512,7 @@ export class UserModel extends FormControlConfig {
     }
 
     plumbing_dishwasher_add(): void{
-        this.btnClick(this.controlsConfig.plumbing_dishwasher_btn.config.name);
+        this.btnClick(this.controlsConfig.plumbing_dishwasher_add_btn.config.name);
     }
 
     plumbing_dishwasher_comments(): void{
@@ -530,9 +529,9 @@ export class UserModel extends FormControlConfig {
         this.controlsConfig.plumbing_activeleaks_add_btn.hide = false;
         this.controlsConfig.plumbing_activeleaks_comments_btn.hide = false;
 
-        if (this.controlsConfig.plumbing_activeleaks_btn.value !== '' ||
-            this.controlsConfig.plumbing_activeleaks_btn.value !== undefined) {
-            this.gallerybtnClick(this.controlsConfig.plumbing_activeleaks_btn.config.name);
+        if (this.controlsConfig.plumbing_activeleaks_add_btn.value !== '' ||
+            this.controlsConfig.plumbing_activeleaks_add_btn.value !== undefined) {
+            this.gallerybtnClick(this.controlsConfig.plumbing_activeleaks_add_btn.config.name);
         }
 
         if (this.controlsConfig.plumbing_activeleaks_comments_btn.value === '' ||
@@ -545,7 +544,7 @@ export class UserModel extends FormControlConfig {
     }
 
     plumbing_activeleaks_add(): void{
-        this.btnClick(this.controlsConfig.plumbing_activeleaks_btn.config.name);
+        this.btnClick(this.controlsConfig.plumbing_activeleaks_add_btn.config.name);
     }
 
     plumbing_activeleaks_comments(): void{
@@ -563,9 +562,9 @@ export class UserModel extends FormControlConfig {
         this.controlsConfig.plumbing_priorleaks_add_btn.hide = false;
         this.controlsConfig.plumbing_priorleaks_comments_btn.hide = false;
 
-        if (this.controlsConfig.plumbing_priorleaks_btn.value !== '' ||
-            this.controlsConfig.plumbing_priorleaks_btn.value !== undefined) {
-            this.gallerybtnClick(this.controlsConfig.plumbing_priorleaks_btn.config.name);
+        if (this.controlsConfig.plumbing_priorleaks_add_btn.value !== '' ||
+            this.controlsConfig.plumbing_priorleaks_add_btn.value !== undefined) {
+            this.gallerybtnClick(this.controlsConfig.plumbing_priorleaks_add_btn.config.name);
         }
 
         if (this.controlsConfig.plumbing_priorleaks_comments_btn.value === '' ||
@@ -578,7 +577,7 @@ export class UserModel extends FormControlConfig {
     }
 
     plumbing_priorleaks_add(): void{
-        this.btnClick(this.controlsConfig.plumbing_priorleaks_btn.config.name);
+        this.btnClick(this.controlsConfig.plumbing_priorleaks_add_btn.config.name);
     }
 
     plumbing_priorleaks_comments(): void{

@@ -38,6 +38,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   // serverData: any[] = SERVER_DATA;
   serverData: any[] ;
   uiBindingsData: any[];
+
   uiBindings: string[];
 
   dynamicFormBuildConfig: DynamicFormBuildConfig[] = [];
@@ -327,7 +328,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     const uniqueSet = [...new Set(this.childArrobj.filter(val => val.valueControl === true))];
 
     for (let i = tier; i > 1; i--) {
+      console.log(uniqueSet);
       this.serverData[this.objData[zoneIndex]][0].data.forEach(ele => {
+        console.log(ele.controlName, ele.name)
         if (ele.controlName === parent) {
           const childIndex = uniqueSet.findIndex(item => item.controlName === ele.controlName);
           displayarr.unshift({
@@ -354,29 +357,88 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   selectImageSource(): void {
 
-    // this.saveTemplate(this.serverData, this.uiBindingsData);
-
-    this.objData.forEach( ele => {
-      var abc = this.get_tree_List(this.serverData[ele][0].data);
-
-      abc.forEach(element => {
-        this.getValidationList(element);
-      });
+    this.serverData[this.objData[0]][0].data.map(element => {
+      if(element.name == "base_roofline_btn"){
+        element.value = "Test"
+      }
     });
 
+    // this.saveTemplate(this.serverData, this.uiBindingsData);
+
+    this.objData.forEach(ele => {
+      var abc = this.get_tree_List(this.serverData[ele][0].data);
+      this.getValidationList(abc[0]);
+    });
   }
 
   getValidationList(element){
-    if(element.hasOwnProperty('children')){
-      if(element.children == []){
-        console.log("Child Found");
-      }
-      else{
-        element.children.forEach(res => {
-          console.log(res);
-          this.getValidationList(res);
-        });
-      }
+    if (element.children.length > 0) {
+        element.children.map(res => {
+          if((res.recommended == undefined || !res.recommended) && res.mandatory == 0 && (res.value == undefined || res.value == "")){
+            if(res.children.length > 0){
+              console.log("Function 1", "Child", res.children);
+              var checkval = res.children.filter(item => (item.value!= undefined && item.value != ""))
+              if(checkval.length > 0){
+                res.mandatory = 1;
+                res.value = "Filled";
+                if(res.ImpactOnGroup == "Yes"){
+                  element.children.map(item=>{
+                    console.log("Function 1", "Inside Main Loop", item);
+                    if(item.mandatory == 0 && item.children.length > 0 && item.ImpactOnGroup == "Yes"){
+                      item.mandatory = 1;
+                      item.value = "To be Filled";
+                    }
+                  })
+                }
+                this.getValidationList(element);
+              }
+              else
+              {
+                console.log("Function 1", "No Child with value", res);
+              }
+            }
+            else{
+              console.log("Function 1", "No Recommendation");
+            }
+          }
+          else if((res.recommended == undefined || !res.recommended) && res.mandatory == 1 && res.children.length > 0){
+            var checkval = res.children.filter(item => (item.mandatory == 1 && (item.value == undefined || item.value == "")))
+            if(checkval.length > 0){
+              res.recommended = true;
+              res.children.map(result => result.recommended = true);
+              console.log("Function 2", "Recommendation", checkval);            
+            }
+            else{
+              console.log("Function 2", "No Recommendation");
+            }
+          }
+          else if((res.recommended == undefined || !res.recommended) && res.mandatory == 1 && (res.value == undefined || res.value == "")){
+            var checkval = element.children.filter(item => (item.value != undefined && item.value != ""))
+            if(res.ImpactOnGroup == "Yes" && checkval.length > 0){
+                res.recommended = true;
+                console.log("Function 3", "Recommendation", res);
+            }
+            else{
+              console.log("No Recommendation");
+            }
+          }
+          else if((res.recommended == undefined || !res.recommended) && res.mandatory == 2 && (res.value == undefined || res.value == "")){
+            res.recommended = true;
+            console.log("Function 4", "Mandatory", res);
+          }
+          else{
+            if(res.ImpactOnGroup == "Yes"){
+              element.children.map(item=>{
+                console.log("Function 5", "Inside Loop", item);
+                if(item.mandatory == 0 && item.children.length > 0 && item.ImpactOnGroup == "Yes"){
+                  item.mandatory = 1;
+                  item.value = "To be Filled";
+                }
+              })
+            }
+            console.log("Function 5", "No Recommendation");
+          }
+      });
     }
   }
 
@@ -412,7 +474,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       userId: 'DYSFBAGT2',
       userType: 'agent',
       orgId: 'DEYESORG1',
-      templateId: 'DYSFBTMP9'
+      templateId: 'DYSFBTMP3'
     };
 
     this._appService.postData('getOrgTemplate', postJson).subscribe((res: any) => {
@@ -426,6 +488,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
           const zoneTemplate = element.zoneTemplateName;
           const objJson = JSON.parse(element.templateJson);
+          console.log(element.templateJson);
           this.serverData[zoneTemplate] = objJson;
           this.uiBindingsData[zoneTemplate] = objUIBinding;
         });
@@ -448,9 +511,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     var tempArray = [];
 
     const postJson = {
-      userId: 'DYSFBAGT22',
+      userId: 'DYSFBAGT20',
       userType: 'agent',
-      taskId: 'DYSFBTSK59'
+      taskId: 'DYSFBTSK5'
     };
     this._appService.postData('getTaskTemplate', postJson).subscribe((res: any) => {
       if (res.StatusCode === '200') {
