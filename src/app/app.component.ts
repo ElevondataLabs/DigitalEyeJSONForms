@@ -19,6 +19,10 @@ export class AppComponent implements OnInit, AfterViewInit {
   treeArr = [];
   objData = [];
   childArrobj = [];
+
+  recommedation = {};
+  tempArr = [];
+
   title = 'angular-tour-of-heroes';
   commentDialogControlName = '';
   comments = '';
@@ -363,15 +367,27 @@ export class AppComponent implements OnInit, AfterViewInit {
       }
     });
 
+    this.serverData[this.objData[1]][0].data.map(element => {
+      if(element.name == "plumbing_heater_btn"){
+        element.value = "Test"
+      }
+    });
+
     // this.saveTemplate(this.serverData, this.uiBindingsData);
 
     this.objData.forEach(ele => {
+      this.tempArr = [];
       var abc = this.get_tree_List(this.serverData[ele][0].data);
-      this.getValidationList(abc[0]);
+      this.getValidationList(abc[0], ele);
+
+      this.recommedation[ele] = this.tempArr;
     });
+
+    console.log("Actual Recommendation", this.recommedation);
+
   }
 
-  getValidationList(element){
+  getValidationList(element, zoneName){
     if (element.children.length > 0) {
         element.children.map(res => {
           if((res.recommended == undefined || !res.recommended) && res.mandatory == 0 && (res.value == undefined || res.value == "")){
@@ -406,6 +422,9 @@ export class AppComponent implements OnInit, AfterViewInit {
             if(checkval.length > 0){
               res.recommended = true;
               res.children.map(result => result.recommended = true);
+              checkval.forEach(resultant => {
+                this.tempArr.push(resultant);
+              });
               console.log("Function 2", "Recommendation", checkval);            
             }
             else{
@@ -413,9 +432,10 @@ export class AppComponent implements OnInit, AfterViewInit {
             }
           }
           else if((res.recommended == undefined || !res.recommended) && res.mandatory == 1 && (res.value == undefined || res.value == "")){
-            var checkval = element.children.filter(item => (item.value != undefined && item.value != ""))
+            var checkval = element.children.filter(item => (item.ImpactOnGroup == "Yes" && item.value != undefined && item.value != ""))
             if(res.ImpactOnGroup == "Yes" && checkval.length > 0){
                 res.recommended = true;
+                this.tempArr.push(res);
                 console.log("Function 3", "Recommendation", res);
             }
             else{
