@@ -367,11 +367,11 @@ export class AppComponent implements OnInit, AfterViewInit {
       }
     });
 
-    this.serverData[this.objData[1]][0].data.map(element => {
-      if(element.name == "plumbing_heater_btn"){
-        element.value = "Test"
-      }
-    });
+    // this.serverData[this.objData[1]][0].data.map(element => {
+    //   if(element.name == "plumbing_heater_btn"){
+    //     element.value = "Test"
+    //   }
+    // });
 
     // this.saveTemplate(this.serverData, this.uiBindingsData);
 
@@ -388,6 +388,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   getValidationList(element, zoneName){
+    console.log(element);
     if (element.children.length > 0) {
         element.children.map(res => {
           if((res.recommended == undefined || !res.recommended) && res.mandatory == 0 && (res.value == undefined || res.value == "")){
