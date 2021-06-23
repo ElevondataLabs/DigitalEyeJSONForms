@@ -1,3 +1,7 @@
+.col-6{
+  max-width: 20%;
+}
+
 
 .primary-color-background {
   background-color: var(--ion-color-primary) !important;
@@ -318,12 +322,16 @@
 }
 
 .btn.btn-circlecompleted{
-    /* background: blue; */
-    color: white;
-    background-image:
-        /* 10% = 126deg = 90 + ( 360 * .1 ) */
-        linear-gradient(90deg, #68b1df 50%, transparent 50%),
-        linear-gradient(320deg, transparent 50%, #68b1df 50%);
+  background: var(--ion-color-secondary);
+  color: var(--ion-color-secondary-contrast);
+}
+
+.btn.btn-circlepartialcompleted{
+  color: var(--ion-color-secondary-contrast);
+  background-image:
+      /* 10% = 126deg = 90 + ( 360 * .1 ) */
+      linear-gradient(90deg, var(--ion-color-secondary) 50%, transparent 50%),
+      linear-gradient(320deg, transparent 50%, var(--ion-color-secondary) 50%);
 }
 
 small.form-text{

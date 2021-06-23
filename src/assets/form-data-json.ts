@@ -1,663 +1,719 @@
 export const SERVER_DATA =
 {
-  "Test1": [
+  "Base Inspection": [
     {
-    data: [
-      {
-        name: 'base_back_btn',
-        type: 'button',
-        modelName: 'userModel',
-        events: {
-          click: 'base_back'
-        },
-        tier: 1,
-        valueControl: false,
-        controlName: 'BaseInspection',
-        parent: '',
-        ui: {
-          hide: true,
-          viewMode: {
-            advance: {
-              div: ['backbtn', 'col-12', 'm-b-0']
+      "data": [
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "text-white",
+              "bi",
+              "bi-arrow-90deg-left"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "backbtn",
+                  "col-12",
+                  "m-b-0"
+                ]
+              }
             }
           },
-          class: ['text-white', 'bi', 'bi-arrow-90deg-left'],
-        }
-      },
-      {
-        name: 'base_title',
-        type: 'span',
-        props: {
-          text: 'Base Inspection'
+          "name": "base_back_btn",
+          "controlType": "backbutton",
+          "type": "button",
+          "events": {
+            "click": "base_back"
+          },
+          "tier": 1,
+          "parent": "",
+          "controlName": "",
+          "mandatory": 0,
+          "valueControl": false,
+          "modelName": "userModel"
         },
-        tier: 1,
-        controlName: 'BaseInspection',
-        parent: '',
-        valueControl: true,
-        mandatory: 0,
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-md-12']
+        {
+          "ui": {
+            "hide": false,
+            "class": [
+              "formTitle"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-md-12"
+                ]
+              }
+            },
+            "description": ""
+          },
+          "name": "base_title",
+          "controlType": "title",
+          "type": "span",
+          "props": {
+            "text": "Base Inspection"
+          },
+          "tier": 1,
+          "parent": "",
+          "controlName": "BaseInspection",
+          "mandatory": 0,
+          "valueControl": true,
+          "modelName": "userModel"
+        },
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "formTitle"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-md-12"
+                ]
+              }
             }
           },
-          description: '',
-          class: ['formTitle'],
-        }
-      },
-      {
-        name: 'base_roofline_title',
-        type: 'span',
-        props: {
-          text: 'RoofLine'
+          "name": "base_roofline_title",
+          "controlType": "title",
+          "type": "span",
+          "props": {
+            "text": "RoofLine"
+          },
+          "tier": 2,
+          "parent": "BaseInspection",
+          "controlName": "RoofLine",
+          "mandatory": 0,
+          "valueControl": false,
+          "modelName": "userModel"
         },
-        valueControl: false,
-        mandatory: 0,
-        tier: 2,
-        controlName: 'RoofLine',
-        parent: 'BaseInspection',
-        ui: {
-          hide: true,
-          viewMode: {
-            advance: {
-              div: ['col-md-12']
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "formTitle"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-md-12"
+                ]
+              }
             }
           },
-          class: ['formTitle'],
-        }
-      },
-      {
-        name: 'base_dwelling_title',
-        type: 'span',
-        props: {
-          text: 'Dwelling'
+          "name": "base_dwelling_title",
+          "controlType": "title",
+          "type": "span",
+          "props": {
+            "text": "Dwelling"
+          },
+          "tier": 2,
+          "parent": "BaseInspection",
+          "controlName": "Dwelling",
+          "mandatory": 0,
+          "valueControl": false,
+          "modelName": "userModel"
         },
-        valueControl: false,
-        mandatory: 0,
-        tier: 2,
-        controlName: 'Dwelling',
-        parent: 'BaseInspection',
-        ui: {
-          hide: true,
-          viewMode: {
-            advance: {
-              div: ['col-md-12']
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "formTitle"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-md-12"
+                ]
+              }
             }
           },
-          class: ['formTitle'],
-        }
-      },
-      {
-        name: 'base_propspec_title',
-        type: 'span',
-        props: {
-          text: 'Hazard Details'
+          "name": "base_propspec_title",
+          "controlType": "title",
+          "type": "span",
+          "props": {
+            "text": "Hazard Details"
+          },
+          "tier": 2,
+          "parent": "BaseInspection",
+          "controlName": "PropertySpecific",
+          "mandatory": 0,
+          "valueControl": false,
+          "modelName": "userModel"
         },
-        valueControl: false,
-        mandatory: 0,
-        tier: 2,
-        controlName: 'PropertySpecific',
-        parent: 'BaseInspection',
-        ui: {
-          hide: true,
-          viewMode: {
-            advance: {
-              div: ['col-md-12']
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "formTitle"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-md-12"
+                ]
+              }
             }
           },
-          class: ['formTitle'],
-        }
-      },
-      {
-        name: 'base_roofline_btn',
-        type: 'button',
-        modelName: 'userModel',
-        events: {
-          click: 'base_roofline'
+          "name": "base_dwelling_backview_title",
+          "controlType": "title",
+          "type": "span",
+          "props": {
+            "text": "Back View"
+          },
+          "tier": 3,
+          "parent": "Dwelling",
+          "controlName": "BackView",
+          "mandatory": 0,
+          "valueControl": false,
+          "modelName": "userModel"
         },
-        valueControl: true,
-        mandatory: 0,
-        multiple: true,
-        tier: 2,
-        value: 'test',
-        controlName: 'RoofLine',
-        parent: 'BaseInspection',
-        tip: 'Please include all side of roof',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-6']
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "formTitle"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-md-12"
+                ]
+              }
             }
           },
-          description: 'RoofLine',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'base_roofline_add_btn',
-        type: 'button',
-        modelName: 'userModel',
-        events: {
-          click: 'base_roofline_add'
+          "name": "base_dwelling_rightview_title",
+          "controlType": "title",
+          "type": "span",
+          "props": {
+            "text": "Right View"
+          },
+          "tier": 3,
+          "parent": "Dwelling",
+          "controlName": "RightView",
+          "mandatory": 0,
+          "valueControl": false,
+          "modelName": "userModel"
         },
-        valueControl: false,
-        mandatory: 0,
-        multiple: true,
-        tier: 2,
-        controlName: 'RoofLine',
-        parent: 'BaseInspection',
-        ui: {
-          hide: true,
-          viewMode: {
-            advance: {
-              div: ['col-6']
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "formTitle"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-md-12"
+                ]
+              }
             }
           },
-          description: 'Add Photos',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'base_dwelling_btn',
-        type: 'button',
-        modelName: 'userModel',
-        valueControl: true,
-        mandatory: 0,
-        multiple: false,
-        tier: 2,
-        controlName: 'Dwelling',
-        parent: 'BaseInspection',
-        events: {
-          click: 'base_dwelling'
+          "name": "base_dwelling_frontview_title",
+          "controlType": "title",
+          "type": "span",
+          "props": {
+            "text": "Front View"
+          },
+          "tier": 3,
+          "parent": "Dwelling",
+          "controlName": "FrontView",
+          "mandatory": 0,
+          "valueControl": false,
+          "modelName": "userModel"
         },
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-6']
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "formTitle"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-md-12"
+                ]
+              }
             }
           },
-          description: 'Dwelling',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'base_dwelling_frontview_btn',
-        type: 'button',
-        modelName: 'userModel',
-        valueControl: true,
-        mandatory: 0,
-        multiple: false,
-        tier: 3,
-        controlName: 'FrontView',
-        parent: 'Dwelling',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'base_dwelling_frontview'
-        },
-        ui: {
-          hide: true,
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
+          "name": "base_dwelling_leftview_title",
+          "controlType": "title",
+          "type": "span",
+          "props": {
+            "text": "Left View"
           },
-          description: 'Front View',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'base_dwelling_backview_btn',
-        type: 'button',
-        modelName: 'userModel',
-        tier: 3,
-        controlName: 'BackView',
-        valueControl: true,
-        mandatory: 0,
-        multiple: false,
-        parent: 'Dwelling',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'base_dwelling_backview'
+          "tier": 3,
+          "parent": "Dwelling",
+          "controlName": "LeftView",
+          "mandatory": 0,
+          "valueControl": false,
+          "modelName": "userModel"
         },
-        ui: {
-          hide: true,
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
+        {
+          "ui": {
+            "hide": false,
+            "class": [
+              "btn-circle",
+              "bi",
+              "bi-camera"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-6"
+                ]
+              }
+            },
+            "description": "RoofLine"
           },
-          description: 'Back View',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'base_dwelling_rightview_btn',
-        type: 'button',
-        modelName: 'userModel',
-        valueControl: true,
-        mandatory: 0,
-        multiple: false,
-        tier: 3,
-        controlName: 'RightView',
-        parent: 'Dwelling',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'base_dwelling_rightview'
+          "name": "base_roofline_btn",
+          "controlType": "photo",
+          "type": "button",
+          "events": {
+            "click": "base_roofline"
+          },
+          "tier": 2,
+          "parent": "BaseInspection",
+          "controlName": "RoofLine",
+          "mandatory": 1,
+          "valueControl": true,
+          "ImpactOnGroup": "Yes",
+          "modelName": "userModel",
+          "multiple": true,
+          "tip": "Please include all sides of roof",
+          "metatags": "[\"Wood Siding\", \"Trees Adjacent Roof\", \"Concrete Foundation\", \"Sidewalk\", \"Composite Roof\"]"
         },
-        ui: {
-          hide: true,
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "btn-circle",
+              "bi",
+              "bi-camera"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-6"
+                ]
+              }
+            },
+            "description": "Add Photos"
           },
-          description: 'Right View',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'base_dwelling_leftview_btn',
-        type: 'button',
-        modelName: 'userModel',
-        valueControl: true,
-        mandatory: 0,
-        multiple: false,
-        tier: 3,
-        controlName: 'LeftView',
-        parent: 'Dwelling',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'base_dwelling_leftview'
+          "name": "base_roofline_add_btn",
+          "controlType": "photo",
+          "type": "button",
+          "events": {
+            "click": "base_roofline_add"
+          },
+          "tier": 2,
+          "parent": "BaseInspection",
+          "controlName": "RoofLine",
+          "mandatory": 0,
+          "valueControl": false,
+          "modelName": "userModel",
+          "multiple": true,
+          "tip": "Please include all sides of roof",
+          "metatags": "[\"Wood Siding\", \"Trees Adjacent Roof\", \"Concrete Foundation\", \"Sidewalk\", \"Composite Roof\"]"
         },
-        ui: {
-          hide: true,
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
+        {
+          "ui": {
+            "hide": false,
+            "class": [
+              "btn-circle",
+              "bi",
+              "bi-camera"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-6"
+                ]
+              }
+            },
+            "description": "Dwelling"
           },
-          description: 'Left View',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'base_propspec_btn',
-        type: 'button',
-        modelName: 'userModel',
-        tier: 2,
-        controlName: 'PropertySpecific',
-        parent: 'BaseInspection',
-        valueControl: true,
-        mandatory: 0,
-        multiple: true,
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'base_propspec'
+          "name": "base_dwelling_btn",
+          "controlType": "photo",
+          "type": "button",
+          "events": {
+            "click": "base_dwelling"
+          },
+          "tier": 2,
+          "parent": "BaseInspection",
+          "controlName": "Dwelling",
+          "mandatory": 0,
+          "valueControl": true,
+          "ImpactOnGroup": "Yes",
+          "modelName": "userModel",
+          "multiple": true,
+          "tip": "",
+          "metatags": ""
         },
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "btn-circle",
+              "bi",
+              "bi-camera"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-6"
+                ]
+              }
+            },
+            "description": "Front View"
           },
-          description: 'Add Hazard',
-          class: ['btn-circle', 'bi', 'bi-plus'],
-        }
-      },
-      {
-        name: 'base_propspec_add_btn',
-        type: 'button',
-        modelName: 'userModel',
-        tier: 2,
-        valueControl: false,
-        mandatory: 0,
-        multiple: true,
-        controlName: 'PropertySpecific',
-        parent: 'BaseInspection',
-        events: {
-          click: 'base_propspec_add'
+          "name": "base_dwelling_frontview_btn",
+          "controlType": "photo",
+          "type": "button",
+          "events": {
+            "click": "base_dwelling_frontview"
+          },
+          "tier": 3,
+          "parent": "Dwelling",
+          "controlName": "FrontView",
+          "mandatory": 1,
+          "valueControl": true,
+          "modelName": "userModel",
+          "multiple": true,
+          "tip": "",
+          "metatags": "[\"Wood Siding\", \"Trees Adjacent Roof\", \"Concrete Foundation\", \"Sidewalk\", \"Composite Roof\"]"
         },
-        ui: {
-          hide: true,
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "btn-circle",
+              "bi",
+              "bi-camera"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-6"
+                ]
+              }
+            },
+            "description": "Add Photos"
           },
-          description: 'Add Photos',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'base_propspec_add_details',
-        type: 'button',
-        modelName: 'userModel',
-        tier: 2,
-        valueControl: false,
-        mandatory: 0,
-        controlName: 'PropertySpecific',
-        parent: 'BaseInspection',
-        events: {
-          click: 'base_propspec_add_details'
+          "name": "base_dwelling_frontview_add_btn",
+          "controlType": "photo",
+          "type": "button",
+          "events": {
+            "click": "base_dwelling_frontview_add"
+          },
+          "tier": 3,
+          "parent": "Dwelling",
+          "controlName": "FrontView",
+          "mandatory": 0,
+          "valueControl": false,
+          "modelName": "userModel",
+          "multiple": true,
+          "tip": "",
+          "metatags": "[\"Wood Siding\", \"Trees Adjacent Roof\", \"Concrete Foundation\", \"Sidewalk\", \"Composite Roof\"]"
         },
-        ui: {
-          hide: true,
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "btn-circle",
+              "bi",
+              "bi-camera"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-6"
+                ]
+              }
+            },
+            "description": "Back View"
           },
-          description: 'Add Comments',
-          class: ['btn-circle', 'bi', 'bi-sticky'],
-        }
-      },
-  ]},
-],
-  "Test": [{
-    data: [
-      {
-        name: 'lblDetExterior',
-        type: 'span',
-        props: {
-          text: 'Detailed Exterior'
+          "name": "base_dwelling_backview_btn",
+          "controlType": "photo",
+          "type": "button",
+          "events": {
+            "click": "base_dwelling_backview"
+          },
+          "tier": 3,
+          "parent": "Dwelling",
+          "controlName": "BackView",
+          "mandatory": 1,
+          "valueControl": true,
+          "modelName": "userModel",
+          "multiple": true,
+          "tip": "",
+          "metatags": "[\"Wood Siding\", \"Trees Adjacent Roof\", \"Concrete Foundation\", \"Sidewalk\", \"Composite Roof\"]"
         },
-        mandatory: true,
-        multiple: false,
-        tier: 1,
-        controlName: 'DetailedExterior',
-        valueControl: true,
-        parent: '',
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-md-12']
-            }
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "btn-circle",
+              "bi",
+              "bi-camera"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-6"
+                ]
+              }
+            },
+            "description": "Add Photos"
           },
-          description: '',
-          class: ['formTitle'],
-        }
-      },
-      {
-        name: 'btnDriveway',
-        type: 'button',
-        modelName: 'userModel',
-        mandatory: true,
-        multiple: false,
-        tier: 2,
-        controlName: 'Driveway',
-        valueControl: true,
-        parent: 'DetailedExterior',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'btnDriveway'
+          "name": "base_dwelling_backview_add_btn",
+          "controlType": "photo",
+          "type": "button",
+          "events": {
+            "click": "base_dwelling_backview_add"
+          },
+          "tier": 3,
+          "parent": "Dwelling",
+          "controlName": "BackView",
+          "mandatory": 0,
+          "valueControl": false,
+          "modelName": "userModel",
+          "multiple": true,
+          "tip": "",
+          "metatags": "[\"Wood Siding\", \"Trees Adjacent Roof\", \"Concrete Foundation\", \"Sidewalk\", \"Composite Roof\"]"
         },
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "btn-circle",
+              "bi",
+              "bi-camera"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-6"
+                ]
+              }
+            },
+            "description": "Right View"
           },
-          description: 'Driveway',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'btnFoundation',
-        type: 'button',
-        modelName: 'userModel',
-        mandatory: true,
-        multiple: false,
-        tier: 2,
-        valueControl: true,
-        controlName: 'Foundation',
-        parent: 'DetailedExterior',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'btnFoundation'
+          "name": "base_dwelling_rightview_btn",
+          "controlType": "photo",
+          "type": "button",
+          "events": {
+            "click": "base_dwelling_rightview"
+          },
+          "tier": 3,
+          "parent": "Dwelling",
+          "controlName": "RightView",
+          "mandatory": 1,
+          "valueControl": true,
+          "modelName": "userModel",
+          "multiple": true,
+          "tip": "",
+          "metatags": "[\"Wood Siding\", \"Trees Adjacent Roof\", \"Concrete Foundation\", \"Sidewalk\", \"Composite Roof\"]"
         },
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "btn-circle",
+              "bi",
+              "bi-camera"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-6"
+                ]
+              }
+            },
+            "description": "Add Photos"
           },
-          description: 'Foundation',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'btnSidewalks',
-        type: 'button',
-        modelName: 'userModel',
-        mandatory: true,
-        multiple: false,
-        tier: 2,
-        valueControl: true,
-        controlName: 'Sidewalks',
-        parent: 'DetailedExterior',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'btnSidewalks'
+          "name": "base_dwelling_rightview_add_btn",
+          "controlType": "photo",
+          "type": "button",
+          "events": {
+            "click": "base_dwelling_rightview_add"
+          },
+          "tier": 3,
+          "parent": "Dwelling",
+          "controlName": "RightView",
+          "mandatory": 0,
+          "valueControl": false,
+          "modelName": "userModel",
+          "multiple": true,
+          "tip": "",
+          "metatags": "[\"Wood Siding\", \"Trees Adjacent Roof\", \"Concrete Foundation\", \"Sidewalk\", \"Composite Roof\"]"
         },
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "btn-circle",
+              "bi",
+              "bi-camera"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-6"
+                ]
+              }
+            },
+            "description": "Left View"
           },
-          description: 'Sidewalks',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'btnPorches',
-        type: 'button',
-        modelName: 'userModel',
-        mandatory: true,
-        multiple: false,
-        tier: 2,
-        valueControl: true,
-        controlName: 'Porches',
-        parent: 'DetailedExterior',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'btnPorches'
+          "name": "base_dwelling_leftview_btn",
+          "controlType": "photo",
+          "type": "button",
+          "events": {
+            "click": "base_dwelling_leftview"
+          },
+          "tier": 3,
+          "parent": "Dwelling",
+          "controlName": "LeftView",
+          "mandatory": 1,
+          "valueControl": true,
+          "modelName": "userModel",
+          "multiple": true,
+          "tip": "",
+          "metatags": "[\"Wood Siding\", \"Trees Adjacent Roof\", \"Concrete Foundation\", \"Sidewalk\", \"Composite Roof\"]"
         },
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "btn-circle",
+              "bi",
+              "bi-camera"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-6"
+                ]
+              }
+            },
+            "description": "Add Photos"
           },
-          description: 'Porches/Patios/Balconies',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'btnStairs',
-        type: 'button',
-        modelName: 'userModel',
-        mandatory: true,
-        multiple: false,
-        tier: 2,
-        valueControl: true,
-        controlName: 'Stairs',
-        parent: 'DetailedExterior',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'btnStairs'
+          "name": "base_dwelling_leftview_add_btn",
+          "controlType": "photo",
+          "type": "button",
+          "events": {
+            "click": "base_dwelling_leftview_add"
+          },
+          "tier": 3,
+          "parent": "Dwelling",
+          "controlName": "LeftView",
+          "mandatory": 0,
+          "valueControl": false,
+          "modelName": "userModel",
+          "multiple": true,
+          "tip": "",
+          "metatags": "[\"Wood Siding\", \"Trees Adjacent Roof\", \"Concrete Foundation\", \"Sidewalk\", \"Composite Roof\"]"
         },
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
+        {
+          "ui": {
+            "hide": false,
+            "class": [
+              "btn-circle",
+              "bi",
+              "bi-plus"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-6"
+                ]
+              }
+            },
+            "description": "Add Hazard"
           },
-          description: 'Stairs',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'btnTrees',
-        type: 'button',
-        modelName: 'userModel',
-        mandatory: true,
-        multiple: false,
-        tier: 2,
-        valueControl: true,
-        controlName: 'Trees',
-        parent: 'DetailedExterior',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'btnTrees'
+          "name": "base_propspec_btn",
+          "controlType": "photo",
+          "type": "button",
+          "events": {
+            "click": "base_propspec"
+          },
+          "tier": 2,
+          "parent": "BaseInspection",
+          "controlName": "PropertySpecific",
+          "mandatory": 0,
+          "valueControl": true,
+          "ImpactOnGroup": "No",
+          "modelName": "userModel",
+          "multiple": true,
+          "tip": "",
+          "metatags": ""
         },
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "btn-circle",
+              "bi",
+              "bi-camera"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-6"
+                ]
+              }
+            },
+            "description": "Add Photos"
           },
-          description: 'Trees (Near the Dwelling)',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'btnChimney',
-        type: 'button',
-        modelName: 'userModel',
-        mandatory: true,
-        multiple: false,
-        tier: 2,
-        valueControl: true,
-        controlName: 'Chimney',
-        parent: 'DetailedExterior',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'btnChimney'
+          "name": "base_propspec_add_btn",
+          "controlType": "photo",
+          "type": "button",
+          "events": {
+            "click": "base_propspec_add"
+          },
+          "tier": 3,
+          "parent": "PropertySpecific",
+          "controlName": "HazardDetails",
+          "mandatory": 1,
+          "valueControl": true,
+          "modelName": "userModel",
+          "multiple": true,
+          "tip": "",
+          "metatags": "[\"Wood Siding\", \"Trees Adjacent Roof\", \"Concrete Foundation\", \"Sidewalk\", \"Composite Roof\"]"
         },
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
+        {
+          "ui": {
+            "hide": true,
+            "class": [
+              "btn-circle",
+              "bi",
+              "bi-sticky"
+            ],
+            "viewMode": {
+              "advance": {
+                "div": [
+                  "col-6"
+                ]
+              }
+            },
+            "description": "Add Comments"
           },
-          description: 'Chimney',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'btnFence',
-        type: 'button',
-        modelName: 'userModel',
-        mandatory: true,
-        multiple: false,
-        tier: 2,
-        valueControl: true,
-        controlName: 'Fence',
-        parent: 'DetailedExterior',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'btnFence'
-        },
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
+          "name": "base_propspec_add_details",
+          "controlType": "comments",
+          "type": "button",
+          "events": {
+            "click": "base_propspec_add_details"
           },
-          description: 'Fence',
-          class: ['btn-circle', 'bi', 'bi-camera'],
+          "tier": 3,
+          "parent": "PropertySpecific",
+          "controlName": "HazardComments",
+          "mandatory": 0,
+          "valueControl": true,
+          "modelName": "userModel"
         }
-      },
-      {
-        name: 'btnSiding',
-        type: 'button',
-        modelName: 'userModel',
-        mandatory: true,
-        multiple: false,
-        tier: 2,
-        valueControl: true,
-        controlName: 'Siding',
-        parent: 'DetailedExterior',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'btnSiding'
-        },
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
-          },
-          description: 'Siding',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'btnGutters',
-        type: 'button',
-        modelName: 'userModel',
-        mandatory: true,
-        multiple: false,
-        tier: 2,
-        valueControl: true,
-        controlName: 'Gutters',
-        parent: 'DetailedExterior',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'btnGutters'
-        },
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
-          },
-          description: 'Gutters',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-      {
-        name: 'btnYard',
-        type: 'button',
-        mandatory: true,
-        multiple: false,
-        tier: 2,
-        valueControl: true,
-        controlName: 'Yard',
-        parent: 'DetailedExterior',
-        modelName: 'userModel',
-        tip: '',
-        metatags: '["Wood Siding", "Trees Adjacent Roof", "Concrete Foundation", "Sidewalk", "Composite Roof"]',
-        events: {
-          click: 'btnYard'
-        },
-        ui: {
-          viewMode: {
-            advance: {
-              div: ['col-6']
-            }
-          },
-          description: 'Yard (including any debris)',
-          class: ['btn-circle', 'bi', 'bi-camera'],
-        }
-      },
-    ]}
+      ]
+    }
   ]
-};
+}

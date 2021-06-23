@@ -7,7 +7,7 @@ import { map, switchMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AppserviceService {
-  public apiUrl = 'https://deyesinspectionservice-dq5rvo4msq-el.a.run.app/';
+  public apiUrl = 'https://uatdeyesinspectionservice-ycndnvorvq-uc.a.run.app/';
   private headersOption = new HttpHeaders();
 
   constructor(public http: HttpClient) {

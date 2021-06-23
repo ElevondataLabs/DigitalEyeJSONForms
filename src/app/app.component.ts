@@ -39,10 +39,63 @@ export class AppComponent implements OnInit, AfterViewInit {
   elm1: HTMLElement;
   elm2: HTMLElement;
 
-  // serverData: any[] = SERVER_DATA;
+  serverData1: any[] = SERVER_DATA_ADD;
   serverData: any[] ;
   uiBindingsData: any[];
 
+  uiBindings1: string[] = ['base_back_btn',
+                           'base_title','base_roofline_title','base_dwelling_title','base_propspec_title',
+                           'base_dwelling_rightview_title', 'base_dwelling_leftview_title',
+                           'base_dwelling_frontview_title', 'base_dwelling_backview_title',
+                           ['base_roofline_btn','base_dwelling_btn'],
+                           ['base_propspec_btn'],
+                           'base_roofline_add_btn',
+                           ['base_dwelling_frontview_btn','base_dwelling_backview_btn'],
+                           ['base_dwelling_rightview_btn','base_dwelling_leftview_btn'],
+                           'base_dwelling_leftview_add_btn','base_dwelling_frontview_add_btn',
+                           'base_dwelling_backview_add_btn','base_dwelling_rightview_add_btn',
+                           ['base_propspec_add_btn','base_propspec_add_details']];
+  
+  
+  uiBindings2: string[] = ['plumbing_back_btn',
+                          'plumbing_control_add_btn',
+                          ['plumbing_title','plumbing_kitchen_title','plumbing_bathroom_title',
+                           'plumbing_heater_title','plumbing_dishwasher_title','plumbing_activeleaks_title',
+                           'plumbing_priorleaks_title','plumbing_kitchen_sink_title',
+                           'plumbing_bathroom_sink_title', 'plumbing_bathroom_bathtub_title',
+                           'plumbing_bathroom_supplyline_title', 'plumbing_wmhose_title',
+                           ['plumbing_bathroom_btn','plumbing_bathroom2_btn','plumbing_bathroom2_edit_btn',
+                            'plumbing_bathroom3_btn','plumbing_bathroom3_edit_btn','plumbing_bathroom4_btn',
+                            'plumbing_bathroom4_edit_btn','plumbing_bathroom5_btn', 'plumbing_bathroom5_edit_btn',
+                            'plumbing_kitchen_btn','plumbing_kitchen2_btn','plumbing_kitchen2_edit_btn',
+                            'plumbing_kitchen3_btn','plumbing_kitchen3_edit_btn','plumbing_kitchen4_btn',
+                            'plumbing_kitchen4_edit_btn','plumbing_kitchen5_btn','plumbing_kitchen5_edit_btn',
+                            'plumbing_heater_btn','plumbing_dishwasher_btn','plumbing_activeleaks_btn',
+                            'plumbing_priorleaks_btn','plumbing_wmhose_btn','plumbing_addComments_btn'],
+                            'plumbing_heater_add_btn', 'plumbing_wmhose_add_btn', 
+                            'plumbing_dishwasher_add_btn','plumbing_dishwasher_comments_btn',
+                            'plumbing_activeleaks_add_btn','plumbing_activeleaks_comments_btn',
+                            'plumbing_priorleaks_add_btn','plumbing_priorleaks_comments_btn',
+                            'plumbing_bathroomsink_btn','plumbing_bathroomsink_add_btn',
+                            'plumbing_bathtub_btn', 'plumbing_bathtub_add_btn',
+                            'plumbing_supplyline_btn', 'plumbing_supplyline_add_btn',
+                            'plumbing_bathroomsink2_btn','plumbing_bathroomsink2_add_btn',
+                            'plumbing_bathtub2_btn', 'plumbing_bathtub2_add_btn', 
+                            'plumbing_supplyline2_btn', 'plumbing_supplyline2_add_btn',
+                            'plumbing_bathroomsink3_btn','plumbing_bathroomsink3_add_btn',
+                            'plumbing_bathtub3_btn', 'plumbing_bathtub3_add_btn', 
+                            'plumbing_supplyline3_btn', 'plumbing_supplyline3_add_btn',
+                            'plumbing_bathroomsink4_btn','plumbing_bathroomsink4_add_btn',
+                            'plumbing_bathtub4_btn', 'plumbing_bathtub4_add_btn',
+                            'plumbing_supplyline4_btn','plumbing_supplyline4_add_btn',
+                            'plumbing_bathroomsink5_btn','plumbing_bathroomsink5_add_btn',
+                            'plumbing_bathtub5_btn', 'plumbing_bathtub5_add_btn',
+                            'plumbing_supplyline5_btn', 'plumbing_supplyline5_add_btn',
+                            'plumbing_kitchensink_btn','plumbing_kitchensink_add_btn',
+                            'plumbing_kitchensink2_btn','plumbing_kitchensink2_add_btn',
+                            'plumbing_kitchensink3_btn','plumbing_kitchensink3_add_btn',
+                            'plumbing_kitchensink4_btn','plumbing_kitchensink4_add_btn',
+                            'plumbing_kitchensink5_btn','plumbing_kitchensink5_add_btn']]
   uiBindings: string[];
 
   dynamicFormBuildConfig: DynamicFormBuildConfig[] = [];
@@ -60,16 +113,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     await this.fetchDataTemplate('');
 
     setTimeout(() => {
-      // console.log(this.serverData);
-      // console.log(this.uiBindings);
-      // console.log(this.uiBindingsData);
-      // console.log(this.serverData);
-      this.objData = this.objectKeys(this.serverData);
+      this.objData = this.objectKeys(this.serverData1);
       ReactiveFormConfig.set({ validationMessage: { required: 'This field is required***' } });
 
       for (let i = 0; i < this.objData.length; i++) {
-        console.log(this.serverData[this.objData[i]]);
-        this.dynamicFormBuildConfig[i] = this.formBuilder.formGroup(this.serverData[this.objData[i]][0].data, {
+        console.log(this.serverData1[this.objData[i]]);
+        this.dynamicFormBuildConfig[i] = this.formBuilder.formGroup(this.serverData1[this.objData[i]][0].data, {
           additionalConfig: this.additionalConfig,
           controlConfigModels: [{ modelName: 'userModel', model: UserModel, arguments: [this] }]
         });
@@ -332,7 +381,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     const uniqueSet = [...new Set(this.childArrobj.filter(val => val.valueControl === true))];
 
     for (let i = tier; i > 1; i--) {
-      console.log(uniqueSet);
+      console.log("Uniques Set", uniqueSet);
       this.serverData[this.objData[zoneIndex]][0].data.forEach(ele => {
         console.log(ele.controlName, ele.name)
         if (ele.controlName === parent) {
@@ -363,7 +412,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     this.serverData[this.objData[0]][0].data.map(element => {
       if(element.name == "base_roofline_btn"){
-        element.value = "Test"
+        element.value = ""
       }
     });
 
@@ -378,7 +427,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.objData.forEach(ele => {
       this.tempArr = [];
       var abc = this.get_tree_List(this.serverData[ele][0].data);
-      this.getValidationList(abc[0], ele);
+      this.getValidationList(abc[0], abc[0]);
 
       this.recommedation[ele] = this.tempArr;
     });
@@ -387,12 +436,13 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   }
 
-  getValidationList(element, zoneName){
-    console.log(element);
+  getValidationList(element, tempele){
+    console.log("First Element", element);
     if (element.children.length > 0) {
         element.children.map(res => {
           if((res.recommended == undefined || !res.recommended) && res.mandatory == 0 && (res.value == undefined || res.value == "")){
             if(res.children.length > 0){
+              this.getValidationList(res, tempele);
               console.log("Function 1", "Child", res.children);
               var checkval = res.children.filter(item => (item.value!= undefined && item.value != ""))
               if(checkval.length > 0){
@@ -407,7 +457,7 @@ export class AppComponent implements OnInit, AfterViewInit {
                     }
                   })
                 }
-                this.getValidationList(element);
+                this.getValidationList(tempele, tempele);
               }
               else
               {
@@ -466,9 +516,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   saveTemplate(Data, Bindings): void{
     console.log(Data);
     const postJson = {
-      userId: 'DYSFBAGT2',
+      userId: 'DYSFBAGT22',
       userType: 'agent',
-      taskId: 'DYSFBTSK59',
+      taskId: 'DYSFBTSK2',
       templateJson: Data,
       uiBindings: Bindings,
       status: 1
@@ -524,6 +574,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
   }
 
+  backButtonEnableOrDisable(value){
+    console.log(value)
+  }
+
   async fetchDataTemplate(taskid) : void {
 
     this.serverData = [];
@@ -532,9 +586,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     var tempArray = [];
 
     const postJson = {
-      userId: 'DYSFBAGT20',
+      userId: 'DYSFBAGT22',
       userType: 'agent',
-      taskId: 'DYSFBTSK5'
+      taskId: 'DYSFBTSK139'
     };
     this._appService.postData('getTaskTemplate', postJson).subscribe((res: any) => {
       if (res.StatusCode === '200') {
