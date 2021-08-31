@@ -469,6 +469,9 @@ export class UserModel extends FormControlConfig {
     }
 
     plumbing_kitchen(): void {
+
+        console.log(this, this.controlsConfig);
+
         this.plumbing_reset();
 
         this.controlsConfig.plumbing_back_btn.tier = 2;

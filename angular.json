@@ -33,6 +33,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
+              "src/assets/formtest.js"
             ]
           },
           "configurations": {
@@ -127,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "angular-tour-of-heroes"
+  "defaultProject": "angular-tour-of-heroes",
+  "cli": {
+    "analytics": "c1ac0b3a-2fbb-4750-bc21-f68aa2662fdd"
+  }
 }

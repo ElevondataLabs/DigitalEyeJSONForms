@@ -1,11 +1,13 @@
 // @ts-nocheck
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit,HostListener, Component, OnInit, ViewChild } from '@angular/core';
 import { DynamicFormBuildConfig, DynamicFormConfiguration, RxDynamicFormBuilder } from '@rxweb/reactive-dynamic-forms';
 import { ReactiveFormConfig } from '@rxweb/reactive-form-validators';
 import { SERVER_DATA } from '../assets/form-data-json';
 import { SERVER_DATA_ADD } from '../assets/form-data-json-add';
 import { UserModel } from '../assets/config';
 import { AppserviceService } from './appservice.service';
+
+declare function formtest(value: any): any;
 
 @Component({
   selector: 'app-root',
@@ -108,6 +110,20 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.elm2 = this.myModal2.nativeElement as HTMLElement;
   }
 
+
+  formTesting(capture) {
+    var elements = document.getElementsByClassName("btn-circle");
+    console.log(elements);
+    var myFunction = function () {
+      var attribute = this.getAttribute("name");
+      formtest(attribute, capture);
+    };
+
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].addEventListener('click', myFunction, false);
+    }
+  }
+
   async ngOnInit(): void {
 
     await this.fetchDataTemplate('');
@@ -123,7 +139,15 @@ export class AppComponent implements OnInit, AfterViewInit {
           controlConfigModels: [{ modelName: 'userModel', model: UserModel, arguments: [this] }]
         });
       }
+      
+      setTimeout(() => {
+        this.formTesting([this]);
+      }, 200);
+      
     }, 3000);
+
+    
+   
 
     // this.serverData.forEach(res => {
     //   res.data.forEach(elemres => {
@@ -134,7 +158,15 @@ export class AppComponent implements OnInit, AfterViewInit {
     // })
   }
 
-  cameraControl(control: string, child: string, parent: string, metatags: string, tip: string, tier: string): void {
+  @HostListener('window:onCameraClick', ['$event.detail'])
+  cameraControl(detail: any): void {
+
+    var control = detail.control;
+    var child = detail.child;
+    var parent = detail.parent;
+    var metatags = detail.metatags 
+    var tip = detail.tip 
+    var tier = detail.tier;
 
     console.log('Test Method clicked');
     console.log('Control : ' + control);
@@ -146,7 +178,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.uploadFile(tier, parent, child, control);
   }
 
-  galleryControl(control: string, child: string, parent: string): void {
+  @HostListener('window:onGalleryClick', ['$event.detail'])
+  galleryControl(detail: any): void {
+    var control = detail.control; 
+    var child= detail.child; 
+    var parent =  detail.parent;
+
     console.log('galleryControl Method clicked');
     console.log('Control : ' + control);
     console.log('Child : ' + child);

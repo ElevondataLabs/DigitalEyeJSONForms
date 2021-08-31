@@ -377,9 +377,9 @@ export const SERVER_DATA_ADD =
           "name": "plumbing_bathroom_btn",
           "controlType": "photo",
           "type": "button",
-          "events": {
-            "click": "plumbing_bathroom"
-          },
+          // "events": {
+          //   "click": "plumbing_bathroom"
+          // },
           "tier": 2,
           "parent": "Plumbing",
           "controlName": "Bathroom",
@@ -629,9 +629,9 @@ export const SERVER_DATA_ADD =
           "name": "plumbing_bathroomsink_btn",
           "controlType": "photo",
           "type": "button",
-          "events": {
-            "click": "plumbing_bathroomsink"
-          },
+          // "events": {
+          //   "click": "plumbing_bathroomsink"
+          // },
           "tier": 3,
           "parent": "Bathroom",
           "controlName": "BathroomSink",
