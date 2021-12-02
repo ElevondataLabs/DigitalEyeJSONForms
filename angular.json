@@ -33,7 +33,6 @@
               "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
-              "src/assets/formtest.js"
             ]
           },
           "configurations": {
