@@ -12,6 +12,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators'
 import { RxTranslateModule } from '@rxweb/translate';
 import { RxReactiveDynamicFormsModule } from '@rxweb/reactive-dynamic-forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RxReactiveFormsModule,
     HttpClientModule,
     RxReactiveDynamicFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

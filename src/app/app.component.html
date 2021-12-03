@@ -6,8 +6,7 @@
         <label class="h1">Zone {{i + 1}}</label>
         <div *ngIf="uiBindings" viewMode="advance" [rxwebDynamicForm]="dynamicFormBuildConfig[i]" [uiBindings]="uiBindings2">
         </div>
-      </form>
-      
+      </form> 
     </div>
     <div class="col-md-4">
       <button type="submit" name="submitForm" (click)="selectImageSource()" class="btn btn-primary">Submit</button>
@@ -17,6 +16,11 @@
       <!-- <pre>{{this.serverData | json}}</pre> -->
     </div>
   </div>
+</div>
+
+<div style="padding: 10%;">
+  <h1>Test Form</h1>
+  <app-custom-dynamic-form-builder *ngIf="fieldsForCustomForm" [formFieldsJson]="fieldsForCustomForm"></app-custom-dynamic-form-builder>
 </div>
 <div class="modal fade my-modal" tabindex="-1" role="dialog" #myModal>
   <div class="modal-dialog">
