@@ -66,7 +66,7 @@ export class CustomDynamicFormBuilderComponent implements OnInit {
        return;
     }
     console.log(this._customForm.value);
-     this.formFieldsJson.map(item =>{
+     this.formFieldsJson.map((item: any) =>{
       item.controlvalue = !Array.isArray(item['controlvalue']) ? (this._customForm.value[item.controlName]).trim() : this._customForm.value[item.controlName];
       // return item;
     });

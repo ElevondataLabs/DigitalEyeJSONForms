@@ -17,6 +17,109 @@ declare function backButtonEvent(controlName: any): any;
 })
 
 export class AppComponent implements OnInit, AfterViewInit {
+  
+  public updatedFieldsforCustomForm: any[]= [
+    {
+    "Base Inspection":
+      [{
+        id: 'ques1',
+        layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
+        label: 'Name',
+        controlName: 'Question_1',
+        controlType: 'text',
+        controlvalue: '',
+        placeholder:'',
+        controlOptions: [],
+        isRequired: true,
+        inputPattern: '',
+      },
+      {
+        id: 'ques2',
+        layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
+        label: 'Email',
+        controlName: 'Question_2',
+        controlType: 'text',
+        controlvalue: '',
+        placeholder:'',
+        controlOptions: [],
+        isRequired: true,
+        inputPattern: '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,6}$',
+      },
+      {
+        id: 'ques3',
+        layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
+        label: 'Password',
+        controlName: 'Question_3',
+        controlType: 'password',
+        controlvalue: '',
+        placeholder:'',
+        controlOptions: [],
+        isRequired: true,
+        inputPattern: '',
+      },
+      {
+        id: 'ques4',
+        layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
+        label: 'Gender',
+        controlName: 'Question_4',
+        controlType: 'radio',
+        controlvalue: '1',
+        placeholder:'',
+        controlOptions: [{id:'1', option:'Male'}, {id:'2', option:'Female'}],
+        isRequired: true,
+        inputPattern: '',
+      },
+      {
+        id: 'ques5',
+        layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
+        label: 'Date of Birth',
+        controlName: 'Question_5',
+        controlType: 'date',
+        controlvalue: '',
+        placeholder:'',
+        controlOptions: [],
+        isRequired: true,
+        inputPattern: '',
+      }],
+   "Detailed Exterior" : 
+   [{
+      id: 'ques6',
+      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
+      label: 'Hobbies',
+      controlName: 'Question_6',
+      controlType: 'checkbox',
+      controlvalue: ['1','2'],
+      placeholder:'',
+      controlOptions: [{id:'1', option:'Dancing'}, {id:'2', option:'Singing'}, {id:'3', option:'Reading'}],
+      isRequired: true,
+      inputPattern: '',
+    },
+    {
+      id: 'ques7',
+      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
+      label: 'Language Preference',
+      controlName: 'Question_7',
+      controlType: 'select',
+      controlvalue: '',
+      placeholder:'',
+      controlOptions: [{id:'1', option:'English'}, {id:'2', option:'Hindi'}, {id:'3', option:'Marathi'}],
+      isRequired: true,
+      inputPattern: '',
+    },
+    {
+      id: 'ques8',
+      layOutClass:"col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12",
+      label: 'Address',
+      controlName: 'Question_8',
+      controlType: 'textarea',
+      controlvalue: '',
+      placeholder:'',
+      controlOptions: [],
+      isRequired: true,
+      inputPattern: '',
+    }]
+  }];
+  
   public fieldsForCustomForm:any[] = [
     {
       id: 'ques1',
