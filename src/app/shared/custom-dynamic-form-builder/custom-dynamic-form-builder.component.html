@@ -1,12 +1,11 @@
 <div >
   <form [formGroup]="_customForm" (ngSubmit)="_customFormSubmit()">
     <div class="row">
-        <ng-container *ngFor="let zone of zoneKeys;let i = index" class="Zone_{{i}}">
-            <h2>{{zone}}</h2>
+        <ng-container *ngFor="let zone of zoneKeys;let i = index">
+            <h2 class="Zone_{{i}}">{{zone}}</h2>
             <div class="{{formData.layOutClass}}" *ngFor="let formData of customFormJson[0][zone]" [ngSwitch]="true">
                 <div class="form-group">
-                  <label for="{{formData.controlName}}">{{formData.label}}</label>
-        
+                  <label for="{{formData.controlName}}">{{formData.label}}</label> 
                   <input type="{{formData.controlType}}" name="{{formData.controlName}}" class="form-control" *ngSwitchDefault
                     [formControlName]="formData.controlName" [formControlName]="formData.controlName"
                     placeholder="{{formData.placeholder}}"> 
