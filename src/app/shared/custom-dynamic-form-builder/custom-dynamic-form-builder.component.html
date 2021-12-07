@@ -1,52 +1,55 @@
 <div >
   <form [formGroup]="_customForm" (ngSubmit)="_customFormSubmit()">
     <div class="row">
-      <div class="{{formData.layOutClass}}" *ngFor="let formData of formFieldsJson" [ngSwitch]="true">
-        <div class="form-group">
-          <label for="{{formData.controlName}}">{{formData.label}}</label>
-
-          <input type="{{formData.controlType}}" name="{{formData.controlName}}" class="form-control" *ngSwitchDefault
-            [formControlName]="formData.controlName" [formControlName]="formData.controlName"
-            placeholder="{{formData.placeholder}}"> 
-            <textarea name="{{formData.controlName}}" class="form-control" [formControlName]="formData.controlName"
-            placeholder="{{formData.placeholder}}" *ngSwitchCase="formData.controlType === 'textarea'"></textarea>
-         
-          <select [id]="formData.controlName" [formControlName]="formData.controlName"
-            *ngSwitchCase="formData.controlType === 'select'" class="form-control" [formControlName]="formData.controlName">
-            <option value=''>Select</option>
-            <option *ngFor="let opt of formData.controlOptions" [value]="opt.id">{{opt.option}}</option>
-          </select>
-
-          <div class="custom-control custom-switch" *ngSwitchCase="formData.controlType === 'radio'">
-            <div class="form-check form-check-inline" *ngFor="let item of formData.controlOptions">
-              <input class="form-check-input" [formControlName]="formData.controlName" type="radio" value="{{item.id}}">
-              <label class="form-check-label">{{item.option}}</label>
-            </div>
-          </div>
-
-          <div class="custom-control custom-switch" *ngSwitchCase="formData.controlType === 'checkbox'">
-            <div class="form-check form-check-inline" *ngFor="let item of formData.controlOptions; let i=index">
-              <input class="form-check-input" [checked]="(formData.controlvalue).includes(item.id)" type="checkbox"
-                [value]="item.id" (change)="onCheckChange($event,formData.controlName)">
-              <label class="form-check-label">{{item.option}}</label>
-            </div>
-          </div>
-          <div class="error" *ngSwitchCase="formData.controlType == 'checkbox'">
-            <div class="error-txt-msg mb-2" *ngIf="_customForm.controls[formData.controlName].value.length == 0">
-                {{formData.label}} Required.
-            </div>
-        </div>
-          <div class="error"
-            *ngIf="(_customForm.controls[formData.controlName].dirty || _customForm.controls[formData.controlName].touched)">
-            <div class="error-txt-msg mb-2" *ngIf="_customForm.controls[formData.controlName].hasError('required')">
-                {{formData.label}} Required.
-            </div>
-            <div class="error-txt-msg mb-2" *ngIf="_customForm.controls[formData.controlName].hasError('pattern')">
-              {{formData.label}} format incorrect .
-            </div> 
-          </div>
-        </div> 
-    </div>
+        <ng-container *ngFor="let zone of zoneKeys;let i = index" class="Zone_{{i}}">
+            <h2>{{zone}}</h2>
+            <div class="{{formData.layOutClass}}" *ngFor="let formData of customFormJson[0][zone]" [ngSwitch]="true">
+                <div class="form-group">
+                  <label for="{{formData.controlName}}">{{formData.label}}</label>
+        
+                  <input type="{{formData.controlType}}" name="{{formData.controlName}}" class="form-control" *ngSwitchDefault
+                    [formControlName]="formData.controlName" [formControlName]="formData.controlName"
+                    placeholder="{{formData.placeholder}}"> 
+                    <textarea name="{{formData.controlName}}" class="form-control" [formControlName]="formData.controlName"
+                    placeholder="{{formData.placeholder}}" *ngSwitchCase="formData.controlType === 'textarea'"></textarea>
+                 
+                  <select [id]="formData.controlName" [formControlName]="formData.controlName"
+                    *ngSwitchCase="formData.controlType === 'select'" class="form-control" [formControlName]="formData.controlName">
+                    <option value=''>Select</option>
+                    <option *ngFor="let opt of formData.controlOptions" [value]="opt.id">{{opt.option}}</option>
+                  </select>
+        
+                  <div class="custom-control custom-switch" *ngSwitchCase="formData.controlType === 'radio'">
+                    <div class="form-check form-check-inline" *ngFor="let item of formData.controlOptions">
+                      <input class="form-check-input" [formControlName]="formData.controlName" type="radio" value="{{item.id}}">
+                      <label class="form-check-label">{{item.option}}</label>
+                    </div>
+                  </div>
+        
+                  <div class="custom-control custom-switch" *ngSwitchCase="formData.controlType === 'checkbox'">
+                    <div class="form-check form-check-inline" *ngFor="let item of formData.controlOptions; let i=index">
+                      <input class="form-check-input" [checked]="(formData.controlvalue).includes(item.id)" type="checkbox"
+                        [value]="item.id" (change)="onCheckChange($event,formData.controlName)">
+                      <label class="form-check-label">{{item.option}}</label>
+                    </div>
+                  </div>
+                  <div class="error" *ngSwitchCase="formData.controlType == 'checkbox'">
+                    <div class="error-txt-msg mb-2" *ngIf="_customForm.controls[formData.controlName].value.length == 0">
+                        {{formData.label}} Required.
+                    </div>
+                </div>
+                  <div class="error"
+                    *ngIf="(_customForm.controls[formData.controlName].dirty || _customForm.controls[formData.controlName].touched)">
+                    <div class="error-txt-msg mb-2" *ngIf="_customForm.controls[formData.controlName].hasError('required')">
+                        {{formData.label}} Required.
+                    </div>
+                    <div class="error-txt-msg mb-2" *ngIf="_customForm.controls[formData.controlName].hasError('pattern')">
+                      {{formData.label}} format incorrect .
+                    </div> 
+                  </div>
+                </div> 
+                </div>
+        </ng-container> 
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <button type="submit" class="btn btn-primary float-right">Submit</button>
       </div>

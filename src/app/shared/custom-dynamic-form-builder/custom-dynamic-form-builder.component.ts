@@ -7,13 +7,24 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
   styleUrls: ['./custom-dynamic-form-builder.component.css']
 })
 export class CustomDynamicFormBuilderComponent implements OnInit {
-  @Input() formFieldsJson:any = []; 
+  public formFieldsJson:any = []; 
+  @Input() customFormJson:any = []; 
+  public zoneKeys = [];
   public _customForm:FormGroup = new FormGroup({});
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.formFieldsJson = [];
     console.log(this.formFieldsJson);
-    this._customForm = this._formBuilder.group({});
+    this._customForm = this._formBuilder.group({}); 
+    console.log(this.customFormJson);
+    this.customFormJson.forEach((element) => {
+      this.zoneKeys = Object.keys(element);
+      this.zoneKeys.forEach(key => {
+        this.formFieldsJson = [].concat.apply(this.formFieldsJson, element[key]);
+      });  
+    });
+    console.log(this.formFieldsJson);
     this._formRender();
   }
 
@@ -65,12 +76,23 @@ export class CustomDynamicFormBuilderComponent implements OnInit {
       });
        return;
     }
-    console.log(this._customForm.value);
-     this.formFieldsJson.map((item: any) =>{
-      item.controlvalue = !Array.isArray(item['controlvalue']) ? (this._customForm.value[item.controlName]).trim() : this._customForm.value[item.controlName];
-      // return item;
+    // console.log(this._customForm.value);
+    //  this.formFieldsJson.map((item: any) =>{
+    //   item.controlvalue = !Array.isArray(item['controlvalue']) ? (this._customForm.value[item.controlName]).trim() : this._customForm.value[item.controlName];
+    //   // return item
+    // });
+    // console.log(this.formFieldsJson);
+
+    this.customFormJson.forEach((element) => { 
+      this.zoneKeys.forEach(key => {
+        element[key].map((item: any) =>{
+          item.controlvalue = !Array.isArray(item['controlvalue']) ? (this._customForm.value[item.controlName]).trim() : this._customForm.value[item.controlName]; 
+        }); 
+      });  
     });
-    console.log(this.formFieldsJson);
+
+    console.log(this.customFormJson);
   }
 
 }
+
