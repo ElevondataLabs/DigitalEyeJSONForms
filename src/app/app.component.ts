@@ -18,112 +18,13 @@ declare function backButtonEvent(controlName: any): any;
 
 export class AppComponent implements OnInit, AfterViewInit {
   
-  public updatedFieldsforCustomForm: any[]= [
-    {
-    "Base Inspection":
-      [{
-        id: 'ques1',
-        layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
-        label: 'Name',
-        controlName: 'Question_1',
-        controlType: 'text',
-        controlvalue: '',
-        placeholder:'',
-        controlOptions: [],
-        isRequired: true,
-        inputPattern: '',
-      },
-      {
-        id: 'ques2',
-        layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
-        label: 'Email',
-        controlName: 'Question_2',
-        controlType: 'text',
-        controlvalue: '',
-        placeholder:'',
-        controlOptions: [],
-        isRequired: true,
-        inputPattern: '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,6}$',
-      },
-      {
-        id: 'ques3',
-        layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
-        label: 'Password',
-        controlName: 'Question_3',
-        controlType: 'password',
-        controlvalue: '',
-        placeholder:'',
-        controlOptions: [],
-        isRequired: true,
-        inputPattern: '',
-      },
-      {
-        id: 'ques4',
-        layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
-        label: 'Gender',
-        controlName: 'Question_4',
-        controlType: 'radio',
-        controlvalue: '1',
-        placeholder:'',
-        controlOptions: [{id:'1', option:'Male'}, {id:'2', option:'Female'}],
-        isRequired: true,
-        inputPattern: '',
-      },
-      {
-        id: 'ques5',
-        layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
-        label: 'Date of Birth',
-        controlName: 'Question_5',
-        controlType: 'date',
-        controlvalue: '',
-        placeholder:'',
-        controlOptions: [],
-        isRequired: true,
-        inputPattern: '',
-      }],
-   "Detailed Exterior" : 
-   [{
-      id: 'ques6',
-      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
-      label: 'Hobbies',
-      controlName: 'Question_6',
-      controlType: 'checkbox',
-      controlvalue: ['1','2'],
-      placeholder:'',
-      controlOptions: [{id:'1', option:'Dancing'}, {id:'2', option:'Singing'}, {id:'3', option:'Reading'}],
-      isRequired: true,
-      inputPattern: '',
-    },
-    {
-      id: 'ques7',
-      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
-      label: 'Language Preference',
-      controlName: 'Question_7',
-      controlType: 'select',
-      controlvalue: '',
-      placeholder:'',
-      controlOptions: [{id:'1', option:'English'}, {id:'2', option:'Hindi'}, {id:'3', option:'Marathi'}],
-      isRequired: true,
-      inputPattern: '',
-    },
-    {
-      id: 'ques8',
-      layOutClass:"col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12",
-      label: 'Address',
-      controlName: 'Question_8',
-      controlType: 'textarea',
-      controlvalue: '',
-      placeholder:'',
-      controlOptions: [],
-      isRequired: true,
-      inputPattern: '',
-    }]
-  }];
+  public updatedFieldsforCustomForm = "{\"Fire Risk Management\": [{\"data\": [{\"id\": \"fireriskmanagement_ques1\", \"layoutClass\": \"col-12\", \"label\": \"Has a Responsible Person been appointed ?\", \"controlName\": \"fireriskmanagement_ques1\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"fireriskmanagement_ques2\", \"layoutClass\": \"col-12\", \"label\": \"Does the Responsible Person have sufficient knowledge with regard to their duties ?\", \"controlName\": \"fireriskmanagement_ques2\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"fireriskmanagement_ques3\", \"layoutClass\": \"col-12\", \"label\": \"Has a Competent Person been appointed ?\", \"controlName\": \"fireriskmanagement_ques3\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"fireriskmanagement_ques4\", \"layoutClass\": \"col-12\", \"label\": \"Does the Competent Person have sufficient knowledge with regard to their duties ?\", \"controlName\": \"fireriskmanagement_ques4\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"fireriskmanagement_ques5\", \"layoutClass\": \"col-12\", \"label\": \"Has an incident controller/s been appointed ?\", \"controlName\": \"fireriskmanagement_ques5\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"fireriskmanagement_ques6\", \"layoutClass\": \"col-12\", \"label\": \"Have the Incident Controller/s sufficient knowledge with regard to their duties ?\", \"controlName\": \"fireriskmanagement_ques6\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"fireriskmanagement_ques7\", \"layoutClass\": \"col-12\", \"label\": \"Has a previous fire risk assessment been carried out by the client ?\", \"controlName\": \"fireriskmanagement_ques7\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"fireriskmanagement_ques8\", \"layoutClass\": \"col-12\", \"label\": \"Was the clients Fire Risk Assessment available to view ?\", \"controlName\": \"fireriskmanagement_ques8\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"fireriskmanagement_ques9\", \"layoutClass\": \"col-12\", \"label\": \"Has a previous fire risk assessment been carried out by a landlord ?\", \"controlName\": \"fireriskmanagement_ques9\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"fireriskmanagement_ques10\", \"layoutClass\": \"col-12\", \"label\": \"Was the landlord\\u2019s Fire Risk Assessment available to view ?\", \"controlName\": \"fireriskmanagement_ques10\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"fireriskmanagement_ques11\", \"layoutClass\": \"col-12\", \"label\": \"Are floors plans available ?\", \"controlName\": \"fireriskmanagement_ques11\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"fireriskmanagement_ques12\", \"layoutClass\": \"col-12\", \"label\": \"Do floor plans indicate the location of all fire safety systems and equipment ?\", \"controlName\": \"fireriskmanagement_ques12\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"fireriskmanagement_ques13\", \"layoutClass\": \"col-12\", \"label\": \"Do floor plans indicate emergency escape routes and final exit doors ?\", \"controlName\": \"fireriskmanagement_ques13\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"fireriskmanagement_ques14\", \"layoutClass\": \"col-12\", \"label\": \"Would the floor plans be accessible by the emergency services if needed urgently ?\", \"controlName\": \"fireriskmanagement_ques14\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}]}], \"Ignition Source\": [{\"data\": [{\"id\": \"ignitionsource_ques1\", \"layoutClass\": \"col-12\", \"label\": \"Is the workplace free of electrical, gas, oil heaters, room heaters, portable heaters ?\", \"controlName\": \"ignitionsource_ques1\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"ignitionsource_ques2\", \"layoutClass\": \"col-12\", \"label\": \"Is the workplace free of extract fans for dust and fumes removal (e.g. build up of debris) ?\", \"controlName\": \"ignitionsource_ques2\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"ignitionsource_ques3\", \"layoutClass\": \"col-12\", \"label\": \"Is the workplace free of heat sources, e.g. gas, electric, microwave ovens ?\", \"controlName\": \"ignitionsource_ques3\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"ignitionsource_ques4\", \"layoutClass\": \"col-12\", \"label\": \"Is the workplace free of poor electrical installations (overloads, bunched or damaged cables) ?\", \"controlName\": \"ignitionsource_ques4\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"ignitionsource_ques5\", \"layoutClass\": \"col-12\", \"label\": \"Is the workplace free of light fittings and lighting equipment (e.g. halogen lamps, display lighting, products stored too close to lighting, etc.) ? \", \"controlName\": \"ignitionsource_ques5\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"ignitionsource_ques6\", \"layoutClass\": \"col-12\", \"label\": \"Is the workplace free of any indications of near misses, e.g. scorch marks on furniture or fittings, discoloured or charred electrical plugs, cigarette burns, etc. ? \", \"controlName\": \"ignitionsource_ques6\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}, {\"id\": \"ignitionsource_ques7\", \"layoutClass\": \"col-12\", \"label\": \"Have all potential sources of ignition been identified ?\", \"controlName\": \"ignitionsource_ques7\", \"controlType\": \"radio\", \"controlvalue\": \"\", \"placeholder\": \"\", \"controlOptions\": [{\"id\": \"1\", \"option\": \"Yes\"}, {\"id\": \"2\", \"option\": \"No\"}, {\"id\": \"3\", \"option\": \"NA\"}], \"isRequired\": false, \"inputPattern\": \"\"}]}]}";
+ 
   
   public fieldsForCustomForm:any[] = [
     {
       id: 'ques1',
-      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
+      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-sm-12 col-md-6 col-lg-4 col-xl-3",
       label: 'Name',
       controlName: 'Question_1',
       controlType: 'text',
@@ -135,7 +36,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     },
     {
       id: 'ques2',
-      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
+      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-sm-12 col-md-6 col-lg-4 col-xl-3",
       label: 'Email',
       controlName: 'Question_2',
       controlType: 'text',
@@ -147,7 +48,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     },
     {
       id: 'ques3',
-      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
+      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-sm-12 col-md-6 col-lg-4 col-xl-3",
       label: 'Password',
       controlName: 'Question_3',
       controlType: 'password',
@@ -159,7 +60,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     },
     {
       id: 'ques4',
-      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
+      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-sm-12 col-md-6 col-lg-4 col-xl-3",
       label: 'Gender',
       controlName: 'Question_4',
       controlType: 'radio',
@@ -171,7 +72,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     },
     {
       id: 'ques5',
-      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
+      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-sm-12 col-md-6 col-lg-4 col-xl-3",
       label: 'Date of Birth',
       controlName: 'Question_5',
       controlType: 'date',
@@ -183,7 +84,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     },
     {
       id: 'ques6',
-      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
+      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-sm-12 col-md-6 col-lg-4 col-xl-3",
       label: 'Hobbies',
       controlName: 'Question_6',
       controlType: 'checkbox',
@@ -195,7 +96,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     },
     {
       id: 'ques7',
-      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3",
+      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-sm-12 col-md-6 col-lg-4 col-xl-3",
       label: 'Language Preference',
       controlName: 'Question_7',
       controlType: 'select',
@@ -207,7 +108,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     },
     {
       id: 'ques8',
-      layOutClass:"col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12",
+      layOutClass:"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-sm-12 col-md-12 col-lg-12 col-xl-12",
       label: 'Address',
       controlName: 'Question_8',
       controlType: 'textarea',

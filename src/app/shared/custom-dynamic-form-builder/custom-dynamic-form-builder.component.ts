@@ -9,21 +9,23 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 export class CustomDynamicFormBuilderComponent implements OnInit {
   public formFieldsJson:any = []; 
   @Input() customFormJson:any = []; 
-  public zoneKeys = [];
+  public zoneKeys: any = [];
   public _customForm:FormGroup = new FormGroup({});
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.formFieldsJson = [];
     console.log(this.formFieldsJson);
+
     this._customForm = this._formBuilder.group({}); 
+    this.customFormJson = JSON.parse(this.customFormJson);
     console.log(this.customFormJson);
-    this.customFormJson.forEach((element) => {
-      this.zoneKeys = Object.keys(element);
-      this.zoneKeys.forEach(key => {
-        this.formFieldsJson = [].concat.apply(this.formFieldsJson, element[key]);
-      });  
-    });
+
+    this.zoneKeys = Object.keys(this.customFormJson);
+    this.zoneKeys.forEach((key: any) => {
+        this.formFieldsJson = [].concat.apply(this.formFieldsJson, this.customFormJson[key][0].data);
+    });  
+
     console.log(this.formFieldsJson);
     this._formRender();
   }
@@ -76,20 +78,12 @@ export class CustomDynamicFormBuilderComponent implements OnInit {
       });
        return;
     }
-    // console.log(this._customForm.value);
-    //  this.formFieldsJson.map((item: any) =>{
-    //   item.controlvalue = !Array.isArray(item['controlvalue']) ? (this._customForm.value[item.controlName]).trim() : this._customForm.value[item.controlName];
-    //   // return item
-    // });
-    // console.log(this.formFieldsJson);
 
-    this.customFormJson.forEach((element) => { 
-      this.zoneKeys.forEach(key => {
-        element[key].map((item: any) =>{
-          item.controlvalue = !Array.isArray(item['controlvalue']) ? (this._customForm.value[item.controlName]).trim() : this._customForm.value[item.controlName]; 
-        }); 
-      });  
-    });
+    this.zoneKeys.forEach((key: any) => {
+      this.customFormJson[key][0].data.map((item: any) =>{
+        item.controlvalue = !Array.isArray(item['controlvalue']) ? (this._customForm.value[item.controlName]).trim() : this._customForm.value[item.controlName]; 
+      }); 
+    });  
 
     console.log(this.customFormJson);
   }
