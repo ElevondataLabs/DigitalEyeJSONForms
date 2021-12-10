@@ -8,16 +8,18 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 })
 export class CustomDynamicFormBuilderComponent implements OnInit {
   public formFieldsJson:any = []; 
-  @Input() customFormJson:any = []; 
+  @Input() customFormJson:any; 
   public zoneKeys: any = [];
   public _customForm:FormGroup = new FormGroup({});
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    // document.getElementById("content").scrollIntoView();
     this.formFieldsJson = [];
     console.log(this.formFieldsJson);
 
     this._customForm = this._formBuilder.group({}); 
+    console.log(this.customFormJson);
     this.customFormJson = JSON.parse(this.customFormJson);
     console.log(this.customFormJson);
 
