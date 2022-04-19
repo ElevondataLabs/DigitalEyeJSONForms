@@ -3,6 +3,7 @@ import { AfterViewInit, HostListener, Component, OnInit, ViewChild } from '@angu
 import { DynamicFormBuildConfig, DynamicFormConfiguration, RxDynamicFormBuilder } from '@rxweb/reactive-dynamic-forms';
 import { ReactiveFormConfig } from '@rxweb/reactive-form-validators';
 import { SERVER_DATA } from '../assets/form-data-json';
+import {TemplateQues} from '../assets/templateques'
 import { SERVER_DATA_ADD } from '../assets/form-data-json-add';
 import { UserModel } from '../assets/config';
 import { AppserviceService } from './appservice.service';
@@ -18,13 +19,13 @@ declare function backButtonEvent(controlName: any): any;
 
 export class AppComponent implements OnInit, AfterViewInit {
   
-  public updatedFieldsforCustomForm = "{\"Fire Risk Management\":[{\"data\":[{\"id\":\"fireriskmanagement_ques1\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Has a Responsible Person been appointed ?\",\"controlName\":\"fireriskmanagement_ques1\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"fireriskmanagement_ques2\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Does the Responsible Person have sufficient knowledge with regard to their duties ?\",\"controlName\":\"fireriskmanagement_ques2\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"fireriskmanagement_ques3\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Has a Competent Person been appointed ?\",\"controlName\":\"fireriskmanagement_ques3\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"fireriskmanagement_ques4\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Does the Competent Person have sufficient knowledge with regard to their duties ?\",\"controlName\":\"fireriskmanagement_ques4\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"fireriskmanagement_ques5\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Has an incident controller/s been appointed ?\",\"controlName\":\"fireriskmanagement_ques5\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"fireriskmanagement_ques6\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Have the Incident Controller/s sufficient knowledge with regard to their duties ?\",\"controlName\":\"fireriskmanagement_ques6\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"fireriskmanagement_ques7\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Has a previous fire risk assessment been carried out by the client ?\",\"controlName\":\"fireriskmanagement_ques7\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"fireriskmanagement_ques8\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Was the clients Fire Risk Assessment available to view ?\",\"controlName\":\"fireriskmanagement_ques8\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"fireriskmanagement_ques9\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Has a previous fire risk assessment been carried out by a landlord ?\",\"controlName\":\"fireriskmanagement_ques9\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"fireriskmanagement_ques10\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Was the landlord\\u2019s Fire Risk Assessment available to view ?\",\"controlName\":\"fireriskmanagement_ques10\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"fireriskmanagement_ques11\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Are floors plans available ?\",\"controlName\":\"fireriskmanagement_ques11\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"fireriskmanagement_ques12\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Do floor plans indicate the location of all fire safety systems and equipment ?\",\"controlName\":\"fireriskmanagement_ques12\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"fireriskmanagement_ques13\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Do floor plans indicate emergency escape routes and final exit doors ?\",\"controlName\":\"fireriskmanagement_ques13\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"fireriskmanagement_ques14\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Would the floor plans be accessible by the emergency services if needed urgently ?\",\"controlName\":\"fireriskmanagement_ques14\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"}]}],\"Ignition Source\":[{\"data\":[{\"id\":\"ignitionsource_ques1\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Is the workplace free of electrical, gas, oil heaters, room heaters, portable heaters ?\",\"controlName\":\"ignitionsource_ques1\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"ignitionsource_ques2\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Is the workplace free of extract fans for dust and fumes removal (e.g. build up of debris) ?\",\"controlName\":\"ignitionsource_ques2\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"ignitionsource_ques3\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Is the workplace free of heat sources, e.g. gas, electric, microwave ovens ?\",\"controlName\":\"ignitionsource_ques3\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"ignitionsource_ques4\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Is the workplace free of poor electrical installations (overloads, bunched or damaged cables) ?\",\"controlName\":\"ignitionsource_ques4\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"ignitionsource_ques5\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Is the workplace free of light fittings and lighting equipment (e.g. halogen lamps, display lighting, products stored too close to lighting, etc.) ? \",\"controlName\":\"ignitionsource_ques5\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"ignitionsource_ques6\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Is the workplace free of any indications of near misses, e.g. scorch marks on furniture or fittings, discoloured or charred electrical plugs, cigarette burns, etc. ? \",\"controlName\":\"ignitionsource_ques6\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"},{\"id\":\"ignitionsource_ques7\",\"layoutClass\":\"col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\",\"label\":\"Have all potential sources of ignition been identified ?\",\"controlName\":\"ignitionsource_ques7\",\"controlType\":\"radio\",\"controlvalue\":\"\",\"placeholder\":\"\",\"controlOptions\":[{\"id\":\"1\",\"option\":\"Yes\"},{\"id\":\"2\",\"option\":\"No\"},{\"id\":\"3\",\"option\":\"NA\"}],\"isRequired\":false,\"inputPattern\":\"\"}]}]}"
- 
+  public updatedFieldsforCustomForm = TemplateQues;
 
   objectKeys = Object.keys;
   treeArr = [];
   objData = [];
   childArrobj = [];
+  lastSelection: any;
 
   recommedation = {};
   tempArr = [];
@@ -49,89 +50,36 @@ export class AppComponent implements OnInit, AfterViewInit {
   serverData: any[];
   uiBindingsData: any[];
 
-  uiBindings1: string[] = ['baseinspection_back_btn', 'baseinspection_title', 'baseinspection_roofline_title', 'baseinspection_dwelling_title', 'baseinspection_propertyspecific_title', 'baseinspection_dwelling_rightview_title', 'baseinspection_dwelling_leftview_title', 'baseinspection_dwelling_frontview_title', 'baseinspection_dwelling_backview_title', ['baseinspection_roofline_btn', 'baseinspection_dwelling_btn'], ['baseinspection_propertyspecific_btn'], 'baseinspection_roofline_add_btn', ['baseinspection_dwelling_frontview_btn', 'baseinspection_dwelling_backview_btn'], ['baseinspection_dwelling_rightview_btn', 'baseinspection_dwelling_leftview_btn'], 'baseinspection_dwelling_leftview_add_btn', 'baseinspection_dwelling_frontview_add_btn', 'baseinspection_dwelling_backview_add_btn', 'baseinspection_dwelling_rightview_add_btn', ['baseinspection_propertyspecific_hazarddetails_btn', 'baseinspection_propertyspecific_hazardcomments_btn']];
-  detailuiBindgs = ['detailedexterior_back_btn', 'detailedexterior_title', 'detailedexterior_driveway_title', 'detailedexterior_foundation_title', 'detailedexterior_sidewalks_title', 'detailedexterior_porches_title', 'detailedexterior_stairs_title', 'detailedexterior_trees_title', 'detailedexterior_chimney_title', 'detailedexterior_fence_title', 'detailedexterior_siding_title', 'detailedexterior_gutters_title', 'detailedexterior_yard_title', ['detailedexterior_driveway_btn', 'detailedexterior_foundation_btn'], ['detailedexterior_sidewalks_btn', 'detailedexterior_porches_btn'], ['detailedexterior_stairs_btn', 'detailedexterior_trees_btn'], ['detailedexterior_chimney_btn', 'detailedexterior_fence_btn'], ['detailedexterior_siding_btn', 'detailedexterior_gutters_btn'], ['detailedexterior_yard_btn'], 'detailedexterior_driveway_add_btn', 'detailedexterior_foundation_add_btn', 'detailedexterior_sidewalks_add_btn', 'detailedexterior_porches_add_btn', 'detailedexterior_stairs_add_btn', 'detailedexterior_trees_add_btn', 'detailedexterior_chimney_add_btn', 'detailedexterior_fence_add_btn', 'detailedexterior_siding_add_btn', 'detailedexterior_gutters_add_btn', 'detailedexterior_yard_add_btn'];
-  pooluibindings = ['swimmingpool_back_btn', 'swimmingpool_title', 'swimmingpool_poolphotos_title', 'swimmingpool_fenceenclosure_title', 'swimmingpool_slidedivingboard_title', 'swimmingpool_hottubjacuzzi_title', ['swimmingpool_poolphotos_btn', 'swimmingpool_fenceenclosure_btn', 'swimmingpool_slidedivingboard_btn', 'swimmingpool_hottubjacuzzi_btn'], 'swimmingpool_poolphotos_add_btn', 'swimmingpool_fenceenclosure_add_btn', 'swimmingpool_slidedivingboard_add_btn', 'swimmingpool_hottubjacuzzi_add_btn'];
-  otherstructuresuiBinding = ['otherstructures_back_btn', 'otherstructures_title', 'otherstructures_detachedgarage_title', 'otherstructures_barn_title', 'otherstructures_guesthouse_title', 'otherstructures_gazebo_title', 'otherstructures_dock_title', 'otherstructures_cabin_title', 'otherstructures_fence_title', 'otherstructures_detachedpatiodiningarea_title', 'otherstructures_other_title', ['otherstructures_detachedgarage_btn', 'otherstructures_barn_btn'], ['otherstructures_guesthouse_btn', 'otherstructures_gazebo_btn'], ['otherstructures_dock_btn', 'otherstructures_cabin_btn'], ['otherstructures_fence_btn', 'otherstructures_detachedpatiodiningarea_btn'], ['otherstructures_other_btn'], 'otherstructures_detachedgarage_add_btn', 'otherstructures_barn_add_btn', 'otherstructures_guesthouse_add_btn', 'otherstructures_gazebo_add_btn', 'otherstructures_dock_add_btn', 'otherstructures_cabin_add_btn', 'otherstructures_fence_add_btn', 'otherstructures_detachedpatiodiningarea_add_btn', 'otherstructures_other_add_btn'];
-  exterioruiBindgs = ['homeexterior_back_btn', 'homeexterior_title', 'homeexterior_front_title', 'homeexterior_backview_title', 'homeexterior_addn_title', ['homeexterior_front_btn', 'homeexterior_backview_btn', 'homeexterior_addn_btn'], 'homeexterior_front_add_btn', 'homeexterior_backview_add_btn', 'homeexterior_addn_add_btn'];
-  furnitureuiBindgs = ['furniturefixtures_back_btn', 'furniturefixtures_title', 'furniturefixtures_fireplace_title', 'furniturefixtures_addn_title', ['furniturefixtures_fireplace_btn', 'furniturefixtures_addn_btn'], 'furniturefixtures_fireplace_add_btn', 'furniturefixtures_addn_add_btn'];
-  addnpicturesuiBindgs = ['additionalpictures_back_btn', 'additionalpictures_title', 'additionalpictures_theaterroom_title', 'additionalpictures_laundryroom_title', 'additionalpictures_powderroom_title', 'additionalpictures_addn_title',
-    ['additionalpictures_theaterroom_btn', 'additionalpictures_laundryroom_btn'],
-    ['additionalpictures_powderroom_btn', 'additionalpictures_addn_btn'],
-    'additionalpictures_theaterroom_add_btn', 'additionalpictures_laundryroom_add_btn', 'additionalpictures_powderroom_add_btn', 'additionalpictures_addn_add_btn'];
+  uiBindings1: string[] = ['baseinspection_back_btn','baseinspection_title','baseinspection_roofline_title','baseinspection_dwelling_title','baseinspection_propertyspecific_title','baseinspection_dwelling_rightsection_title','baseinspection_dwelling_leftsection_title','baseinspection_dwelling_frontsection_title','baseinspection_dwelling_backview_title', ['baseinspection_roofline_btn','baseinspection_dwelling_btn'], ['baseinspection_propertyspecific_btn'], 'baseinspection_roofline_add_btn', ['baseinspection_dwelling_frontsection_btn','baseinspection_dwelling_backview_btn'], ['baseinspection_dwelling_rightsection_btn','baseinspection_dwelling_leftsection_btn'], 'baseinspection_dwelling_leftsection_add_btn','baseinspection_dwelling_frontsection_add_btn','baseinspection_dwelling_backview_add_btn','baseinspection_dwelling_rightsection_add_btn', ['baseinspection_propertyspecific_hazarddetails_btn','baseinspection_propertyspecific_hazardcomments_btn']];
+  detailuiBindgs = ['detailedexterior_back_btn','detailedexterior_title','detailedexterior_driveway_title','detailedexterior_foundation_title','detailedexterior_sidewalks_title','detailedexterior_porches_title','detailedexterior_stairs_title','detailedexterior_trees_title','detailedexterior_chimney_title','detailedexterior_fence_title','detailedexterior_siding_title','detailedexterior_gutters_title','detailedexterior_yard_title', ['detailedexterior_driveway_btn','detailedexterior_foundation_btn'], ['detailedexterior_sidewalks_btn','detailedexterior_porches_btn'], ['detailedexterior_stairs_btn','detailedexterior_trees_btn'], ['detailedexterior_chimney_btn','detailedexterior_fence_btn'], ['detailedexterior_siding_btn','detailedexterior_gutters_btn'], ['detailedexterior_yard_btn'], 'detailedexterior_driveway_add_btn','detailedexterior_foundation_add_btn','detailedexterior_sidewalks_add_btn','detailedexterior_porches_add_btn','detailedexterior_stairs_add_btn','detailedexterior_trees_add_btn','detailedexterior_chimney_add_btn','detailedexterior_fence_add_btn','detailedexterior_siding_add_btn','detailedexterior_gutters_add_btn','detailedexterior_yard_add_btn'];
+  pooluibindings = ['swimmingpool_back_btn','swimmingpool_title','swimmingpool_poolphotos_title','swimmingpool_fenceenclosure_title','swimmingpool_slidedivingboard_title','swimmingpool_hottubjacuzzi_title', ['swimmingpool_poolphotos_btn','swimmingpool_fenceenclosure_btn','swimmingpool_slidedivingboard_btn','swimmingpool_hottubjacuzzi_btn'], 'swimmingpool_poolphotos_add_btn','swimmingpool_fenceenclosure_add_btn','swimmingpool_slidedivingboard_add_btn','swimmingpool_hottubjacuzzi_add_btn'];
+  otherstructuresuiBinding = ['otherstructures_back_btn','otherstructures_title','otherstructures_detachedgarage_title','otherstructures_barn_title','otherstructures_guesthouse_title','otherstructures_gazebo_title','otherstructures_dock_title','otherstructures_cabin_title','otherstructures_fence_title','otherstructures_detachedpatiodiningarea_title','otherstructures_other_title', ['otherstructures_detachedgarage_btn','otherstructures_barn_btn'], ['otherstructures_guesthouse_btn','otherstructures_gazebo_btn'], ['otherstructures_dock_btn','otherstructures_cabin_btn'], ['otherstructures_fence_btn','otherstructures_detachedpatiodiningarea_btn'], ['otherstructures_other_btn'], 'otherstructures_detachedgarage_add_btn','otherstructures_barn_add_btn','otherstructures_guesthouse_add_btn','otherstructures_gazebo_add_btn','otherstructures_dock_add_btn','otherstructures_cabin_add_btn','otherstructures_fence_add_btn','otherstructures_detachedpatiodiningarea_add_btn','otherstructures_other_add_btn'];
+  exterioruiBindgs = ['homeexterior_back_btn','homeexterior_title','homeexterior_front_title','homeexterior_backview_title','homeexterior_addn_title', ['homeexterior_front_btn','homeexterior_backview_btn','homeexterior_addn_btn'], 'homeexterior_front_add_btn','homeexterior_backview_add_btn','homeexterior_addn_add_btn'];
+  furnitureuiBindgs = ['furniturefixtures_back_btn','furniturefixtures_title','furniturefixtures_fireplace_title','furniturefixtures_addn_title', ['furniturefixtures_fireplace_btn','furniturefixtures_addn_btn'], 'furniturefixtures_fireplace_add_btn','furniturefixtures_addn_add_btn'];
+  addnpicturesuiBindgs = ['additionalpictures_back_btn','additionalpictures_title','additionalpictures_theaterroom_title','additionalpictures_laundryroom_title','additionalpictures_powderroom_title','additionalpictures_addn_title',
+    ['additionalpictures_theaterroom_btn','additionalpictures_laundryroom_btn'],
+    ['additionalpictures_powderroom_btn','additionalpictures_addn_btn'],
+    'additionalpictures_theaterroom_add_btn','additionalpictures_laundryroom_add_btn','additionalpictures_powderroom_add_btn','additionalpictures_addn_add_btn'];
 
 
-  roomsuiBindings = ['rooms_back_btn', 'rooms_control_add_btn', 'rooms_title', 'rooms_masterbedroom_title', 'rooms_bedroom_title', 'rooms_bedroom2_title', 'rooms_bedroom3_title', 'rooms_bedroom4_title', 'rooms_bedroom5_title', 'rooms_addn_title', 'rooms_masterbedroom_bathroom_title', 'rooms_masterbedroom_dresser_title', 'rooms_masterbedroom_roomphotos_title', 'rooms_masterbedroom_addn_title', 'rooms_bedroom_bathroom_title', 'rooms_bedroom_dresser_title', 'rooms_bedroom_roomphotos_title', 'rooms_bedroom_addn_title', 'rooms_bedroom2_bathroom_title', 'rooms_bedroom2_dresser_title', 'rooms_bedroom2_roomphotos_title', 'rooms_bedroom2_addn_title', 'rooms_bedroom3_bathroom_title', 'rooms_bedroom3_dresser_title', 'rooms_bedroom3_roomphotos_title', 'rooms_bedroom3_addn_title', 'rooms_bedroom4_bathroom_title', 'rooms_bedroom4_dresser_title', 'rooms_bedroom4_roomphotos_title', 'rooms_bedroom4_addn_title', 'rooms_bedroom5_bathroom_title', 'rooms_bedroom5_dresser_title', 'rooms_bedroom5_roomphotos_title', 'rooms_bedroom5_addn_title',
-    ['rooms_masterbedroom_btn', 'rooms_bedroom_btn', 'rooms_bedroom2_btn', 'rooms_bedroom3_btn', 'rooms_bedroom4_btn', 'rooms_bedroom5_btn', 'rooms_addn_btn'],
-    ['rooms_masterbedroom_bathroom_btn', 'rooms_masterbedroom_dresser_btn', 'rooms_masterbedroom_roomphotos_btn', 'rooms_masterbedroom_addn_btn'],
-    ['rooms_bedroom_bathroom_btn', 'rooms_bedroom_dresser_btn', 'rooms_bedroom_roomphotos_btn', 'rooms_bedroom_addn_btn'],
-    ['rooms_bedroom2_bathroom_btn', 'rooms_bedroom2_dresser_btn', 'rooms_bedroom2_roomphotos_btn', 'rooms_bedroom2_addn_btn'],
-    ['rooms_bedroom3_bathroom_btn', 'rooms_bedroom3_dresser_btn', 'rooms_bedroom3_roomphotos_btn', 'rooms_bedroom3_addn_btn'],
-    ['rooms_bedroom4_bathroom_btn', 'rooms_bedroom4_dresser_btn', 'rooms_bedroom4_roomphotos_btn', 'rooms_bedroom4_addn_btn'],
-    ['rooms_bedroom5_bathroom_btn', 'rooms_bedroom5_dresser_btn', 'rooms_bedroom5_roomphotos_btn', 'rooms_bedroom5_addn_btn'],
-    'rooms_masterbedroom_bathroom_add_btn', 'rooms_masterbedroom_dresser_add_btn', 'rooms_masterbedroom_roomphotos_add_btn', 'rooms_masterbedroom_addn_add_btn',
-    'rooms_bedroom_bathroom_add_btn', 'rooms_bedroom_dresser_add_btn', 'rooms_bedroom_roomphotos_add_btn', 'rooms_bedroom_addn_add_btn',
-    'rooms_bedroom2_bathroom_add_btn', 'rooms_bedroom2_dresser_add_btn', 'rooms_bedroom2_roomphotos_add_btn', 'rooms_bedroom2_addn_add_btn',
-    'rooms_bedroom3_bathroom_add_btn', 'rooms_bedroom3_dresser_add_btn', 'rooms_bedroom3_roomphotos_add_btn', 'rooms_bedroom3_addn_add_btn',
-    'rooms_bedroom4_bathroom_add_btn', 'rooms_bedroom4_dresser_add_btn', 'rooms_bedroom4_roomphotos_add_btn', 'rooms_bedroom4_addn_add_btn',
-    'rooms_bedroom5_bathroom_add_btn', 'rooms_bedroom5_dresser_add_btn', 'rooms_bedroom5_roomphotos_add_btn', 'rooms_bedroom5_addn_add_btn', , 'rooms_addn_add_btn'];
+  roomsuiBindings = ['rooms_back_btn','rooms_control_add_btn','rooms_title','rooms_masterbedroom_title','rooms_bedroom_title','rooms_bedroom2_title','rooms_bedroom3_title','rooms_bedroom4_title','rooms_bedroom5_title','rooms_addn_title','rooms_masterbedroom_bathroom_title','rooms_masterbedroom_dresser_title','rooms_masterbedroom_roomphotos_title','rooms_masterbedroom_addn_title','rooms_bedroom_bathroom_title','rooms_bedroom_dresser_title','rooms_bedroom_roomphotos_title','rooms_bedroom_addn_title','rooms_bedroom2_bathroom_title','rooms_bedroom2_dresser_title','rooms_bedroom2_roomphotos_title','rooms_bedroom2_addn_title','rooms_bedroom3_bathroom_title','rooms_bedroom3_dresser_title','rooms_bedroom3_roomphotos_title','rooms_bedroom3_addn_title','rooms_bedroom4_bathroom_title','rooms_bedroom4_dresser_title','rooms_bedroom4_roomphotos_title','rooms_bedroom4_addn_title','rooms_bedroom5_bathroom_title','rooms_bedroom5_dresser_title','rooms_bedroom5_roomphotos_title','rooms_bedroom5_addn_title',
+    ['rooms_masterbedroom_btn','rooms_bedroom_btn','rooms_bedroom2_btn','rooms_bedroom3_btn','rooms_bedroom4_btn','rooms_bedroom5_btn','rooms_addn_btn'],
+    ['rooms_masterbedroom_bathroom_btn','rooms_masterbedroom_dresser_btn','rooms_masterbedroom_roomphotos_btn','rooms_masterbedroom_addn_btn'],
+    ['rooms_bedroom_bathroom_btn','rooms_bedroom_dresser_btn','rooms_bedroom_roomphotos_btn','rooms_bedroom_addn_btn'],
+    ['rooms_bedroom2_bathroom_btn','rooms_bedroom2_dresser_btn','rooms_bedroom2_roomphotos_btn','rooms_bedroom2_addn_btn'],
+    ['rooms_bedroom3_bathroom_btn','rooms_bedroom3_dresser_btn','rooms_bedroom3_roomphotos_btn','rooms_bedroom3_addn_btn'],
+    ['rooms_bedroom4_bathroom_btn','rooms_bedroom4_dresser_btn','rooms_bedroom4_roomphotos_btn','rooms_bedroom4_addn_btn'],
+    ['rooms_bedroom5_bathroom_btn','rooms_bedroom5_dresser_btn','rooms_bedroom5_roomphotos_btn','rooms_bedroom5_addn_btn'],
+    'rooms_masterbedroom_bathroom_add_btn','rooms_masterbedroom_dresser_add_btn','rooms_masterbedroom_roomphotos_add_btn','rooms_masterbedroom_addn_add_btn',
+    'rooms_bedroom_bathroom_add_btn','rooms_bedroom_dresser_add_btn','rooms_bedroom_roomphotos_add_btn','rooms_bedroom_addn_add_btn',
+    'rooms_bedroom2_bathroom_add_btn','rooms_bedroom2_dresser_add_btn','rooms_bedroom2_roomphotos_add_btn','rooms_bedroom2_addn_add_btn',
+    'rooms_bedroom3_bathroom_add_btn','rooms_bedroom3_dresser_add_btn','rooms_bedroom3_roomphotos_add_btn','rooms_bedroom3_addn_add_btn',
+    'rooms_bedroom4_bathroom_add_btn','rooms_bedroom4_dresser_add_btn','rooms_bedroom4_roomphotos_add_btn','rooms_bedroom4_addn_add_btn',
+    'rooms_bedroom5_bathroom_add_btn','rooms_bedroom5_dresser_add_btn','rooms_bedroom5_roomphotos_add_btn','rooms_bedroom5_addn_add_btn', , 'rooms_addn_add_btn'];
 
 
-  uiBindings2: string[] = ['plumbing_back_btn',
-    'plumbing_control_add_btn',
-    ['plumbing_title',
-      'plumbing_kitchen_title', 'plumbing_kitchen2_title', 'plumbing_kitchen3_title', 'plumbing_kitchen4_title', 'plumbing_kitchen5_title',
-      'plumbing_bathroom_title', 'plumbing_bathroom2_title', 'plumbing_bathroom3_title', 'plumbing_bathroom4_title', 'plumbing_bathroom5_title',
-      'plumbing_waterheater_title',
-      'plumbing_dishwasher_title',
-      'plumbing_activeleaks_title',
-      'plumbing_priorleaks_title',
-      'plumbing_washingmachinehose_title',
-      'plumbing_kitchen_kitchensink_title', 'plumbing_kitchen2_kitchensink_title', 'plumbing_kitchen3_kitchensink_title', 'plumbing_kitchen4_kitchensink_title', 'plumbing_kitchen5_kitchensink_title',
-      'plumbing_bathroom_bathroomsink_title', 'plumbing_bathroom2_bathroomsink_title', 'plumbing_bathroom3_bathroomsink_title', 'plumbing_bathroom4_bathroomsink_title', 'plumbing_bathroom5_bathroomsink_title',
-      'plumbing_bathroom_showerbathtub_title', 'plumbing_bathroom2_showerbathtub_title', 'plumbing_bathroom3_showerbathtub_title', 'plumbing_bathroom4_showerbathtub_title', 'plumbing_bathroom5_showerbathtub_title',
-      'plumbing_bathroom_toiletsupplyline_title', 'plumbing_bathroom2_toiletsupplyline_title', 'plumbing_bathroom3_toiletsupplyline_title', 'plumbing_bathroom4_toiletsupplyline_title', 'plumbing_bathroom5_toiletsupplyline_title',
-      ['plumbing_bathroom_btn',
-        'plumbing_bathroom2_btn', 'plumbing_bathroom2_edit_btn',
-        'plumbing_bathroom3_btn', 'plumbing_bathroom3_edit_btn',
-        'plumbing_bathroom4_btn', 'plumbing_bathroom4_edit_btn',
-        'plumbing_bathroom5_btn', 'plumbing_bathroom5_edit_btn',
-        'plumbing_kitchen_btn',
-        'plumbing_kitchen2_btn', 'plumbing_kitchen2_edit_btn',
-        'plumbing_kitchen3_btn', 'plumbing_kitchen3_edit_btn',
-        'plumbing_kitchen4_btn', 'plumbing_kitchen4_edit_btn',
-        'plumbing_kitchen5_btn', 'plumbing_kitchen5_edit_btn',
-        'plumbing_waterheater_btn',
-        'plumbing_dishwasher_btn',
-        'plumbing_activeleaks_btn',
-        'plumbing_priorleaks_btn',
-        'plumbing_washingmachinehose_btn',
-        'plumbing_additionalcomments_btn'],
-      'plumbing_waterheater_add_btn',
-      'plumbing_washingmachinehose_add_btn',
-      'plumbing_dishwasher_dishwasherimage_btn', 'plumbing_dishwasher_dishwashercomments_btn',
-      'plumbing_activeleaks_activeleaksimage_btn', 'plumbing_activeleaks_activeleakscomments_btn',
-      'plumbing_priorleaks_priorleaksimage_btn', 'plumbing_priorleaks_priorleakscomments_btn',
-      'plumbing_bathroom_bathroomsink_btn', 'plumbing_bathroom_bathroomsink_add_btn',
-      'plumbing_bathroom_showerbathtub_btn', 'plumbing_bathroom_showerbathtub_add_btn',
-      'plumbing_bathroom_toiletsupplyline_btn', 'plumbing_bathroom_toiletsupplyline_add_btn',
-      'plumbing_bathroom2_bathroomsink_btn', 'plumbing_bathroom2_bathroomsink_add_btn',
-      'plumbing_bathroom2_showerbathtub_btn', 'plumbing_bathroom2_showerbathtub_add_btn',
-      'plumbing_bathroom2_toiletsupplyline_btn', 'plumbing_bathroom2_toiletsupplyline_add_btn',
-      'plumbing_bathroom3_bathroomsink_btn', 'plumbing_bathroom3_bathroomsink_add_btn',
-      'plumbing_bathroom3_showerbathtub_btn', 'plumbing_bathroom3_showerbathtub_add_btn',
-      'plumbing_bathroom3_toiletsupplyline_btn', 'plumbing_bathroom3_toiletsupplyline_add_btn',
-      'plumbing_bathroom4_bathroomsink_btn', 'plumbing_bathroom4_bathroomsink_add_btn',
-      'plumbing_bathroom4_showerbathtub_btn', 'plumbing_bathroom4_showerbathtub_add_btn',
-      'plumbing_bathroom4_toiletsupplyline_btn', 'plumbing_bathroom4_toiletsupplyline_add_btn',
-      'plumbing_bathroom5_bathroomsink_btn', 'plumbing_bathroom5_bathroomsink_add_btn',
-      'plumbing_bathroom5_showerbathtub_btn', 'plumbing_bathroom5_showerbathtub_add_btn',
-      'plumbing_bathroom5_toiletsupplyline_btn', 'plumbing_bathroom5_toiletsupplyline_add_btn',
-      'plumbing_kitchen_kitchensink_btn', 'plumbing_kitchen_kitchensink_add_btn',
-      'plumbing_kitchen2_kitchensink_btn', 'plumbing_kitchen2_kitchensink_add_btn',
-      'plumbing_kitchen3_kitchensink_btn', 'plumbing_kitchen3_kitchensink_add_btn',
-      'plumbing_kitchen4_kitchensink_btn', 'plumbing_kitchen4_kitchensink_add_btn',
-      'plumbing_kitchen5_kitchensink_btn', 'plumbing_kitchen5_kitchensink_add_btn']]
+  uiBindings2: string[] = ['firerisk_back_btn','firerisk_title','firerisk_buildingcondition_title','firerisk_flammablearticles_title','firerisk_fireprotectionandsecurity_title','firerisk_portablefireextinguishers_title','firerisk_requiredimprovements_title','firerisk_necessaryimprovements_title','firerisk_desirableimprovements_title','firerisk_buildingcondition_btn','firerisk_flammablearticles_btn','firerisk_fireprotectionandsecurity_btn','firerisk_portablefireextinguishers_btn','firerisk_requiredimprovements_btn','firerisk_necessaryimprovements_btn','firerisk_desirableimprovements_btn','firerisk_buildingcondition_add_btn','firerisk_flammablearticles_add_btn','firerisk_fireprotectionandsecurity_add_btn','firerisk_portablefireextinguishers_add_btn','firerisk_requiredimprovements_add_btn','firerisk_necessaryimprovements_add_btn','firerisk_desirableimprovements_add_btn'];
+
   uiBindings: string[];
 
   dynamicFormBuildConfig: DynamicFormBuildConfig[] = [];
@@ -144,21 +92,33 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.elm2 = this.myModal2.nativeElement as HTMLElement;
   }
 
-
   loadDynamicModel() {
-    var ths = this;
+    var ths = this, firstLevel; 
+    console.log(ths.dynamicFormBuildConfig);
+    // this.objData.forEach(ele =>{
+    //   ths.serverData1[ele][0].data.forEach(element => {
+    //     if(element.tier == 1 && element.valueControl){
+    //       firstLevel = element.name
+    //     }
+    //   });
+    // })
+    // dynamicFormsEvent(firstLevel, ths.dynamicFormBuildConfig[0], ths.serverData1);
+
+
     document.body.addEventListener('click', async function (e) {
-      // console.log(e.target.classList);
-      // var selectedZoneIndex = await ths.ZoneCardsSlider.getActiveIndex();
+      console.log(this.lastSelection);
+      // var selectedZoneIndex = await this.ZoneCardsSlider.getActiveIndex();
       if (e.target && e.target.classList.contains('bi-sticky') && e.target.classList.contains('btn')) {
-        ths.openCommentDialog(e.target.name);
+        this.openCommentDialog(e.target.name);
       } else if (e.target && e.target.name && e.target.classList.contains('btn-circle') && e.target.classList.contains('btn')) {
-        dynamicFormsEvent(e.target.name, ths.dynamicFormBuildConfig[selectedZoneIndex], ths._tempDynamicFormConfig.serverData);
+        this.lastSelection = e.target.name;
+        console.log(this.lastSelection, e.target.name, ths.dynamicFormBuildConfig, ths.serverData1)
+        dynamicFormsEvent(e.target.name, ths.dynamicFormBuildConfig[0], ths.serverData1);
       } else if (e.target && e.target.name && e.target.classList.contains('bi-arrow-90deg-left') && e.target.classList.contains('btn')) {
         ths.galleryReset();
         backButtonEvent(e.target.name);
       } else if (e.target && e.target.classList.contains('bi-folder-plus') && e.target.classList.contains('btn')) {
-        ths.addControlopen(e.target.name);
+        ths.addControlopen(e.target.name, this.lastSelection);
       }
       else if (e.target && e.target.classList.contains('bi-pencil') && e.target.classList.contains('btneditable')) {
         ths.addControlLabelopen(ths.dynamicFormBuildConfig[0], e.target.name);
@@ -169,7 +129,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
   async ngOnInit(): void {
 
-    await this.fetchDataTemplate('');
+    // await this.fetchDataTemplate('');
 
     setTimeout(() => {
       this.objData = this.objectKeys(this.serverData1);
@@ -182,9 +142,9 @@ export class AppComponent implements OnInit, AfterViewInit {
           // controlConfigModels: [{ modelName: 'userModel', model: UserModel, arguments: [this] }]
         });
       }
-      this.loadDynamicModel([this]);
+      this.loadDynamicModel(this);
 
-    }, 3000);
+    }, 2000);
 
 
 
@@ -283,20 +243,26 @@ export class AppComponent implements OnInit, AfterViewInit {
     }, 75);
   }
 
-  addControlopen(control: string): void {
+  addControlopen(control: string, lastSelected): void {
     this.repeatSource = [];
     this.repeatableSource = '';
 
-    console.log(this.objData)
-    this.objData.forEach(objele => {
-      console.log(this.serverData1);
-      this.serverData1[objele][0].data.forEach(res => {
-        if (res.repeatable !== undefined && res.repeatable < 5) {
-          this.repeatSource.push({
-            controlName: res.controlName
-          });
-        }
-      });
+    var indexOfSelectZone = -1; 
+    if(this.objData.length > 0){
+      indexOfSelectZone = this.objData.findIndex(elemn => this.serverData1[elemn][0].data.some((e) => e.name == lastSelected));
+    }
+
+    var indexOfSelectedCat = this.serverData1[this.objData[indexOfSelectZone]][0].data.findIndex(e => e.name == lastSelected);
+
+    var cName =  this.serverData1[this.objData[indexOfSelectZone]][0].data[indexOfSelectedCat].controlName;
+
+    console.log(indexOfSelectedCat, this.objData[indexOfSelectZone], this.objData, control, lastSelected)
+    this.serverData1[this.objData[indexOfSelectZone]][0].data.forEach(res => {
+      if (res.repeatable !== undefined && res.repeatable < res.maxLimit && res.parent == cName) {
+        this.repeatSource.push({
+          controlName: res.controlName
+        });
+      }
     });
 
     this.elm1.classList.add('show');
@@ -323,7 +289,7 @@ export class AppComponent implements OnInit, AfterViewInit {
                 newControl = this.repeatableSource + i;
                 if (resp.controlName === newControl && resp.enabled === false) {
                   const editIndex =
-                    this.serverData1[ele][0].data.findIndex((result) => result.name === resp.name.replace('_btn', '_edit_btn'));
+                    this.serverData1[ele][0].data.findIndex((result) => result.name === resp.name.replace('_btn','_edit_btn'));
 
                   this.serverData1[ele][0].data[editIndex].ui.hide = false;
                   found = true;
@@ -334,7 +300,7 @@ export class AppComponent implements OnInit, AfterViewInit {
                     this.dynamicFormBuildConfig.forEach(elem => {
                       if (elem.controlsConfig[resp.name] !== undefined) {
                         elem.controlsConfig[resp.name].hide = false;
-                        elem.controlsConfig[resp.name.replace('_btn', '_edit_btn')].hide = false;
+                        elem.controlsConfig[resp.name.replace('_btn','_edit_btn')].hide = false;
                         elem.controlsConfig[resp.name].config.enabled = true;
                         elem.controlsConfig[resp.name].config.valueControl = true;
                         this.controlLabel = elem.controlsConfig[resp.name].description;
@@ -363,6 +329,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.elm1.style.width = '0';
     }, 75);
+    console.log(this.dynamicFormBuildConfig[0], this.labelDialogControlName)
     this.addControlLabelopen(this.dynamicFormBuildConfig[0], this.labelDialogControlName);
   }
 
@@ -592,106 +559,106 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
 
-  saveTemplate(Data, Bindings): void {
-    console.log(Data);
-    const postJson = {
-      userId: 'DYSFBAGT22',
-      userType: 'agent',
-      taskId: 'DYSFBTSK2',
-      templateJson: Data,
-      uiBindings: Bindings,
-      status: 1
-    };
+  // saveTemplate(Data, Bindings): void {
+  //   console.log(Data);
+  //   const postJson = {
+  //     userId: 'DYSFBAGT22',
+  //     userType: 'agent',
+  //     taskId: 'DYSFBTSK2',
+  //     templateJson: Data,
+  //     uiBindings: Bindings,
+  //     status: 1
+  //   };
 
-    this._appService.postData('addTaskTemplate', postJson).subscribe((res: any) => {
-      if (res.StatusCode === '200') {
-        console.log(res.Message);
-      } else {
-        console.log(res.Message);
-      }
-    }, (err) => {
-      // Handle error
-      console.log('error' + err);
-    });
-  }
+  //   this._appService.postData('addTaskTemplate', postJson).subscribe((res: any) => {
+  //     if (res.StatusCode === '200') {
+  //       console.log(res.Message);
+  //     } else {
+  //       console.log(res.Message);
+  //     }
+  //   }, (err) => {
+  //     // Handle error
+  //     console.log('error' + err);
+  //   });
+  // }
 
-  async fetchTemplate(): void {
+  // async fetchTemplate(): void {
 
-    let testData = '';
-    var tempArray = [];
+  //   let testData = '';
+  //   var tempArray = [];
 
-    const postJson = {
-      userId: 'DYSFBAGT2',
-      userType: 'agent',
-      orgId: 'DEYESORG1',
-      templateId: 'DYSFBTMP3'
-    };
+  //   const postJson = {
+  //     userId: 'DYSFBAGT2',
+  //     userType: 'agent',
+  //     orgId: 'DEYESORG1',
+  //     templateId: 'DYSFBTMP3'
+  //   };
 
-    this._appService.postData('getOrgTemplate', postJson).subscribe((res: any) => {
-      if (res.StatusCode === '200') {
-        res.Data.forEach(element => {
-          const objUIBinding = JSON.parse(element.uiBindings);
-          // console.log(objUIBinding[0].data);
-          testData = JSON.stringify(objUIBinding[0].data.replaceAll('\'', '\"'));
-          const parseData = JSON.parse(testData);
-          tempArray.push(JSON.parse(parseData));
+  //   this._appService.postData('getOrgTemplate', postJson).subscribe((res: any) => {
+  //     if (res.StatusCode === '200') {
+  //       res.Data.forEach(element => {
+  //         const objUIBinding = JSON.parse(element.uiBindings);
+  //         // console.log(objUIBinding[0].data);
+  //         testData = JSON.stringify(objUIBinding[0].data.replaceAll('\'','\"'));
+  //         const parseData = JSON.parse(testData);
+  //         tempArray.push(JSON.parse(parseData));
 
-          const zoneTemplate = element.zoneTemplateName;
-          const objJson = JSON.parse(element.templateJson);
-          console.log(element.templateJson);
-          this.serverData[zoneTemplate] = objJson;
-          this.uiBindingsData[zoneTemplate] = objUIBinding;
-        });
-        this.uiBindings = [].concat.apply(this.uiBindings, tempArray);
+  //         const zoneTemplate = element.zoneTemplateName;
+  //         const objJson = JSON.parse(element.templateJson);
+  //         console.log(element.templateJson);
+  //         this.serverData[zoneTemplate] = objJson;
+  //         this.uiBindingsData[zoneTemplate] = objUIBinding;
+  //       });
+  //       this.uiBindings = [].concat.apply(this.uiBindings, tempArray);
 
-      } else {
-        console.log(res.Message);
-      }
-    }, (err) => {
-      // Handle error
-      console.log('error' + err);
-    });
-  }
+  //     } else {
+  //       console.log(res.Message);
+  //     }
+  //   }, (err) => {
+  //     // Handle error
+  //     console.log('error' + err);
+  //   });
+  // }
 
   backButtonEnableOrDisable(value) {
     console.log(value)
   }
 
-  async fetchDataTemplate(taskid): void {
+  // async fetchDataTemplate(taskid): void {
 
-    this.serverData = [];
-    this.uiBindings = [];
-    let testData = '';
-    var tempArray = [];
+  //   this.serverData = [];
+  //   this.uiBindings = [];
+  //   let testData = '';
+  //   var tempArray = [];
 
-    const postJson = {
-      userId: 'DYSFBAGT22',
-      userType: 'agent',
-      taskId: 'DYSFBTSK139'
-    };
-    this._appService.postData('getTaskTemplate', postJson).subscribe((res: any) => {
-      if (res.StatusCode === '200') {
-        console.log(res);
-        this.serverData = JSON.parse(res.Data[0].templateJson);
-        this.uiBindingsData = JSON.parse(res.Data[0].uiBindings);
-        this.uiBindings = JSON.parse(res.Data[0].uiBindings);
+  //   const postJson = {
+  //     userId: 'DYSFBAGT22',
+  //     userType: 'agent',
+  //     taskId: 'DYSFBTSK139'
+  //   };
+  //   this._appService.postData('getTaskTemplate', postJson).subscribe((res: any) => {
+  //     if (res.StatusCode === '200') {
+  //       console.log(res);
+  //       this.serverData = JSON.parse(res.Data[0].templateJson);
+  //       this.uiBindingsData = JSON.parse(res.Data[0].uiBindings);
+  //       this.uiBindings = JSON.parse(res.Data[0].uiBindings);
 
-        this.objectKeys(this.uiBindings).forEach(ele => {
-          testData = JSON.stringify(this.uiBindings[ele][0].data.replaceAll('\'', '\"'));
-          const parseData = JSON.parse(testData);
-          tempArray.push(JSON.parse(parseData));
-        });
+  //       this.objectKeys(this.uiBindings).forEach(ele => {
+  //         testData = JSON.stringify(this.uiBindings[ele][0].data.replaceAll('\'','\"'));
+  //         const parseData = JSON.parse(testData);
+  //         tempArray.push(JSON.parse(parseData));
+  //       });
 
-        this.uiBindings = [].concat.apply([], tempArray);
+  //       this.uiBindings = [].concat.apply([], tempArray);
 
-      } else {
-        console.log(res.Message);
-      }
-    }, (err) => {
-      // Handle error
-      console.log('error' + err);
-    });
-  }
+  //     } else {
+  //       console.log(res.Message);
+  //     }
+  //   }, (err) => {
+  //     // Handle error
+  //     console.log('error' + err);
+  //   });
+  // }
 
   async addzone(): void {
     await this.fetchTemplate();
@@ -700,7 +667,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.objData = this.objectKeys(this.serverData);
 
       for (let i = 0; i < this.objData.length; i++) {
-        this.dynamicFormBuildConfig[i] = this.formBuilder.formGroup(this.serverData[this.objData[i]][0].data, {
+        this.dynamicFormBuildConfig[i] = this.formBuilder.formGroup(this.serverData1[this.objData[i]][0].data, {
           additionalConfig: this.additionalConfig,
           // controlConfigModels: [{ modelName: 'userModel', model: UserModel, arguments: [this] }]
         });

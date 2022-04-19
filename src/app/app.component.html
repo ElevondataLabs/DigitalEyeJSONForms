@@ -4,7 +4,7 @@
       <!-- <form [formGroup]="dynamicFormBuildConfig.formGroup" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./assets/background.jpg);"> -->
       <form [formGroup]="dynamicFormBuildConfig[i].formGroup" class="formbg">
         <label class="h1">Zone {{i + 1}}</label>
-        <div *ngIf="uiBindings" viewMode="advance" [rxwebDynamicForm]="dynamicFormBuildConfig[i]" [uiBindings]="uiBindings2">
+        <div *ngIf="uiBindings2" viewMode="advance" [rxwebDynamicForm]="dynamicFormBuildConfig[i]" [uiBindings]="uiBindings2">
         </div>
       </form> 
     </div>

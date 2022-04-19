@@ -11,6 +11,8 @@ export class CustomDynamicFormBuilderComponent implements OnInit {
   @Input() customFormJson:any; 
   public zoneKeys: any = [];
   public _customForm:FormGroup = new FormGroup({});
+  yearlist: any = [];
+  datalist: any = [];
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -18,23 +20,27 @@ export class CustomDynamicFormBuilderComponent implements OnInit {
     this.formFieldsJson = [];
     console.log(this.formFieldsJson);
 
-    this._customForm = this._formBuilder.group({}); 
-    console.log(this.customFormJson);
-    this.customFormJson = JSON.parse(this.customFormJson);
-    console.log(this.customFormJson);
-
     this.zoneKeys = Object.keys(this.customFormJson);
     this.zoneKeys.forEach((key: any) => {
+      if (this.customFormJson[key].length > 0) {
         this.formFieldsJson = [].concat.apply(this.formFieldsJson, this.customFormJson[key][0].data);
-    });  
+      }
+    });
+    
+    for(var i = 1900;  i <= new Date().getFullYear(); i++ ){
+      this.datalist.push({id: i, option: i});
+    }
 
-    console.log(this.formFieldsJson);
-    this._formRender();
+    this._formRender(); 
   }
 
   _formRender(){
     const _dynamicFormControls: any = {};
     this.formFieldsJson.forEach((field:any)=>{
+
+      if(field['optionsKey'] == 'selectyear'){
+        field['controlOptions'] = this.datalist;
+      }
       var validation = [];
       if(field['isRequired']){
         validation.push(Validators.required);
@@ -88,6 +94,10 @@ export class CustomDynamicFormBuilderComponent implements OnInit {
     });  
 
     console.log(this.customFormJson);
+  }
+
+  isHeading(formData: any){
+    return formData.controlType != 'label' && formData.controlType != 'catheading' && formData.controlType != 'catsubheading'
   }
 
 }

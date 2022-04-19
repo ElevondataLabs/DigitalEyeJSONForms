@@ -5,3 +5,20 @@
 .error{
     color: red;
 }
+
+.formLayout{
+    padding: 8px !important;
+    vertical-align: initial; 
+}
+
+.responseLayout{
+    text-align: right !important;
+}
+
+td{
+    vertical-align: initial;   
+}
+
+.questionLabel{
+    padding-left: 10px
+}
